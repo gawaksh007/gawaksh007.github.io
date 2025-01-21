@@ -1,93 +1,658 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <style>
-        body { margin: 0; padding: 0; }
-        html { height: 100%; cursor: default; }
-        body {
-            font-family: "Roboto", sans-serif; /* Default font */
-            width: 100%; height: 100%;
-            text-align: center;
-            display: table;
-            opacity: 1;
-            animation: fadein 3s forwards;
-        }
-        h2 {
-            font-weight: 300;
-            margin-bottom: 25px;
-        }
-        img {
-            width: 25%; /* Image width */
-            border: 0; /* For IE */
-            /* Aspect ratio of image, gives initial dimension to prevent text moving down once image is loaded */
-            /* When changing logo, change this also */
-            aspect-ratio: 125 / 50;
-        }
-        #main {
-            vertical-align: middle;
-            display: table-cell;
-        }
-        /* Progress bar */
-        #progress {
-            width: 45%; /* Bar width */
-            margin: 0 auto;
-            border-radius: 10px; /* Roundness */
-            background-color: #a8a8a8; /* Background colour */
-            padding: 7px 5px;
-            /* border: 5px solid #a8a8a8; Border */
-        }
-        #fill {
-            padding: 2px 0;
-            background-color: #00b98b; /* Fill colour */
-            width: 35%; /* Bar percentage, change text below also */
-            border-radius: 25px; /* Roundness */
-            animation: proanimate 2s;
-        }
-        #barpercent h3 {
-            color: white; /* Bar percentage text colour */
-            margin: 0; padding: 0;
-            opacity: 1;
-            animation: fadein 3s forwards;
-        }
+    <!DOCTYPE html>
+    <html lang="zxx">
+        <head>
+            <title>Tagorithm — Data Driven Decisions</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="msapplication-TileColor" content="#84C240">
+            <meta name="theme-color" content="#84C240">
+            <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+            <link rel="icon" href="../android-icon-48x48.png">
+            <link rel="manifest" href="../assets/images/site.webmanifest">
+            <link rel="mask-icon" href="../images/safari-pinned-tab.svg" color="#84C240">
+            <link rel="stylesheet" href="../assets/css/normalize.min.css" />
+            <link rel="stylesheet" href="../assets/css/pr.animation.css" />
+            <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
+            <link rel="stylesheet" href="../assets/css/uikit.min.css" />
+            <link rel="stylesheet" href="../assets/css/fonts.css" />
+            <link rel="stylesheet" href="../assets/css/pixeicons.css" />
+            <link href="../style.css" rel="stylesheet">
+        </head>
+        <body class="home front-page">
+            
+            <script>
+                const sitemapUrl = `https://d3alpha.com/sitemap.xml`;
 
-        /* Fades in animation */
-        @keyframes fadein  {
-            from { opacity: 0; }
-        }
-        /* Animates bar on page load */
-        @keyframes proanimate {
-            from { width: 0%; }
-        }
+            
+                // Function to fetch and parse sitemap.xml
+                function getSitemapContents() {
+                    fetch(sitemapUrl)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text(); // We want the raw XML text here
+                        })
+                        .then(sitemapXML => {
+                            // Parse the XML string to a DOM object
+                            const parser = new DOMParser();
+                            const xmlDoc = parser.parseFromString(sitemapXML, 'application/xml');
+            
+                            // Get all <url> nodes
+                            const urlElements = xmlDoc.getElementsByTagName('url');
+                            
+                            // Loop through all <url> nodes and extract <loc> content
+                            for (let i = 0; i < urlElements.length; i++) {
+                                const locElement = urlElements[i].getElementsByTagName('loc')[0];
+                                const locValue = locElement.textContent;
+            
+                                // Filter URLs that are in the "Work-Ideas" section and end with .html
+                                if (locValue.includes('/Work-Ideas/') && locValue.match(/\.html$/)) {
+                                    // Push the matching URLs to the dataLayer
+                                    dataLayer.push({ 'htmlFileUrl': locValue });
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching or parsing sitemap:', error);
+                        });
+                }
+            
+                // Initialize the dataLayer array if not already initialized
+                window.dataLayer = window.dataLayer || [];
+            
+                // Call the function to get sitemap contents
+                getSitemapContents();
+            </script>
+            
+            <div id="loader" class="preloader">
+                <span class="loading">
+                    <span class="txt">Loading</span>
+                    <span class="progress">
+                        <span class="bar-loading"></span>
+                    </span>
+                </span>
+            </div><!-- Preloader End -->
 
-        @media screen and (max-width:600px) {
-            img {
-                width: 60%;
-            }
-            h1 {
-                font-size: 1.3em;
-            }
-            h2 {
-                margin: 1.1em;
-                font-size: 1.1em;
-            }
-            #progress {
-                width: 80%; /* Bar width */
-            }
-        }
-    </style>
-    <title>Coming Soon</title>
-</head>
-<body>
-    <div id="main">
-        <img src="logo.png" alt="Logo Image">
-        <h1>Tagorithm</h1>
-        <h2>Great things take time, and amazing websites are no exception! <br>
-        Tagorithm is cooking up something extraordinary for your digital needs. <br>Stay tuned, Our data-driven magic will be live soon.</h2>
-        <div id="progress"><div id="fill"><div id="barpercent"><h3>35%</h3></div></div></div>
-    </div>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-</body>
+            <div class="pr__mobile__nav" id="navbar-mobile" data-uk-offcanvas="overlay: true; flip: true; mode: none">
+                <div class="uk-offcanvas-bar">
+
+                    <button class="uk-offcanvas-close" type="button" data-uk-close="ratio: 2;"></button>
+
+                    <nav class="menu" data-uk-scrollspy-nav="offset: 0; closest: li; scroll: true">
+                        <ul data-uk-scrollspy="target: > li; cls:uk-animation-slide-right; delay: 100; repeat: true;">
+                            <li><a href="#pr__hero">Home</a></li>
+                            <li><a href="#pr__services">Services</a></li>
+                            <li><a href="#pr__concepts">Concepts</a></li>
+                            <li><a href="#pr__about">About</a></li>
+                            <li><a href="#pr__internal">Internal Note</a></li>
+                            <li><a href="#pr__contact">Contact</a></li>
+                            <li><a href="https://blog.d3alpha.com/">Blog</a></li>
+                        </ul>
+                    </nav>
+
+                </div><!-- Off Canvas Bar End -->
+            </div><!-- Mobile Nav End -->
+
+        <div class="pr__wrapper" id="site-wrapper">
+
+            <div class="pr__hero__wrap" style="background-image: url('assets/images/Hero_02_D3.png');" id="site-hero">
+
+                <header class="pr__header" data-uk-sticky="top: 100vh; animation: uk-animation-slide-top;">
+                    <div class="uk-container">
+                        <div class="inner">
+                            <div class="logo">
+                                <a href='../index.html'>
+                                    <div class="brand"></div>
+                                </a>
+                            </div>
+                            <div class="navbar uk-navbar-container uk-navbar-transparent pr-font-second">
+                                <nav class="menu" data-uk-navbar="" data-uk-scrollspy-nav="offset: 0; closest: li; scroll: true">
+                                    <ul>
+                                        <li><a href="#pr__hero">Home</a></li>
+                                        <li>
+                                            <a href="#pr__services">Services  <span data-uk-navbar-parent-icon></span></a>
+                                            <div class="sub-menu uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href='../services/service-marketing.html'>Digital Marketing & Strategy</a></li>
+                                                    <li><a href='../services/service-web-app-analytics.html'>Website and App Analytics</a></li>
+                                                    <li><a href='../services/service-custom-dashboarding.html'>Custom Dashboarding & Reporting</a></li>
+                                                    <li><a href='../services/service-ai-powered-product-imagery.html'>AI-Powered Product Imagery</a></li>
+                                                    <li><a href='../services/service-data-as-a-service.html'>Data as a Service & Automation</a></li>
+                                                    <li><a href='../services/service-conversion-rate-optimization.html'>Conversion Rate Optimization</a></li>
+                                                    <li><a href='../services/service-seo-sem-optimization.html'>SEO & SEM Optimization</a></li>
+                                                    <li><a href='../services/service-market-research-analysis.html'>Market Research & Analysis</a></li>
+                                                    <li><a href='../services/service-social-media-management.html'>Social Media Management & ORM</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="#pr__concepts">Concepts</a></li>
+                                        <li><a href="#pr__about">About</a></li>
+                                        <li><a href="#pr__internal">Internal Note</a></li>
+                                        <li><a href="#pr__contact">Contact</a></li>
+                                        <li><a href="https://blog.d3alpha.com/">Blog</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="navbar-tigger" data-uk-toggle="target: #navbar-mobile">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </header><!-- Site Header End -->
+
+                <section class="pr__hero uk-section" id="pr__hero">
+                    <div class="uk-container">
+                        <div class="section-inner">
+                            <div class="hero-content uk-grid" data-uk-grid="">
+                                <div class="uk-width-2-3@s">
+                                    <hr class="line pr__hr__primary">
+                                    <h2 class="title uk-heading-hero">Data Driven Decisions, Simplified.</h2>
+                                    <a href="#pr__contact__form" class="button uk-button uk-button-large uk-button-default"
+                                    data-uk-toggle="">Let's Grow, Today</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Site Hero End -->
+
+                <section class="pr__features uk-section uk-padding-remove-bottom" id="pr_features">
+                    <div class="uk-container">
+                        <div class="section-inner">
+                            <div class="items-listing features-boxes uk-grid uk-grid-match uk-grid-medium uk-child-width-1-3@m"
+                                data-uk-grid="">
+                                <div class="item feature-box">
+                                    <div class="inner">
+                                        <i class="icon pr-chart-bars pr__icon__large"></i>
+                                        <h3 class="title uk-h4">Data-Driven Insights.</h3>
+                                        <hr class="line pr__hr__secondary">
+                                        <p class="description">Harness the power of data to unlock actionable insights. At Tagorithm, we transform raw data into strategic intelligence that drives informed decision-making and propels your business forward.</p>
+                                        <a href="#" class="link uk-position-cover"></a>
+                                    </div>
+                                </div>
+                                <div class="item feature-box">
+                                    <div class="inner">
+                                        <i class="icon pr-rocket pr__icon__large"></i>
+                                        <h3 class="title uk-h4">Tailored Strategies.</h3>
+                                        <hr class="line pr__hr__secondary">
+                                        <p class="description">One size doesn’t fit all. Our customized strategies are designed to meet the unique needs of your business, ensuring that every decision is aligned with your goals and optimized for success.</p>
+                                        <a href="#" class="link uk-position-cover"></a>
+                                    </div>
+                                </div>
+                                <div class="item feature-box">
+                                    <div class="inner">
+                                        <i class="icon pr-pie-chart pr__icon__large"></i>
+                                        <h3 class="title uk-h4">Cutting-Edge Solutions.</h3>
+                                        <hr class="line pr__hr__secondary">
+                                        <p class="description">Stay ahead of the curve with innovative solutions. We combine the latest in AI and analytics to deliver groundbreaking results, pushing the boundaries of what’s possible for your business.</p>
+                                        <a href="#" class="link uk-position-cover"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Section: Features End -->
+
+            </div><!-- Hero Wrap End -->
+
+            <div class="pr__content" id="site-content">
+
+                <hr class="pr__vr__section">
+                <section class="pr__services pr__section uk-section uk-section-large" id="pr__services">
+                    <div class="section-outer">
+                        <div class="section-heading">
+                            <div class="uk-container">
+                                <div class="inner">
+                                    <div class="left">
+                                        <hr class="line pr__hr__secondary">
+                                        <h2 class="title uk-h1">Services.</h2>
+                                        <span class="subtitle pr__heading__secondary">Partnering with you, not just working for you</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-inner">
+                            <div class="uk-container">
+                                <div class="items-listing services-boxes uk-grid uk-grid-match uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s"
+                                    data-uk-grid="">
+                                    <div class="item service-box style-one uk-active">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-strategy"></i>
+                                            <h5 class="title uk-h5">Digital Marketing & Strategy</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-marketing.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-browser"></i>
+                                            <h5 class="title uk-h5">Website and App Analytics</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-web-app-analytics.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-presentation"></i>
+                                            <h5 class="title uk-h5">Custom Dashboarding & Reporting</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-custom-dashboarding.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-clipboard"></i>
+                                            <h5 class="title uk-h5">AI-Powered Product Imagery</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-ai-powered-product-imagery.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-tools"></i>
+                                            <h5 class="title uk-h5">Data as a Service & Automation</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-data-as-a-service.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-target"></i>
+                                            <h5 class="title uk-h5">Conversion Rate Optimization</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-conversion-rate-optimization.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-search"></i>
+                                            <h5 class="title uk-h5">SEO & SEM Optimization</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-seo-sem-optimization.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-lightbulb"></i>
+                                            <h5 class="title uk-h5">Market Research & Analysis</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-market-research-analysis.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item service-box style-one">
+                                        <div class="inner">
+                                            <i class="overlay-icon icon pr-line-chat"></i>
+                                            <h5 class="title uk-h5">Social Media Management & ORM</h5>
+                                            <i class="icon pr-arrow-right"></i>
+                                            <a href="services/service-social-media-management.html" class="link uk-position-cover"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Section: Services End -->
+
+                <hr class="pr__vr__section">
+                <section class="pr__works pr__section section-slider uk-section uk-section-large" id="pr__concepts">
+                    <div class="section-outer">
+                        <div class="section-heading">
+                            <div class="uk-container">
+                                <div class="inner">
+                                    <div class="left">
+                                        <hr class="line pr__hr__secondary">
+                                        <h2 class="title uk-h1">Concepts.</h2>
+                                        <span class="subtitle pr__heading__secondary">Visionary Ideas for Tomorrow</span>
+                                    </div>
+                                    <div class="right">
+                                        <a class="button uk-button uk-button-default" href="#">Explore Our Vision</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-inner">
+                            <div class="uk-container uk-container-no">
+                                <div class="items-listing works-boxes works-slider owl-carousel" data-items="4" data-margin="30"
+                                    data-loop="true" data-center="true" data-autoplay="true" data-dots="true">
+                                    <div class="item work-box">
+                                        <div class="outer">
+                                            <div class="image pr__image__cover pr__ratio__square" data-src="assets/images/works/01.jpg"
+                                                data-uk-img=""></div>
+                                            <div class="inner">
+                                                <h3 class="title uk-h4">Expedia Solutions</h3>
+                                                <p class="category">Marketing / App</p>
+                                                <a href="#" class="link uk-position-cover"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item work-box">
+                                        <div class="outer">
+                                            <div class="image pr__image__cover pr__ratio__square" data-src="assets/images/works/02.jpg"
+                                                data-uk-img=""></div>
+                                            <div class="inner">
+                                                <h3 class="title uk-h4">Bikeer</h3>
+                                                <p class="category">Design / Concept</p>
+                                                <a href="#" class="link uk-position-cover"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item work-box">
+                                        <div class="outer">
+                                            <div class="image pr__image__cover pr__ratio__square" data-src="assets/images/works/04.jpg"
+                                                data-uk-img=""></div>
+                                            <div class="inner">
+                                                <h3 class="title uk-h4">Woody</h3>
+                                                <p class="category">Website / Development</p>
+                                                <a href="#" class="link uk-position-cover"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item work-box">
+                                        <div class="outer">
+                                            <div class="image pr__image__cover pr__ratio__square" data-src="assets/images/works/06.jpg"
+                                                data-uk-img=""></div>
+                                            <div class="inner">
+                                                <h3 class="title uk-h4">Interior Design</h3>
+                                                <p class="category">Architecture / Digital Art</p>
+                                                <a href="#" class="link uk-position-cover"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item work-box">
+                                        <div class="outer">
+                                            <div class="image pr__image__cover pr__ratio__square" data-src="assets/images/works/05.jpg"
+                                                data-uk-img=""></div>
+                                            <div class="inner">
+                                                <h3 class="title uk-h4">Electrica</h3>
+                                                <p class="category">UX Design / Web App</p>
+                                                <a href="#" class="link uk-position-cover"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Section: Works End -->
+
+                <hr class="pr__vr__section">
+                <section class="pr__about pr__section uk-section uk-section-large" id="pr__about">
+                    <div class="section-outer">
+                        <div class="section-heading">
+                            <div class="outer">
+                                <div class="uk-container">
+                                    <div class="inner uk-grid" data-uk-grid="">
+                                        <div class="left uk-width-expand">
+                                            <hr class="line pr__hr__secondary">
+                                            <h2 class="title uk-h1">About.</h2>
+                                            <span class="subtitle pr__heading__secondary">We're More Than Just Data and Analytics</span>
+                                        </div>
+                                        <div class="right uk-width-3-5@s">
+                                            <p><strong>Empowering your business with data-driven insights, innovative solutions, and a commitment to your success.</strong></p>
+                                        </div>
+                                    </div>
+                                </div><!-- Container End -->
+                            </div><!-- Outer End -->
+                        </div><!-- Heading End -->
+                        <div class="section-inner">
+                            <div class="uk-container">
+                                <div class="gallery-boxes pr__grd__overlay uk-grid uk-grid-match uk-grid-medium"
+                                    data-uk-grid="">
+                                    <div class="left uk-width-expand">
+                                        <div class="item gallery-box big">
+                                            <div class="outer">
+                                                <div class="image pr__image__cover" data-src="assets/images/about_01.jpg"
+                                                    data-uk-img=""></div>
+                                                <div class="inner">
+                                                    <h3 class="title uk-h5">Teamwork</h3>
+                                                    <p class="description">Committed and creative</p>
+                                                    <a href="#" class="link uk-position-cover"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right uk-width-1-3@m">
+                                        <div class="item gallery-box small">
+                                            <div class="outer">
+                                                <div class="image pr__image__cover" data-src="assets/images/about_03.jpg"
+                                                    data-uk-img=""></div>
+                                                <div class="inner">
+                                                    <h3 class="title uk-h5">Philosophy</h3>
+                                                    <p class="description">Trust pays off</p>
+                                                    <a href="#" class="link uk-position-cover" data-uk-toggle=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item gallery-box small">
+                                            <div class="outer">
+                                                <div class="image pr__image__cover" data-src="assets/images/about_02.jpg"
+                                                    data-uk-img=""></div>
+                                                <div class="inner">
+                                                    <h3 class="title uk-h5">Office</h3>
+                                                    <p class="description">Berlin, UK</p>
+                                                    <a href="#" class="link uk-position-cover" data-uk-toggle=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="about-boxes uk-grid uk-grid-match uk-grid-medium uk-child-width-1-3@m uk-margin-large-top"
+                                    data-uk-grid="">
+                                    <div class="item about-box">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <h3 class="title uk-h5">Who we are</h3>
+												<h5 class="subtitle pr__heading__secondary">Pioneers in Analytics and AI</h5>
+                                                <p class="description">Tagorithm is a cutting-edge analytics and AI company dedicated to helping businesses make smarter, data-driven decisions. We combine advanced technology with deep industry expertise to provide our clients with tailored solutions that drive growth and efficiency.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item about-box">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <h3 class="title uk-h5">Our philosophy</h3>
+												<h5 class="subtitle pr__heading__secondary">Empowering Through Data</h5>
+                                                <p class="description">We believe that data is more than just numbers—it’s the key to unlocking your business’s full potential. Our approach is centered on empowering our clients by transforming complex data into actionable insights that lead to smarter decisions and measurable results.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item about-box">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <h3 class="title uk-h5">How we work</h3>
+												<h5 class="subtitle pr__heading__secondary">Strategic, Agile, and Client-Focused</h5>
+                                                <p class="description">Our work process is built on agility and strategic thinking. We partner closely with our clients to understand their unique challenges and goals, crafting solutions that are both impactful and adaptable. At Tagorithm, we’re not just service providers—we’re your strategic partners in success.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Container End -->
+                        </div><!-- Inner End -->
+                    </div><!-- Outer End -->
+                </section><!-- Section: About End -->
+
+                <hr class="pr__vr__section">
+                <section class="pr__clients pr__section uk-section uk-section-large" id="pr__internal">
+                    <div class="uk-container">
+                        <div class="section-outer">
+                            <div class="uk-flex uk-flex-middle uk-grid uk-grid-large" data-uk-grid="">
+                                <div class="right uk-width-expand">
+                                    <div class="section-heading">
+                                        <div class="inner">
+                                            <div class="left">
+                                                <hr class="line pr__hr__secondary">
+                                                <h2 class="title uk-h1">What We Believe.</h2>
+                                                <span class="subtitle pr__heading__secondary">A Note from the Tagorithm Team</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-inner">
+                                        <div class="item client-box style-one">
+                                            <div class="outer">
+                                                <div class="inner">
+                                                    <p class="description">Our mission is to empower businesses with the insights and strategies they need to thrive. We're a team of passionate innovators, committed to pushing the boundaries of what's possible in analytics and AI. While we’re at the start of our journey, our focus is on building meaningful partnerships, delivering unparalleled value, and helping our clients navigate the complexities of the digital landscape. Together, we’re creating something extraordinary—thank you for being a part of this journey with us.</p>
+                                                    <p class="client">— The Tagorithm Team</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="left uk-width-2-5@m uk-flex-first">
+                                    <div class="item client-box style-one client-image">
+                                        <div class="image pr__image__cover pr__ratio__portrait" data-src="assets/images/client_01_D3.png"
+                                            data-uk-img=""></div>
+                                    </div>
+                                </div>
+                            </div><!-- Grid End -->
+                        </div><!-- Outer End -->
+                    </div><!-- Container End -->
+                </section><!-- Section: Clients End -->
+
+                <hr class="pr__vr__section">
+                <section class="pr__blog pr__section section-slider uk-section uk-section-large" id="pr__blog">
+                    <div class="section-outer">
+                        <div class="section-heading pr__center">
+                            <div class="uk-container">
+                                <div class="inner">
+                                    <div class="center">
+                                        <h2 class="title uk-h1">Let's Talk</h2>
+                                        <span class="subtitle pr__heading__secondary">Let's help you accelerate through your growth journey</span>
+                                        <br>
+                                        <br>
+                                        <div class="section-outer">
+                                            <div class="uk-container">
+                                                <div class="section-inner">
+                                                    <div class="columns uk-grid uk-flex-center" data-uk-grid="">
+                                                        <div class="pr__cta column uk-flex uk-flex-center">
+                                                            <div class="inner">
+                                                                <a id="pr__contact" href="#pr__contact__form" class="button uk-button uk-button-large uk-button-default"
+                                                                    data-uk-toggle="">Contact us!
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Container End -->
+                        </div><!-- Heading End -->
+                    </div><!-- Outer End -->
+                </section><!-- Section: Blog End -->
+
+                <hr class="pr__vr__section">
+            </div><!-- Site Content End -->
+
+            <footer class="pr__footer" id="site-footer">
+
+                <div class="pr__footer__top uk-section uk-section-large">
+                    <div class="section-outer">
+                        <div class="uk-container">
+                            <div class="section-inner">
+                                <div class="columns uk-grid" data-uk-grid="">
+                                    <div class="pr__cta column">
+                                        <div class="inner">
+                                            <h2 class="title uk-h1">Let's Talk?</h2>
+                                        </div>
+                                    </div>
+                                    <div class="pr__cta column">
+                                        <div class="inner">
+                                            <a id="pr__contact" href="#pr__contact__form" class="button uk-button uk-button-large uk-button-default"
+                                                data-uk-toggle="">Make an enquiry</a>
+                                        </div>
+                                    </div>
+                                    <div class="pr__social column">
+                                        <div class="inner">
+                                            <a href="#" class="icon pr-logo-facebook"></a>
+                                            <a href="#" class="icon pr-logo-twitter"></a>
+                                            <a href="#" class="icon pr-logo-instagram"></a>
+                                            <a href="#" class="icon pr-logo-xing"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Inner End-->
+                        </div><!-- Container End-->
+                    </div><!-- Outer End-->
+                </div><!-- Footer Top End-->
+                
+                <div class="pr__footer__bottom uk-section">
+                    <div class="section-outer">
+                        <div class="uk-container">
+                            <div class="section-inner">
+                                <div class="columns uk-grid" data-uk-grid="">
+                                    <div class="pr__copyrights column">
+                                        <div class="inner">
+                                            <p>2024 © <a href="index.html">Tagorithm</a>, All rights reserved.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Inner End-->
+                        </div><!-- Container End-->
+                    </div><!-- Outer End-->
+                </div><!-- Footer Bottom End-->
+
+            </footer><!-- Site Footer End-->
+
+        </div><!-- Site Wrapper End -->
+
+        <div id="pr__contact__form" class="pr__contact__form uk-modal-full" data-uk-modal="">
+            <div class="uk-modal-dialog" data-uk-height-viewport="">
+                <div class="form-outer">
+                    <div class="uk-container uk-container-xsmall">
+                        <div class="form-inner uk-position-relative">
+                            <button class="uk-modal-close-full" type="button" data-uk-close="ratio: 2;"><span>Close</span></button>
+                            <h2 class="uk-modal-title uk-h1">Let's Talk</h2>
+                            <p>and make something awesome together</p>
+                            <form class="pr__contact pr__form" action="includes/sendemail.php">
+                                <div class="pr__form__group">
+                                    <label for="name">Your Name <span class="required">*</span></label>
+                                    <input class="pr-input" id="name" name="name" type="text" />
+                                </div>
+                                <div class="pr__form__group">
+                                    <label for="email">Your E-Mail <span class="required">*</span></label>
+                                    <input class="pr-input" id="email" name="email" type="text" />
+                                </div>
+                                <div class="pr__form__group">
+                                    <label for="subject">Your Subject <span class="required">*</span></label>
+                                    <input class="pr-input" id="subject" name="subject" type="text" />
+                                </div>
+                                <div class="pr__form__group">
+                                    <label for="budget">What's your budget range?</label>
+                                    <select class="uk-select" id="budget" name="budget">
+                                        <option>&nbsp;</option>
+                                        <option>Low budget</option>
+                                        <option>$1,000 — $2,000</option>
+                                        <option>$2,000 — $5,000</option>
+                                        <option>$5,000 — $10,000</option>
+                                        <option>$10,000+</option>
+                                    </select>
+                                </div>
+                                <div class="pr__form__group">
+                                    <label for="message">Your message <span class="required">*</span></label>
+                                    <textarea class="pr-textarea" id="message" name="message"></textarea>
+                                </div>
+                                <p class="pr__form__group uk-margin-large">
+                                    <button class="uk-button uk-button-large uk-button-primary" type="button">Send message</button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Contact Form Popup End -->
+
+        <!-- Needed Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/anime.min.js"></script>
+        <script src="../assets/js/pr.animation.js"></script>
+        <script src="../assets/js/uikit.min.js"></script>
+        <script src="../assets/js/owl.carousel.min.js"></script>
+        <script src="../assets/js/validate.js"></script>
+        <script src="../assets/js/main.js"></script>
+    </body>
 </html>
