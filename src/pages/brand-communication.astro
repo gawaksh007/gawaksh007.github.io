@@ -1,0 +1,96 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import Section from "../components/sections/Section.astro";  // Updated path
+import SectionTitle from "../components/ui/SectionTitle.astro";
+
+// Import any additional images/assets you need
+import heroImage from "../assets/brand-comm-hero.svg";
+import processImage from "../assets/brand-process.svg";
+---
+
+<MainLayout title="Brand Communication Services - Tagorithm">
+  <main class="space-y-20">
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-b from-[#B9FF66] to-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="md:w-1/2 space-y-6">
+            <h1 class="text-5xl font-bold leading-tight">
+              Brand Communication That Resonates
+            </h1>
+            <p class="text-xl text-gray-700">
+              Craft compelling brand stories that connect with your audience and drive engagement.
+            </p>
+            <a href="#contact" class="inline-block bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors">
+              Start Your Brand Journey
+            </a>
+          </div>
+          <div class="md:w-1/2 mt-10 md:mt-0">
+            <Image 
+              src={heroImage} 
+              alt="Brand Communication Visual" 
+              class="rounded-2xl shadow-lg"
+              width={600}
+              height={400}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <Section>
+      <div class="container mx-auto px-4">
+        <SectionTitle 
+          sectionTitle="Our Brand Communication Services" 
+          description="Comprehensive solutions to elevate your brand presence"
+        />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Brand Strategy</h3>
+            <p class="text-gray-600">Develop a clear, compelling brand positioning that sets you apart from competitors.</p>
+          </div>
+          <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Visual Identity</h3>
+            <p class="text-gray-600">Create consistent, memorable visual elements that reflect your brand essence.</p>
+          </div>
+          <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Brand Messaging</h3>
+            <p class="text-gray-600">Craft clear, compelling messages that resonate with your target audience.</p>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Process Section -->
+    <Section>
+      <div class="container mx-auto px-4 py-16">
+        <SectionTitle 
+          sectionTitle="Our Process" 
+          description="A systematic approach to building strong brands"
+        />
+        <div class="mt-12">
+          <Image 
+            src={processImage} 
+            alt="Brand Communication Process" 
+            class="mx-auto"
+            width={800}
+            height={400}
+          />
+        </div>
+      </div>
+    </Section>
+
+    <!-- Call to Action -->
+    <section class="bg-[#B9FF66] py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Brand?</h2>
+        <p class="text-xl mb-8">Let's create a compelling brand story together.</p>
+        <a href="#contact" class="inline-block bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors">
+          Schedule a Consultation
+        </a>
+      </div>
+    </section>
+  </main>
+</MainLayout>

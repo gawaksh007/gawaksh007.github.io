@@ -1,0 +1,35 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Sponsors from "../components/sections/Sponsors.astro";
+import Services from "../components/sections/Services.astro";
+---
+
+<MainLayout title="About us">
+    <main class="space-y-20">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
+            <div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
+                <div class="row items-center py-5 md:pb-20 md:pt-10">
+                    <div class="text-center space-y-10">
+                        <h2 class="text-5xl font-medium leading-none md:text-6xl">Helping you Navigate <br> the digital landscape <br> for success</h2>
+                        <p class="mt-6 mb-8 text-xl font-normal leading-8 sm:mb-12 text-justify italic space-y-4">
+                            <span class="bg-[#B9FF66] font-bold block mb-4">Tagorithm was born from the belief that effective marketing requires both art and science.</span>
+                            
+                            <span class="block mb-4">'Tag' symbolizes creativity—understanding your audience, crafting messages that connect, and telling stories that stick.</span>
+                            
+                            <span class="block mb-4">'Algorithm' is our analytical edge—leveraging data to make informed decisions, optimize campaigns, and deliver results.</span>
+                            
+                            <span class="block mb-4">At Tagorithm, we combine these two worlds to create impactful strategies that help brands thrive. We're not just marketers; we're problem-solvers, growth enablers, and partners in your journey to success.</span>
+                            
+                            <span class="bg-[#B9FF66] font-bold block">Every click, every tag, every campaign is powered by purpose and precision.</span>
+                        </p>
+                        <a class="px-9 py-5 bg-zinc-900 hover:bg-white text-white hover:text-black border rounded-2xl justify-items-center md:justify-items-start gap-2.5 inline-flex" rel="noopener noreferrer"  href="https://github.com/manulthanura/Positivus" target="_blank">
+                            <h2 class="text-center text-xl font-normal leading-7">Book a consultation</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Sponsors />
+        <Services />
+    </main>
+</MainLayout>

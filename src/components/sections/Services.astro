@@ -1,0 +1,102 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import ServiceCard from "../ui/ServiceCard.astro";
+import Section from "./Section.astro";
+
+import c1 from "../../assets/pics/card-pic1.png";
+import c2 from "../../assets/pics/card-pic2.png";
+import c3 from "../../assets/pics/card-pic3.png";
+import c4 from "../../assets/pics/card-pic4.png";
+import c5 from "../../assets/pics/card-pic5.png";
+import c6 from "../../assets/pics/card-pic6.png";
+
+const cards = [
+  {
+    index: 1,
+    titleTop: "Brand",
+    titleBottom: "Communication",
+    img: c1,
+    alt: "Brand Communication",
+    link: "https://google.com",
+  },
+  {
+    index: 2,
+    titleTop: "Web & App",
+    titleBottom: "Design",
+    img: c2,
+    alt: "Web and app design",
+    link: "https://google.com",
+  },
+  {
+    index: 3,
+    titleTop: "Content Strategy",
+    titleBottom: "& Marketing",
+    img: c3,
+    alt: "SEO",
+    link: "https://google.com",
+  },
+  {
+    index: 1,
+    titleTop: "Digital Advertising",
+    titleBottom: "& Media Buying",
+    img: c4,
+    alt: "SEO",
+    link: "https://google.com",
+  },
+  {
+    index: 2,
+    titleTop: "Business Findability",
+    titleBottom: "& SEO",
+    img: c5,
+    alt: "SEO",
+    link: "https://google.com",
+  },
+  {
+    index: 3,
+    titleTop: "Social Media",
+    titleBottom: "& Community Management",
+    img: c6,
+    alt: "SEO",
+    link: "https://google.com",
+  },
+  {
+    index: 1,
+    titleTop: "Data, Analytics",
+    titleBottom: "& Optimisation",
+    img: c1,
+    alt: "Data Analytics and Optimisation",
+    link: "https://google.com",
+  },
+  {
+    index: 2,
+    titleTop: "Conversion Rate",
+    titleBottom: "Optimisation (CRO)",
+    img: c2,
+    alt: "Conversion Rate Optimisation",
+    link: "https://google.com",
+  },
+];
+
+const description =
+  "At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include";
+---
+
+<Section id="services">
+  <div class="mt-[140px] mb-5">
+    <SectionTitle sectionTitle="Services" description={description} />
+    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
+      {
+        cards.map((card) => (
+          <ServiceCard
+            index={card.index}
+            titleTop={card.titleTop}
+            titleBottom={card.titleBottom}
+            img={card.img}
+            alt={card.alt}
+            link={card.link}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Section>

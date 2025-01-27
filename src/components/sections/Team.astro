@@ -1,0 +1,60 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import TeamCard from "../ui/TeamCard.astro";
+import Section from "./Section.astro";
+
+const description =
+  "Meet the skilled and experienced team behind our successful digital marketing strategies";
+
+// Team images
+import p1 from "../../assets/team/t1.png";
+import p2 from "../../assets/team/t2.png";
+import p3 from "../../assets/team/t3.png";
+
+const team = [
+  {
+    pic: p1,
+    name: "Priyanka",
+    role: "Co-Founder & CEO ",
+    description:
+      "A creative visionary with a strong foundation in design and aesthetics. Passionate about crafting visually engaging solutions that connect with audiences and elevate brands.",
+    link: "https://linkedin.com",
+  },
+  {
+    pic: p2,
+    name: "Gawaksh",
+    role: "Co-Founder & CMO",
+    description:
+      "Data-driven expert in PPC, SEO, and campaign optimization, delivering strategic insights and measurable results",
+    link: "https://linkedin.com",
+  },
+  {
+    pic: p3,
+    name: "Dayal Singh",
+    role: "Growth Consultant & Ops Head",
+    description:
+      "25+ years of experience, an industry veteran with extensive experience in design and creative direction. A trusted advisor, bringing a wealth of knowledge to guide and shape the team’s creative growth..",
+    link: "https://linkedin.com",
+  },
+];
+---
+
+<Section id="team">
+  <div class="pb-40 pt-20"> <!-- Adjust this value based on your needs -->
+    <SectionTitle sectionTitle="Team" description={description} />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> <!-- Added smaller gap -->
+      {
+        team.map((member, index) => (
+          <TeamCard
+            key={index}
+            pic={member.pic}
+            name={member.name}
+            role={member.role}
+            description={member.description}
+            link={member.link}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Section>
