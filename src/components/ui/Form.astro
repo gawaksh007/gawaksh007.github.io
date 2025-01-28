@@ -147,7 +147,7 @@ const formspreeEndpoint = "xjkgwvyr";
   formSetup();
   document.addEventListener("astro:after-swap", formSetup);
 
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form') as HTMLFormElement;
   
   // Phone number formatting
   const phoneInput = form?.querySelector('input[name="phone"]');
@@ -160,7 +160,7 @@ const formspreeEndpoint = "xjkgwvyr";
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(form as HTMLFormElement);
+    const formData = new FormData(form);
     
     try {
       const response = await fetch(form.action, {
