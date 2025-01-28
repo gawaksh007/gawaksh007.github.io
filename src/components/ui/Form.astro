@@ -1,68 +1,82 @@
 ---
 import { Image } from "astro:assets";
 import decorForm from "../../assets/pics/contact-pic.png";
+const formspreeEndpoint = "xjkgwvyr";
 ---
 
 <div
   class="flex relative justify-start items-center p-[60px] bg-[#F3F3F3] rounded-[45px] overflow-hidden"
 >
-  <form class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
-    <div class="flex flex-col sm:flex-row gap-[35px] sm:items-center mb-10">
-      <div class="flex items-center gap-[14px]">
+  <form
+    action={`https://formspree.io/f/${formspreeEndpoint}`}
+    method="POST"
+    class="flex flex-col gap-6 w-full lg:w-[644px]"
+    id="contact-form"
+  >
+    <div class="flex flex-col md:flex-row gap-6">
+      <div class="flex-1">
         <input
-          type="checkbox"
-          id="checkbox1"
-          name="checkbox1"
-          class="form-checkbox text-black"
+          type="text"
+          name="name"
+          placeholder="Name*"
+          required
+          pattern="[A-Za-z ]{2,}"
+          title="Please enter at least 2 characters, letters only"
+          class="w-full h-[56px] text-base font-light rounded-[45px] py-4 px-6 outline-none border border-black/20 focus:border-black"
         />
-        <label for="checkbox1" class="text-black">Say Hi</label>
       </div>
-      <div class="flex items-center gap-[14px]">
+      <div class="flex-1">
         <input
-          type="checkbox"
-          id="checkbox2"
-          name="checkbox2"
-          class="form-checkbox text-black"
+          type="text"
+          name="company"
+          placeholder="Company Name*"
+          required
+          pattern=".{2,}"
+          title="Please enter at least 2 characters"
+          class="w-full h-[56px] text-base font-light rounded-[45px] py-4 px-6 outline-none border border-black/20 focus:border-black"
         />
-        <label for="checkbox2" class="flex items-center text-black"
-          >Get a Quote</label
-        >
       </div>
     </div>
 
-    <div class="mb-4">
-      <label for="name" class="block text-black mb-2">Name*</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Name"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
-      />
+    <div class="flex flex-col md:flex-row gap-6">
+      <div class="flex-1">
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number*"
+          required
+          pattern="[0-9]{10}"
+          title="Please enter a valid 10-digit phone number"
+          class="w-full h-[56px] text-base font-light rounded-[45px] py-4 px-6 outline-none border border-black/20 focus:border-black"
+        />
+      </div>
+      <div class="flex-1">
+        <input
+          type="email"
+          name="_replyto"
+          placeholder="Email Address*"
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Please enter a valid email address"
+          class="w-full h-[56px] text-base font-light rounded-[45px] py-4 px-6 outline-none border border-black/20 focus:border-black"
+        />
+      </div>
     </div>
 
-    <div class="mb-4">
-      <label for="email" class="block text-black mb-2">Email*</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
-      />
-    </div>
-
-    <div class="mb-4">
-      <label for="message" class="block text-black mb-2">Message*</label>
+    <div>
       <textarea
-        id="message"
         name="message"
         placeholder="Message"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
+        class="w-full h-[200px] text-base font-light rounded-[35px] py-4 px-6 outline-none border border-black/20 focus:border-black resize-none"
       ></textarea>
     </div>
 
-    <button type="submit" name="submit" class="btn-primary w-full">Send</button>
+    <button
+      type="submit"
+      class="btn-primary w-full md:w-fit"
+    >
+      Send Message
+    </button>
   </form>
   <picture class="absolute right-[-25%] top-[2%] bottom-[2%] hidden lg:block">
     <Image src={decorForm} alt="decor" />
@@ -132,4 +146,38 @@ import decorForm from "../../assets/pics/contact-pic.png";
 
   formSetup();
   document.addEventListener("astro:after-swap", formSetup);
+
+  const form = document.getElementById('contact-form');
+  
+  // Phone number formatting
+  const phoneInput = form?.querySelector('input[name="phone"]');
+  phoneInput?.addEventListener('input', (e) => {
+    const input = e.target as HTMLInputElement;
+    let value = input.value.replace(/\D/g, '');
+    if (value.length > 10) value = value.slice(0, 10);
+    input.value = value;
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form as HTMLFormElement);
+    
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        window.location.href = '/thank-you';
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      alert('Error sending message. Please try again.');
+    }
+  });
 </script>

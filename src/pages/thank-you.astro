@@ -1,0 +1,38 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import thankYouImg from "../assets/pics/thank-you.png";
+---
+
+<MainLayout title="Thank You - Message Sent">
+  <main class="space-y-20">
+    <div class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
+      <div class="text-center max-w-3xl mx-auto space-y-8">
+        <Image
+          src={thankYouImg}
+          alt="Thank you illustration"
+          class="w-64 h-64 mx-auto"
+        />
+        <h1 class="text-4xl font-bold tracking-tight mb-4">
+          Thank You for Reaching Out!
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          We've received your message and will get back to you within 24 hours.
+        </p>
+        <div class="space-y-4">
+          <p class="text-lg">
+            While you wait, feel free to:
+          </p>
+          <div class="flex justify-center space-x-4">
+            <a href="/articles" class="btn-primary">
+              Read Our Blog
+            </a>
+            <a href="/" class="btn-secondary">
+              Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</MainLayout>
