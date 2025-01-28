@@ -1,5 +1,5 @@
 ---
-import MainLayout from "../../../layouts/MainLayout.astro";
+import MainLayout from "../../../layouts/MainLayout.astro"; // Ensure this path is correct
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -27,6 +27,6 @@ if (!post) {
 <MainLayout title={post.data.title}>
   <article>
     <h1>{post.data.title}</h1>
-    <p>{post.data.content}</p>
+    <p>{post.body}</p> <!-- Ensure this matches your content structure -->
   </article>
 </MainLayout>
