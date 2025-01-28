@@ -2,11 +2,10 @@
 import MainLayout from "../../../layouts/MainLayout.astro";
 import ArticleCard from "../../../components/ui/ArticleCard.astro";
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from "astro:content";
 import { capitalize } from "../../../utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection('blog'); // Ensure 'blog' matches your collection name
   const tags = new Set(posts.flatMap(post => post.data.tags));
 
   return Array.from(tags).map(tag => ({
@@ -20,12 +19,12 @@ if(tag === undefined) {
   throw new Error('Tag is required');
 }
 
-const posts = await getCollection('posts');
+const posts = await getCollection('blog'); // Ensure 'blog' matches your collection name
 const tagArticles = posts.filter(post => post.data.tags.includes(tag));
 ---
 
 <MainLayout title="Search Results">
-	<main class="space-y-20">
+    <main class="space-y-20">
       <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
 
           <a href="/articles" class="inline-flex items-center font-medium text-black hover:text-green my-4">
@@ -43,5 +42,5 @@ const tagArticles = posts.filter(post => post.data.tags.includes(tag));
             ))}
           </div>  
       </div>
-	</main>
+    </main>
 </MainLayout>
