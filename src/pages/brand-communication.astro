@@ -1,126 +1,131 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
 import Section from "../components/sections/Section.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
 import Form from "../components/ui/Form.astro";
+import { Image } from "astro:assets";
+import Card from "../components/ui/Card.astro";
+import BrandServices from "../components/sections/BrandServices.astro";
+import propImg from "../../src/assets/pics/proposal-pic.png";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-// Update hero images
-const heroImages = [
+// Case Studies Data
+const caseStudies = [
   {
-    url: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80",
-    alt: "Brand Strategy"
+    client: "Tech Innovation Corp",
+    industry: "SaaS",
+    challenge: "Struggling to differentiate in a crowded market",
+    solution: "Developed a unique brand voice and content strategy",
+    results: [
+      "150% increase in brand awareness",
+      "45% improvement in engagement",
+      "2x increase in qualified leads"
+    ],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    logo: "/path-to-logo.png"
   },
   {
-    url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80",
-    alt: "Team Collaboration"
+    client: "EcoStyle Fashion",
+    industry: "Retail",
+    challenge: "Needed to establish sustainable brand identity",
+    solution: "Created compelling sustainability narrative and visual identity",
+    results: [
+      "200% growth in social following",
+      "35% increase in customer loyalty",
+      "3x increase in brand mentions"
+    ],
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+    logo: "/path-to-logo.png"
   },
   {
-    url: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&q=80",
-    alt: "Creative Process"
+    client: "HealthTech Solutions",
+    industry: "Healthcare",
+    challenge: "Complex product messaging needed simplification",
+    solution: "Developed clear, engaging communication strategy",
+    results: [
+      "80% improvement in message clarity",
+      "60% increase in lead quality",
+      "40% reduction in sales cycle"
+    ],
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
+    logo: "/path-to-logo.png"
+  },
+  {
+    client: "Global Finance Group",
+    industry: "Financial Services",
+    challenge: "Traditional brand needed digital transformation",
+    solution: "Modernized brand voice while maintaining trust",
+    results: [
+      "90% increase in digital engagement",
+      "50% growth in younger demographic",
+      "4x increase in social sharing"
+    ],
+    image: "https://images.unsplash.com/photo-1554774853-719586f82d77",
+    logo: "/path-to-logo.png"
+  },
+  {
+    client: "FoodieHub",
+    industry: "Food & Beverage",
+    challenge: "Needed to stand out in competitive delivery market",
+    solution: "Created distinctive brand personality and campaign",
+    results: [
+      "175% increase in app downloads",
+      "55% boost in customer retention",
+      "3x growth in market share"
+    ],
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    logo: "/path-to-logo.png"
   }
 ];
 
-const successStories = [
+// Value Props
+const valueProps = [
   {
-    title: "Global Tech Startup",
-    description: "50% increase in brand recognition",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
-  },
-  {
-    title: "Retail Innovation",
-    description: "2x growth in customer engagement",
-    image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&q=80"
-  }
-];
-
-const services = [
-  {
-    title: "Brand Strategy",
-    description: "Crafting messaging that speaks to your audience",
+    title: "Data-Driven Approach",
+    description: "We analyze audience insights to craft messaging that works.",
     icon: "📊"
   },
   {
-    title: "Visual Design",
-    description: "Building a stunning and consistent visual identity",
-    icon: "🎨"
+    title: "Multi-Channel Strategy",
+    description: "From social media to PR, we cover all touchpoints.",
+    icon: "🎯"
   },
   {
-    title: "Content Marketing",
-    description: "Creating content that informs and converts",
-    icon: "✍️"
-  },
-  {
-    title: "Social Media",
-    description: "Amplifying your message on every platform",
-    icon: "🌐"
-  }
-];
-
-const processSteps = [
-  {
-    title: "Understand Your Audience",
-    description: "Deep insights into who your customers are",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80"
-  },
-  {
-    title: "Develop Strategy",
-    description: "Crafting your unique message",
-    image: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&q=80"
-  },
-  {
-    title: "Design Identity",
-    description: "Creating your visual language",
-    image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&q=80"
-  },
-  {
-    title: "Measure & Refine",
-    description: "Continuous improvement",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+    title: "Proven Success",
+    description: "Our track record speaks for itself with impactful brand stories.",
+    icon: "🏆"
   }
 ];
 ---
+<MainLayout title="Brand Communications - Tagorithm">
+  <main class="space-y-16"> <!-- Changed from space-y-20 -->
 
-<MainLayout title="Brand Communication Services - Tagorithm">
-  <main class="space-y-20">
-    <!-- Hero Section with Animated Gradient -->
+    <!-- Hero Section -->
     <section class="relative min-h-[90vh] flex items-center overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-br from-[#B9FF66] via-white to-[#66FFB9] animate-gradient-x"></div>
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+          <!-- Left: Text Content -->
           <div class="md:w-1/2 space-y-8">
             <h1 class="text-6xl font-bold leading-tight animate-fade-in">
-              Transform Your <span class="text-[#B9FF66]">Brand Voice</span>
+              Elevate Your Brand with <span class="highlight">Powerful Communications</span>
             </h1>
             <p class="text-xl text-gray-700 animate-fade-in-delay">
-              We craft compelling narratives that resonate with your audience and drive meaningful engagement.
+              We craft strategic, data-driven narratives that make brands unforgettable.
             </p>
             <div class="flex gap-4 animate-fade-in-delay-2">
-              <a href="#contact" class="btn-primary">
-                Start Your Journey
-              </a>
-              <a href="#process" class="btn-secondary">
-                Learn More
-              </a>
+              <a href="#contact" class="btn-primary">Get a Callback</a>
             </div>
           </div>
-          <div class="md:w-1/2 relative group h-[500px] perspective-1000">
-            {heroImages.map((image, index) => (
-              <div 
-                class={`absolute inset-0 transition-all duration-500 ease-out
-                  ${index === 0 ? 'group-hover:translate-x-32 group-hover:translate-y-8 group-hover:rotate-12' : ''}
-                  ${index === 1 ? 'translate-x-4 translate-y-4 group-hover:translate-x-16 group-hover:translate-y-4 group-hover:rotate-6' : ''}
-                  ${index === 2 ? 'translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0' : ''}
-                `}
-                style={`z-index: ${3 - index}`}
-              >
-                <img 
-                  src={image.url}
-                  alt={image.alt}
-                  class="w-full h-full object-cover rounded-3xl shadow-2xl"
-                />
-              </div>
-            ))}
+          <!-- Right: Image -->
+          <div class="md:w-1/2 hero-image-container">
+            <img 
+              src="/bc.png" 
+              alt="Brand Communications Illustration" 
+              class="hero-image"
+            />
           </div>
         </div>
       </div>
@@ -128,140 +133,267 @@ const processSteps = [
 
     <!-- Introduction Section -->
     <Section>
-      <div class="container mx-auto px-4 py-20">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6">
-            <SectionTitle>What is Brand Communication?</SectionTitle>
-            <p class="text-xl text-gray-700">
-              Brand Communication is the art of building meaningful relationships between your business and its audience. At Tagorithm, we ensure every interaction tells your story and strengthens your brand identity.
+      <div class="container mx-auto px-4">
+        <SectionTitle sectionTitle="Your Story, Amplified" />
+        <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
+          <div class="md:w-1/2">
+            <p class="text-xl text-left max-w-xl">
+              Brand communication isn't just about what you say—it's about how you say it. At Tagorithm, we craft compelling narratives that resonate with audiences, build trust, and drive business success. From digital storytelling to strategic PR, we ensure your brand speaks with clarity, confidence, and impact.
             </p>
           </div>
-          <div class="grid grid-cols-2 gap-8">
-            {services.map(service => (
-              <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div class="text-4xl mb-4">{service.icon}</div>
-                <h3 class="font-bold mb-2">{service.title}</h3>
-                <p class="text-gray-600 text-sm">{service.description}</p>
+          <div class="md:w-1/2 flex justify-center absolute right-0 -top-40"> <!-- Changed positioning -->
+            <img 
+              src="/lips.png" 
+              alt="Brand Communication Illustration" 
+              class="w-[270px] h-[310px] object-cover z-10" <!-- Added z-10 -->
+            />
+          </div>
+        </div>
+      </div>
+    </Section>
+    <div class="relative z-0"> <!-- Changed from -mt-20 to relative and z-0 -->
+    <BrandServices/>
+    </div>
+
+    <!-- Replace the "Not sure where to start" CTA with this Proposal Section -->
+    <Section>
+      <Card>
+        <div class="flex flex-col md:flex-row bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]">
+          <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
+            <h2 class="text-3xl font-medium">Let's make things happen</h2>
+            <p>
+              Contact us today to learn more about how our digital marketing
+              services can help your business grow and succeed online.
+            </p>
+            <button class="btn-primary">Get your free proposal</button>
+          </div>
+          <picture class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center">
+            <Image
+              src={propImg}
+              alt="This is an illustration"
+              class="hidden md:flex lg:h-full lg:w-auto"
+            />
+          </picture>
+        </div>
+      </Card>
+    </Section>
+
+    <!-- Update the Case Studies section -->
+    <Section class="bg-gray-50">
+      <div class="container mx-auto px-4">
+        <SectionTitle
+          sectionTitle="Our Impact in Action"
+          description="Real Results from Real Partnerships"
+        />
+        
+        <div class="swiper case-studies-swiper mt-12 pb-12"> <!-- Added padding bottom for shadow -->
+          <div class="swiper-wrapper">
+            {caseStudies.map(study => (
+              <div class="swiper-slide px-4"> <!-- Added horizontal padding -->
+                <div class="bg-white rounded-[45px] overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-300">
+                  <div class="relative h-[250px] overflow-hidden"> <!-- Reduced height from 300px -->
+                    <img 
+                      src={study.image} 
+                      alt={study.client} 
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 text-white">
+                      <h3 class="text-3xl font-bold mb-2">{study.client}</h3>
+                      <p class="text-lg opacity-90">{study.industry}</p>
+                    </div>
+                  </div>
+                  
+                  <div class="p-6"> <!-- Reduced padding from p-8 -->
+                    <div class="space-y-4"> <!-- Reduced spacing from space-y-6 -->
+                      <div>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Challenge</h4>
+                        <p class="text-gray-600">{study.challenge}</p>
+                      </div>
+                      
+                      <div>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Solution</h4>
+                        <p class="text-gray-600">{study.solution}</p>
+                      </div>
+                      
+                      <div>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Results</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {study.results.map(result => (
+                            <div class="flex items-center gap-2 bg-gray-50 p-4 rounded-lg">
+                              <span class="text-[#B9FF66] text-2xl">↗</span>
+                              <span class="text-gray-900 font-medium">{result}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+          <div class="swiper-pagination mt-8"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </Section>
 
-    <!-- Services Overview -->
+    <!-- Why Choose Tagorithm? (Value Proposition) -->
     <Section>
+      <SectionTitle
+        sectionTitle="Why Brands Trust Us"
+        description="Proven Expertise in Brand Communications"
+      />
       <div class="container mx-auto px-4">
-        <SectionTitle 
-          sectionTitle="Our Brand Communication Services" 
-          description="Comprehensive solutions to elevate your brand presence"
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          {valueProps.map(prop => (
+            <div class="text-center p-8">
+              <div class="text-4xl mb-4">{prop.icon}</div>
+              <h3 class="text-xl font-bold mb-2">{prop.title}</h3>
+              <p class="text-gray-600">{prop.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+
+    <!-- Call-to-Action (Final Push) / Contact Form -->
+    <Section id="contact">
+      <div class="mb-[140px] relative">
+        <SectionTitle
+          sectionTitle="Contact Us"
+          description="Connect with Us: Let's Discuss Your Digital Marketing Needs"
         />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-            <h3 class="text-xl font-bold mb-4">Brand Strategy</h3>
-            <p class="text-gray-600">Develop a clear, compelling brand positioning that sets you apart from competitors.</p>
-          </div>
-          <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-            <h3 class="text-xl font-bold mb-4">Visual Identity</h3>
-            <p class="text-gray-600">Create consistent, memorable visual elements that reflect your brand essence.</p>
-          </div>
-          <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-            <h3 class="text-xl font-bold mb-4">Brand Messaging</h3>
-            <p class="text-gray-600">Craft clear, compelling messages that resonate with your target audience.</p>
-          </div>
-        </div>
-      </div>
-    </Section>
-
-    <!-- Process Section -->
-    <Section class="bg-gray-50">
-      <div class="container mx-auto px-4 py-20">
-        <SectionTitle>Our Approach: Data-Driven & Creative</SectionTitle>
-        <div class="grid md:grid-cols-4 gap-8 mt-12">
-          {processSteps.map((step, index) => (
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
-              <img src={step.image} alt={step.title} class="w-full h-48 object-cover rounded-lg mb-6"/>
-              <h3 class="text-xl font-bold mb-2">{step.title}</h3>
-              <p class="text-gray-600">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-
-    <!-- Success Stories -->
-    <Section>
-      <div class="container mx-auto px-4 py-20">
-        <SectionTitle>Stories of Brands We've Transformed</SectionTitle>
-        <div class="grid md:grid-cols-2 gap-8 mt-12">
-          {successStories.map(story => (
-            <div class="relative group overflow-hidden rounded-2xl">
-              <img src={story.image} alt={story.title} class="w-full h-[400px] object-cover transition-transform group-hover:scale-110"/>
-              <div class="absolute inset-0 bg-black/60 flex items-end p-8">
-                <div class="text-white">
-                  <h3 class="text-2xl font-bold mb-2">{story.title}</h3>
-                  <p>{story.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-
-    <!-- Contact CTA -->
-    <Section id="contact" class="bg-black text-white">
-      <div class="container mx-auto px-4 py-20 text-center">
-        <h2 class="text-4xl font-bold mb-8">Ready to Transform Your Brand?</h2>
-        <p class="text-xl mb-12 text-gray-300">Let's create something amazing together</p>
-        <a href="/contact" class="btn-primary bg-[#B9FF66] text-black hover:bg-[#A8EE55]">
-          Get Started
-        </a>
-      </div>
-    </Section>
-
-    <!-- CTA Section -->
-    <Section class="bg-black text-white">
-      <div class="container mx-auto px-4 py-20 text-center">
-        <h2 class="text-4xl font-bold mb-8">Let's Bring Your Brand to Life</h2>
-        <p class="text-xl mb-12">Ready to elevate your brand communication?</p>
         <Form />
       </div>
     </Section>
+
   </main>
 </MainLayout>
 
 <style>
+  /* Gradient and animation styles */
   .animate-gradient-x {
     animation: gradient-x 15s ease infinite;
     background-size: 400% 400%;
   }
-
   @keyframes gradient-x {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
-
+  
   .animate-fade-in {
     animation: fade-in 1s ease-out;
   }
-
   .animate-fade-in-delay {
     animation: fade-in 1s ease-out 0.3s forwards;
     opacity: 0;
   }
-
   .animate-fade-in-delay-2 {
     animation: fade-in 1s ease-out 0.6s forwards;
     opacity: 0;
   }
-
   @keyframes fade-in {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .perspective-1000 {
-    perspective: 1000px;
+  /* Highlight style */
+  .highlight {
+    background-color: white;
+    color: #B9FF66; /* Green text color */
+    padding: 0 0.02em;
+    border-radius: 0.4em;
+    text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+    -webkit-text-stroke: 0.5px black; /* For better browser compatibility */
+  }
+
+  /* Hero image container style */
+  .hero-image-container {
+    width: 100%;
+  }
+
+  /* Hero image style */
+  .hero-image {
+    width: 120%; /* Increase size by 20% */
+    height: auto;
+  }
+
+  /* Add these styles to your existing style block */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #B9FF66;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #B9FF66;
+  }
+
+  /* Ensure proper spacing for navigation arrows */
+  .case-studies-swiper {
+    padding: 0 60px; /* Increased padding from 40px */
+    margin: 0 -60px; /* Increased margin from -40px */
+    overflow: visible; /* Allow overflow for shadows */
+  }
+
+  .swiper-slide {
+    height: auto; /* Allow natural height */
+  }
+
+  /* Update navigation arrows position */
+  .swiper-button-next {
+    right: 20px;
+  }
+
+  .swiper-button-prev {
+    left: 20px;
   }
 </style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+  new Swiper('.case-studies-swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 40, /* Increased from 30 */
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1.2, /* Reduced from 1.5 */
+      },
+      768: {
+        slidesPerView: 1.5, /* Reduced from 1.8 */
+      },
+      1024: {
+        slidesPerView: 2, /* Reduced from 2 */
+      },
+      1280: {
+        slidesPerView: 2.5, /* Reduced from 2.5 */
+      },
+      1536: {
+        slidesPerView: 3, /* Reduced from 3 */
+      },
+    },
+  });
+</script>

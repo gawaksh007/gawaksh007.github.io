@@ -24,7 +24,31 @@ export default {
         gray: "var(--gray)",
         white: "var(--white)",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: 'var(--dark)',
+            a: {
+              color: 'var(--green)',
+              '&:hover': {
+                color: 'var(--black)',
+              },
+            },
+            h1: {
+              color: 'var(--black)',
+            },
+            h2: {
+              color: 'var(--black)',
+            },
+            h3: {
+              color: 'var(--black)',
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

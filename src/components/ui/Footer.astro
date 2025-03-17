@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import Facebook from "../../assets/facebook.svg";
+import Instagram from "../../assets/instagram.svg";
 import Linkedin from "../../assets/linkedin.svg";
 import Logo from "../../assets/logo-alt.svg";
 import Twitter from "../../assets/twitter.svg";
 import ShortForm from "../ui/ShortForm.astro";
 
 const logos = [
-  { name: "Facebook", src: Facebook, link: "https://facebook.com" },
+  { name: "Instagram", src: Instagram, link: "https://instagram.com/tagorithmhq" },
   { name: "Linkedin", src: Linkedin, link: "https://www.linkedin.com/company/tagorithm" },
   { name: "Twitter", src: Twitter, link: "https://twitter.com" },
 ];
@@ -16,7 +16,6 @@ const links = [
   { name: "About us", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Success Stories", href: "#cases" },
-  { name: "Pricing", href: "/pricing" },
   { name: "Blog", href: "#Home" },
 ];
 ---
@@ -79,6 +78,9 @@ const links = [
             </div>
           </div>
           <div class="flex-grow my-10 lg:my-0 lg:ml-12">
+            <p class="text-center md:text-right mb-4 text-white">
+              Subscribe to Tagorithm's newsletter for forward-thinking marketers
+            </p>
             <ShortForm />
           </div>
         </div>

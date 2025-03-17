@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card.astro";
+
+const { index, titleTop, titleBottom, img, imgWidth, imgHeight, alt, description } = Astro.props;
+---
+
+<Card isUnderline={true}>
+  <div
+    class={`h-[300px] w-full sm:h-full lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] ${index === 1 ? 'bg-gray' : index === 2 ? 'bg-green' : 'bg-dark text-gray'}`}
+  >
+    <h3 class={`flex flex-col col-span-2 lg:col-span-1`}>
+      <span class={`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'} title`}>
+        {titleTop}
+      </span>
+      <span class={`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'} title`}>
+        {titleBottom}
+      </span>
+    </h3>
+    <picture
+      class="w-full h-full row-span-1 order-1 lg:order-none lg:row-span-2 flex justify-center items-center"
+    >
+      <Image
+        src={img}
+        width={imgWidth}
+        height={imgHeight}
+        alt={alt}
+        class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
+      />
+    </picture>
+    <div class="flex items-end">
+      <p class="flex items-center gap-3.5">
+        <span class="hidden sm:block">{description}</span>
+      </p>
+    </div>
+  </div>
+</Card>
+
+<style>
+  .custom-grid {
+    grid-template: auto auto;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 125%; /* Increase font size by 25% */
+  }
+</style>

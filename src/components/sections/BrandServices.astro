@@ -1,0 +1,105 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import ServiceCardWithDescription from "../ui/ServiceCardWithDescription.astro";
+import Section from "./Section.astro";
+
+import c1 from "../../assets/pics/bc1.png";
+import c2 from "../../assets/pics/bc2.png";
+import c3 from "../../assets/pics/bc3.png";
+import c4 from "../../assets/pics/bc4.png";
+import c5 from "../../assets/pics/bc5.png";
+import c6 from "../../assets/pics/bc6.png";
+import c7 from "../../assets/pics/bc7.png";
+import c8 from "../../assets/pics/bc8.png";
+
+
+const cards = [
+  {
+    index: 1,
+    titleTop: "Brand Messaging",
+    titleBottom: "& Positioning",
+    img: c1,
+    alt: "Brand Messaging and Positioning",
+    description: "Define a unique brand voice for clarity, consistency, and strong audience connections.",
+  },
+  {
+    index: 2,
+    titleTop: "Content Strategy",
+    titleBottom: "& Storytelling",
+    img: c2,
+    alt: "Content Strategy and Storytelling",
+    description: "Craft compelling, data-driven content that engages, informs, and drives action.",
+  },
+  {
+    index: 3,
+    titleTop: "Social Media",
+    titleBottom: "Communications",
+    img: c3,
+    alt: "Social Media Communications",
+    description: "Create engaging content and campaigns to boost brand awareness, engagement, and conversions.",
+  },
+  {
+    index: 1,
+    titleTop: "Public Relations (PR)",
+    titleBottom: "& Media Outreach",
+    img: c4,
+    alt: "Public Relations and Media Outreach",
+    description: "Enhance brand credibility with strategic PR, media placements, and influencer collaborations.",
+  },
+  {
+    index: 2,
+    titleTop: "Internal & Corporate",
+    titleBottom: "Communications",
+    img: c7,
+    alt: "Internal and Corporate Communications",
+    description: "Strengthen company culture with clear, consistent internal messaging and brand alignment.",
+  },
+  {
+    index: 3,
+    titleTop: "Visual & Digital",
+    titleBottom: "Branding",
+    img: c8,
+    alt: "Visual and Digital Branding",
+    description: "Build a strong, memorable brand identity with eye-catching visuals and cohesive digital assets.",
+  },
+  {
+    index: 1,
+    titleTop: "Campaign Development",
+    titleBottom: "& Execution",
+    img: c5,
+    alt: "Campaign Development and Execution",
+    description: "Plan and execute marketing campaigns that align with your brand vision and business goals.",
+  },
+  {
+    index: 2,
+    titleTop: "Crisis Communication",
+    titleBottom: "& Reputation Management",
+    img: c6,
+    alt: "Crisis Communication and Reputation Management",
+    description: "Protect your brand’s reputation with strategic crisis management and transparent communication.",
+  },
+];
+
+const description =
+  "At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include";
+---
+
+<Section id="services">
+  <div class="mt-[140px] mb-5">
+    <SectionTitle sectionTitle="Services" description={description} />
+    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
+      {
+        cards.map((card) => (
+          <ServiceCardWithDescription
+            index={card.index}
+            titleTop={card.titleTop}
+            titleBottom={card.titleBottom}
+            img={card.img}
+            alt={card.alt}
+            description={card.description}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Section>
