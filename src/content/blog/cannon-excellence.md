@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogLayout.astro
 title: "Capturing Life's Moments with Canon Excellence"
 pubDate: 2024-01-15
 author: 'Bonnie Green'
