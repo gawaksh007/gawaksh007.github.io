@@ -3,37 +3,396 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Services from "../components/sections/Services.astro";
 import Team from "../components/sections/Team.astro";
 import Process from "../components/sections/Process.astro";
+import CountUp from "../components/ui/CountUp.astro"; // Add this component
+import SectionTitle from "../components/ui/SectionTitle.astro";
 
+// Stats data
+const stats = [
+  { number: "98", suffix: "%", label: "Client Satisfaction" },
+  { number: "150", suffix: "+", label: "Projects Delivered" },
+  { number: "12", suffix: "+", label: "Industries Served" },
+  { number: "24", suffix: "M+", label: "Digital Impressions" }
+];
 
+// Core values
+const values = [
+  {
+    title: "Data-Driven Excellence",
+    description: "We let data guide our decisions while maintaining creative integrity."
+  },
+  {
+    title: "Client Partnership",
+    description: "Your success is our success. We're invested in your growth journey."
+  },
+  {
+    title: "Innovation First",
+    description: "Constantly evolving and adapting to stay ahead of digital trends."
+  },
+  {
+    title: "Agile Execution",
+    description: "Quick to adapt, swift to implement, and always learning."
+  }
+];
+
+// Testimonials data
+const testimonials = [
+  {
+    name: "John Doe",
+    role: "CEO, ExampleCorp",
+    quote: "Tagorithm transformed our digital presence and significantly improved our ROI.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces"
+  },
+  {
+    name: "Jane Smith",
+    role: "CMO, AnotherBiz",
+    quote: "The team at Tagorithm are true partners. Their expertise and dedication are unmatched.",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces"
+  },
+  {
+    name: "Emily Johnson",
+    role: "Founder, StartupCo",
+    quote: "Thanks to Tagorithm, we successfully navigated the digital landscape and achieved our business goals.",
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=faces"
+  }
+];
 ---
 
 <MainLayout title="About us">
-    <main class="space-y-20">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
-            <div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
-                <div class="row items-center py-5 md:pb-20 md:pt-10">
-                    <div class="text-center space-y-10">
-                        <h2 class="text-5xl font-medium leading-none md:text-6xl">Helping you Navigate <br> the digital landscape <br> for success</h2>
-                        <p class="mt-6 mb-8 text-xl font-normal leading-8 sm:mb-12 text-justify italic space-y-4">
-                            <span class="bg-[#B9FF66] font-bold block mb-4">Tagorithm was born from the belief that effective marketing requires both art and science.</span>
-                            
-                            <span class="block mb-4">'Tag' symbolizes creativity—understanding your audience, crafting messages that connect, and telling stories that stick.</span>
-                            
-                            <span class="block mb-4">'Algorithm' is our analytical edge—leveraging data to make informed decisions, optimize campaigns, and deliver results.</span>
-                            
-                            <span class="block mb-4">At Tagorithm, we combine these two worlds to create impactful strategies that help brands thrive. We're not just marketers; we're problem-solvers, growth enablers, and partners in your journey to success.</span>
-                            
-                            <span class="bg-[#B9FF66] font-bold block">Every click, every tag, every campaign is powered by purpose and precision.</span>
-                        </p>
-                        <a class="px-9 py-5 bg-zinc-900 hover:bg-white text-white hover:text-black border rounded-2xl justify-items-center md:justify-items-start gap-2.5 inline-flex" rel="noopener noreferrer"  href="https://github.com/manulthanura/Positivus" target="_blank">
-                            <h2 class="text-center text-xl font-normal leading-7">Book a consultation</h2>
-                        </a>
-                    </div>
+  <main class="space-y-20"> <!-- Reduced from space-y-32 to space-y-20 -->
+    <!-- Hero Section Improvements -->
+    <div class="min-h-[90vh] relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <!-- Primary gradient blob -->
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#B9FF66]/20 rounded-full blur-3xl animate-blob"></div>
+        <!-- Secondary gradient blob -->
+        <div class="absolute top-40 right-20 w-96 h-96 bg-[#66FFB9]/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <!-- Additional accent blob -->
+        <div class="absolute bottom-20 left-1/2 w-64 h-64 bg-[#FFB966]/10 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+        
+        <!-- Grain overlay -->
+        <div class="absolute inset-0 bg-[url('/noise.png')] opacity-20"></div>
+      </div>
+      
+      <!-- Content container with existing code -->
+      <div class="container mx-auto px-4 py-20 relative z-10">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+          <!-- Add visual breadcrumb -->
+          <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mb-8">
+            <a href="/" class="hover:text-gray-900">Home</a>
+            <span>→</span>
+            <span class="text-gray-900">About Us</span>
+          </div>
+          
+          <!-- Split heading for better visual impact -->
+          <div class="space-y-4">
+            <span class="text-sm uppercase tracking-wider text-gray-600 font-medium px-4 py-2 bg-gray-100 rounded-full">Welcome to Tagorithm</span>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight animate-fade-in">
+              <span class="block mb-2">Helping you Navigate</span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-600">
+                the digital landscape
+              </span>
+            </h1>
+          </div>
+
+          <!-- Lead Text -->
+          <p class="text-xl md:text-2xl leading-relaxed text-gray-600 max-w-3xl mx-auto animate-fade-in-delay">
+            Where creativity meets data-driven precision
+          </p>
+
+          <!-- Story Block Improvements -->
+          <div class="mt-12"> <!-- Reduced from mt-16 -->
+            <div class="bg-white/50 backdrop-blur-sm rounded-3xl p-10 border border-gray-100 hover:border-[#B9FF66] transition-all duration-300 max-w-4xl mx-auto">
+              <div class="space-y-8">
+                <!-- Story Header -->
+                <div class="flex items-center gap-4 mb-8">
+                  <div class="h-12 w-2 bg-[#B9FF66] rounded-full"></div>
+                  <h2 class="text-2xl md:text-3xl font-bold">Our Story</h2>
                 </div>
+
+                <!-- Story Content -->
+                <div class="prose prose-lg max-w-none">
+                  <p class="text-lg md:text-xl font-medium text-gray-900 mb-8 leading-relaxed">
+                    Born at the intersection of creativity and data, Tagorithm represents the perfect blend of artistic vision and analytical precision in digital marketing.
+                  </p>
+
+                  <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                      <div>
+                        <p class="text-gray-600 leading-relaxed">
+                          'Tag' embodies our creative spirit—crafting compelling narratives and forging meaningful connections with your audience.
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-gray-600 leading-relaxed">
+                          'Algorithm' represents our data-driven approach—transforming insights into impactful strategies that deliver measurable results.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-zinc-50 to-gray-100 rounded-2xl p-8">
+                      <blockquote class="text-gray-600 italic relative">
+                        <p class="text-lg leading-relaxed">
+                          Every click, every tag, every campaign is powered by purpose and precision. We're not just marketers; we're your partners in digital transformation.
+                        </p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Key Highlights -->
+                <div class="grid md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-gray-100">
+                  <div class="text-center">
+                    <p class="font-medium text-gray-900">Data-Driven</p>
+                  </div>
+                  <div class="text-center">
+                    <p class="font-medium text-gray-900">Result-Focused</p>
+                  </div>
+                  <div class="text-center">
+                    <p class="font-medium text-gray-900">Innovative</p>
+                  </div>
+                  <div class="text-center">
+                    <p class="font-medium text-gray-900">Collaborative</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="mt-12">
+            <a href="#contact" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium transition-all duration-200 bg-zinc-900 text-white rounded-xl hover:bg-[#B9FF66] hover:text-zinc-900">
+              Book a consultation
+              <svg class="ml-2 -mr-1 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
         </div>
-        <Services />
-          <Process />
-          <Team />
-    </main>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4">
+        <SectionTitle
+          sectionTitle="Our Impact in Numbers"
+          description="Measurable results that speak for themselves"
+        />
+
+        <!-- Enhanced stats grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {stats.map(stat => (
+            <div class="group hover:transform hover:scale-105 transition-all duration-300">
+              <div class="relative">
+                <!-- Background circle -->
+                <div class="absolute inset-0 bg-[#B9FF66]/10 rounded-full transform -rotate-6 group-hover:rotate-0 transition-transform duration-300"></div>
+                <!-- Stat content -->
+                <div class="relative z-10 text-center p-8">
+                  <CountUp 
+                    number={stat.number} 
+                    suffix={stat.suffix}
+                    class="text-4xl md:text-5xl font-bold text-zinc-900"
+                  />
+                  <p class="text-gray-600 mt-2">{stat.label}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <SectionTitle
+          sectionTitle="Our Core Values"
+          description="The principles that drive everything we do"
+        />
+
+        <!-- Replace the icon section in Core Values -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map(value => (
+            <div class="group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:border-[#B9FF66] transition-all duration-300 hover:-translate-y-2">
+              <div class="relative mb-6">
+                <div class="bg-[#B9FF66]/10 rounded-xl p-4 text-center">
+                  <h3 class="text-xl font-bold text-zinc-900">{value.title}</h3>
+                </div>
+              </div>
+              <p class="text-gray-600 text-center">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Modified Process Section -->
+    <Process />
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+        <Team />
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-zinc-900">
+      <div class="container mx-auto px-4">
+        <SectionTitle
+          sectionTitle="Success Stories"
+          description="What our clients say about us"
+        />
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {testimonials.map(testimonial => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div class="flex items-start gap-4 mb-6">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name} 
+                  class="w-12 h-12 rounded-full border-2 border-[#B9FF66]" 
+                />
+                <div>
+                  <h3 class="text-zinc-900 font-semibold">{testimonial.name}</h3>
+                  <p class="text-gray-500 text-sm">{testimonial.role}</p>
+                </div>
+              </div>
+              <blockquote class="text-gray-600 italic relative pl-4 border-l-2 border-[#B9FF66]">
+                "{testimonial.quote}"
+              </blockquote>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="py-16"> <!-- Reduced from py-20 -->
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-zinc-900 rounded-3xl p-10 text-center"> <!-- Reduced from p-12 -->
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Digital Journey?</h2>
+          <p class="text-[#B9FF66] text-lg mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can help your brand thrive in the digital landscape
+          </p>
+          <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-[#B9FF66] text-zinc-900 rounded-xl hover:bg-white transition-all duration-200">
+            Get in Touch
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </MainLayout>
+
+<!-- Add these styles to your existing style block -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  .animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .prose {
+    max-width: 65ch;
+    line-height: 1.75;
+  }
+
+  /* Add smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Add consistent vertical rhythm */
+  section {
+    scroll-margin-top: 4rem; /* For smooth scrolling to sections */
+  }
+
+  /* Responsive spacing adjustments */
+  @media (max-width: 768px) {
+    .space-y-20 {
+      --tw-space-y-reverse: 0;
+      margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+    }
+
+    section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+</style>
+
+<!-- Add loading states -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add intersection observer for lazy loading
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>

@@ -1,0 +1,224 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Section from "../components/sections/Section.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import { caseStudies, serviceCategories } from "../data/case-studies";
+import { Image } from "astro:assets";
+import CaseStudyCard from "../components/ui/CaseStudyCard.astro";
+
+// Initialize filter state
+const currentFilter = Astro.url.searchParams.get('service') || 'All';
+
+// Get unique service categories from case studies
+const allServices = ['All', ...new Set(caseStudies.flatMap(study => study.services))].sort();
+
+// Count cases per service
+const serviceCounts = allServices.reduce((acc, service) => {
+  acc[service] = service === 'All' 
+    ? caseStudies.length 
+    : caseStudies.filter(study => study.services.includes(service)).length;
+  return acc;
+}, {});
+---
+
+<MainLayout title="Case Studies - Tagorithm">
+  <!-- Hero Section -->
+  <div class="relative min-h-[60vh] flex items-center overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#B9FF66]/20 rounded-full blur-3xl"></div>
+      <div class="absolute top-40 right-20 w-96 h-96 bg-[#66FFB9]/20 rounded-full blur-3xl"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          Case Studies
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-600">
+            Real strategies, real results.
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Filters Section -->
+  <Section>
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- Filter Header -->
+      <div class="flex flex-col items-center mb-12">
+        <h2 class="text-2xl font-bold mb-2">Filter by Service</h2>
+        <p class="text-gray-600">Discover case studies relevant to your needs</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-16" id="filter-buttons">
+        {allServices.map(service => {
+          const isActive = currentFilter === service;
+          return (
+            <button 
+              type="button"
+              data-service={service}
+              class={`
+                group relative px-6 py-3 rounded-xl text-sm font-medium 
+                transition-all duration-300 ease-out border
+                ${isActive 
+                  ? 'bg-zinc-900 text-white shadow-lg scale-105'
+                  : 'bg-white text-gray-600 hover:bg-[#B9FF66]/10 hover:text-zinc-900 border-gray-200'
+                }
+              `}
+            >
+              <span class="relative z-10 flex items-center gap-2">
+                {service}
+                <span class={`
+                    text-xs px-2 py-0.5 rounded-full 
+                    ${isActive ? 'bg-white/10' : 'bg-gray-100'}
+                  `}>
+                  {serviceCounts[service]}
+                </span>
+              </span>
+              {isActive && (
+                <span class="absolute inset-0 bg-[#B9FF66]/10 rounded-xl animate-pulse"></span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      <!-- Results Counter -->
+      <div class="text-center mb-8" id="results-counter">
+        <p class="text-gray-600">
+          {(() => {
+            const filteredCount = caseStudies.filter(study => 
+              currentFilter === 'All' || study.services.includes(currentFilter)
+            ).length;
+            return `Showing ${filteredCount} case stud${filteredCount === 1 ? 'y' : 'ies'}${currentFilter !== 'All' ? ` for ${currentFilter}` : ''}`;
+          })()}
+        </p>
+      </div>
+
+      <!-- Case Studies Grid -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12" id="case-grid">
+        {caseStudies.map(study => (
+          <CaseStudyCard study={study} key={study.slug} />
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Filtering Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterButtons = Array.from(document.querySelectorAll('#filter-buttons button'));
+      const caseGrid = document.getElementById('case-grid');
+      const resultsCounter = document.getElementById('results-counter');
+
+      if (!filterButtons.length) {
+        console.warn("No filter buttons found. Please check the element with id 'filter-buttons'.");
+      }
+      if (!caseGrid) {
+        console.error("Case grid element not found. Please check the element with id 'case-grid'.");
+      }
+
+      function applyFilter(filter) {
+        // Update the URL without reloading
+        const url = new URL(window.location);
+        if (filter === 'All') {
+          url.searchParams.delete('service');
+        } else {
+          url.searchParams.set('service', filter);
+        }
+        window.history.pushState({}, '', url);
+
+        // Filter cards based on each card's data-services attribute
+        const cards = Array.from(caseGrid.children);
+        let visibleCount = 0;
+        cards.forEach(card => {
+          // Query for the nested element that has the data-services attribute
+          const dataEl = card.querySelector('[data-services]');
+          const services = (dataEl ? dataEl.getAttribute('data-services')?.split(',') || [] : [])
+                            .map(s => s.trim())
+                            .filter(Boolean);
+          if (filter === 'All' || services.includes(filter)) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Update results counter text if the element exists
+        const counterEl = resultsCounter?.querySelector('p');
+        if (counterEl) {
+          counterEl.textContent = `Showing ${visibleCount} case stud${visibleCount === 1 ? 'y' : 'ies'}${filter !== 'All' ? ` for ${filter}` : ''}`;
+        }
+        
+        // Update the active state for buttons
+        filterButtons.forEach(button => {
+          if (button.getAttribute('data-service') === filter) {
+            button.classList.add('bg-zinc-900', 'text-white', 'shadow-lg', 'scale-105');
+            button.classList.remove('bg-white', 'text-gray-600');
+          } else {
+            button.classList.remove('bg-zinc-900', 'text-white', 'shadow-lg', 'scale-105');
+            button.classList.add('bg-white', 'text-gray-600');
+          }
+        });
+      }
+
+      // Attach event listeners to filter buttons
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-service');
+          applyFilter(filter);
+        });
+      });
+
+      // Apply initial filter based on URL
+      const initialFilter = new URL(window.location).searchParams.get('service') || 'All';
+      applyFilter(initialFilter);
+    });
+  </script>
+</MainLayout>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @media (max-width: 640px) {
+    .gap-3 {
+      gap: 0.5rem;
+    }
+    
+    a[href^="/cases"] {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-cols-2 > * {
+      grid-column: span 2;
+    }
+  }
+</style>

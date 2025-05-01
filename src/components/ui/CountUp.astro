@@ -1,0 +1,49 @@
+---
+interface Props {
+  number: string;
+  suffix?: string;
+  class?: string;
+}
+
+const { number, suffix = "", class: className } = Astro.props;
+---
+
+<div class={className}>
+  <span class="counter" data-target={number}>0</span>{suffix}
+</div>
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+  
+  const animateCounter = (counter: Element, target: number) => {
+    let count = 0;
+    const speed = 2000 / target; // Adjust animation duration here
+    
+    const updateCount = () => {
+      const increment = target / (2000 / 16); // For smooth 60fps animation
+      
+      if (count < target) {
+        count += increment;
+        counter.textContent = Math.floor(count).toString();
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.textContent = target;
+      }
+    };
+    
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = parseInt(counter.getAttribute('data-target') || '0');
+        animateCounter(counter, target);
+        observer.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+</script>
