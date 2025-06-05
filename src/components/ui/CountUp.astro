@@ -27,7 +27,7 @@ const { number, suffix = "", class: className } = Astro.props;
         counter.textContent = Math.floor(count).toString();
         requestAnimationFrame(updateCount);
       } else {
-        counter.textContent = target;
+        counter.textContent = target.toString();
       }
     };
     

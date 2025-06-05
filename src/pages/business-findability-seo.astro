@@ -104,14 +104,14 @@ const seoStack = [
 
       <!-- Content -->
       <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <!-- Left: Content -->
-          <div class="w-full md:w-1/2 text-center md:text-left space-y-8">
-            <h1 class="text-4xl md:text-7xl font-bold leading-tight text-white">
-              Enhance Your <span class="text-green">Search Visibility</span> & Growth
+        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+          <!-- Left: Text Content -->
+          <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
+              Elevate Your Brand with <span class="highlight">Powerful Communications</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray mb-8 max-w-xl">
-              Data-driven SEO strategies that improve rankings, drive qualified traffic, and boost your bottom line.
+            <p class="text-lg md:text-xl text-gray-700 animate-fade-in-delay">
+              We craft strategic, data-driven narratives that make brands unforgettable.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Your SEO Journey</a>
@@ -134,13 +134,49 @@ const seoStack = [
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-white relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-gray/50 to-white pointer-events-none"></div>
-      <div class="container mx-auto px-4 relative">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">SEO Services</h2>
-          <p class="text-xl text-gray">Comprehensive solutions for your digital visibility</p>
+    <!-- Introduction Section -->
+    <Section>
+      <div class="container mx-auto px-4">
+        <SectionTitle sectionTitle="Your Story, Amplified" />
+        <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
+          <div class="md:w-1/2">
+            <p class="text-xl text-left max-w-xl">
+              Brand communication isn't just about what you say—it's about how you say it. At Tagorithm, we craft compelling narratives that resonate with audiences, build trust, and drive business success. From digital storytelling to strategic PR, we ensure your brand speaks with clarity, confidence, and impact.
+            </p>
+          </div>
+          <div class="md:w-1/2 flex justify-center absolute right-0 -top-40"> <!-- Changed positioning -->
+            <img 
+              src="/lips.png" 
+              alt="Brand Communication Illustration" 
+              class="w-[270px] h-[310px] object-cover z-10"
+            />
+          </div>
+        </div>
+      </div>
+    </Section>
+    <div class="relative z-0"> <!-- Changed from -mt-20 to relative and z-0 -->
+    <BrandServices/>
+    </div>
+
+    <!-- Replace the "Not sure where to start" CTA with this Proposal Section -->
+    <Section>
+      <Card>
+        <div class="flex flex-col md:flex-row bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]">
+          <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
+            <h2 class="text-3xl font-medium">Let's make things happen</h2>
+            <p>
+              Contact us today to learn more about how our digital marketing
+              services can help your business grow and succeed online.
+            </p>
+            <button class="btn-primary">Get your free proposal</button>
+          </div>
+          <picture class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center">
+            <Image
+              src={propImg}
+              alt="This is an illustration"
+              class="hidden md:flex lg:h-full lg:w-auto"
+            />
+          </picture>
         </div>
         
         <div class="grid md:grid-cols-2 gap-8">
