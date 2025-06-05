@@ -23,7 +23,7 @@ const { frontmatter } = Astro.props;
         {frontmatter.summary}
       </p>
       <div class="flex flex-wrap gap-2">
-        {frontmatter.tags.map(tag => (
+        {frontmatter.tags.map((tag: string) => (
           <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
             {tag}
           </span>

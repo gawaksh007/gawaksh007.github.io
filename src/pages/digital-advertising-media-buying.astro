@@ -2,250 +2,227 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Section from "../components/sections/Section.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
-import Form from "../com    <!-- CTA Section -->
-    <section class="py-24 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0">
-        <img 
-          src="/src/assets/bars.svg" 
-          alt="Background Pattern"
-          class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03]"
-        />
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10">/ui/Form.astro";
+import Form from "../components/ui/Form.astro";
 import { Image } from "astro:assets";
 import Card from "../components/ui/Card.astro";
+import adsservices from "../components/sections/adsservices.astro";
+import propImg from "../../src/assets/pics/proposal-pic.png";
 
-// Digital Advertising Services
-const adServices = [
+
+// Value Props
+const valueProps = [
   {
-    title: "PPC Advertising",
-    description: "Strategic paid search campaigns that drive qualified traffic",
-    features: ["Google Ads", "Bing Ads", "Shopping Campaigns"],
-    icon: "🎯",
-    gradient: "from-[#4ECDC4] to-[#556270]"
+    title: "Data-Driven Buying",
+    description: "AI-powered media buying decisions based on real-time performance data.",
+    icon: "📊"
   },
   {
-    title: "Social Media Advertising",
-    description: "Targeted social ads that engage and convert",
-    features: ["Facebook/Instagram Ads", "LinkedIn Ads", "TikTok Ads"],
-    icon: "📱",
-    gradient: "from-[#FF6B6B] to-[#FFE66D]"
+    title: "Cross-Platform Expertise",
+    description: "Unified strategy across Google, Meta, LinkedIn, and programmatic platforms.",
+    icon: "🎯"
   },
   {
-    title: "Display & Programmatic",
-    description: "Advanced display advertising across networks",
-    features: ["Programmatic Buying", "Retargeting", "Banner Ads"],
-    icon: "🖼️",
-    gradient: "from-[#A8E6CF] to-[#3EECAC]"
-  },
-  {
-    title: "Video Advertising",
-    description: "Engaging video campaigns that tell your story",
-    features: ["YouTube Ads", "OTT/CTV", "Social Video"],
-    icon: "🎥",
-    gradient: "from-[#FFD93D] to-[#FF6B6B]"
+    title: "ROI Focused",
+    description: "Continuous optimization for maximum return on ad spend (ROAS).",
+    icon: "💰"
   }
 ];
-
-// Advertising Tools Stack
-const adStack = [
-  {
-    category: "Ad Platforms",
-    icon: "💰",
-    techs: [
-      { name: "Google Ads", level: 95 },
-      { name: "Meta Ads", level: 92 },
-      { name: "LinkedIn Ads", level: 88 },
-      { name: "TikTok Ads", level: 85 }
-    ]
-  },
-  {
-    category: "Analytics Tools",
-    icon: "📊",
-    techs: [
-      { name: "Google Analytics", level: 95 },
-      { name: "Data Studio", level: 90 },
-      { name: "Attribution", level: 88 },
-      { name: "Tag Manager", level: 92 }
-    ]
-  },
-  {
-    category: "Optimization Tools",
-    icon: "⚡",
-    techs: [
-      { name: "A/B Testing", level: 90 },
-      { name: "Optimization", level: 88 },
-      { name: "Bid Management", level: 92 },
-      { name: "Automation", level: 85 }
-    ]
-  }
-];
-
 ---
 <MainLayout title="Digital Advertising & Media Buying - Tagorithm">
-  <main class="overflow-hidden">
+  <main class="space-y-16 md:space-y-24"> <!-- Increased spacing on desktop -->
+
     <!-- Hero Section -->
-    <section class="relative min-h-[92vh] flex items-center bg-dark">
-      <!-- Background elements -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+      <!-- Add subtle animated shapes in background -->
       <div class="absolute inset-0 overflow-hidden">
-        <img 
-          src="/src/assets/bars.svg" 
-          alt="Background Pattern"
-          class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03]"
-        />
-        
-        <!-- Animated gradient orbs -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-r from-green/30 to-[#66FFB9]/30 rounded-full blur-[128px] animate-float"></div>
-          <div class="absolute -bottom-20 -right-20 w-[600px] h-[600px] bg-gradient-to-l from-[#66FFB9]/20 to-green/20 rounded-full blur-[128px] animate-float-delayed"></div>
-        </div>
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#B9FF66]/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 bg-[#66FFB9]/20 rounded-full blur-3xl"></div>
       </div>
-
-      <!-- Content -->
       <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <!-- Left: Content -->
-          <div class="w-full md:w-1/2 text-center md:text-left space-y-8">
-            <h1 class="text-4xl md:text-7xl font-bold leading-tight text-white">
-              Strategic <span class="text-green">Digital Ads</span> That Convert
+        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+          <!-- Left: Text Content -->
+          <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
+              Strategic <span class="highlight">Digital Advertising</span> & Media Buying
             </h1>
-            <p class="text-xl md:text-2xl text-gray mb-8 max-w-xl">
-              Data-driven digital advertising campaigns that deliver measurable ROI.
+            <p class="text-lg md:text-xl text-gray-700 animate-fade-in-delay">
+              Maximize your ROI with data-driven media buying and precision-targeted advertising campaigns.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Advertising</a>
-              <a href="#services" class="btn-secondary text-lg px-8 py-4">Explore Services</a>
+            <div class="flex justify-center md:justify-start gap-4 animate-fade-in-delay-2">
+              <a href="#contact" class="btn-primary">Get a Callback</a>
             </div>
           </div>
-          
-          <!-- Right: Visual -->
-          <div class="w-full md:w-1/2 relative">
-            <div class="relative w-full aspect-square">
-              <div class="absolute inset-0 bg-gradient-to-br from-[#B9FF66]/20 to-[#66FFB9]/20 rounded-full blur-3xl animate-pulse"></div>
-              <img 
-                src="/dm.png" 
-                alt="Digital Advertising Visualization" 
-                class="relative z-10 w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <!-- Right: Image -->
+          <div class="w-full md:w-1/2 flex justify-center">
+            <img 
+              src="/bc.png" 
+              alt="Brand Communications Illustration" 
+              class="w-[90%] md:w-full h-auto object-contain"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-white relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-gray/50 to-white pointer-events-none"></div>
-      <div class="container mx-auto px-4 relative">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Advertising Services</h2>
-          <p class="text-xl text-gray">Strategic solutions for your digital advertising needs</p>
+    <!-- Introduction Section -->
+    <Section>
+      <div class="container mx-auto px-4">
+        <SectionTitle sectionTitle="Your Story, Amplified" />
+        <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
+          <div class="md:w-1/2">
+            <p class="text-xl text-left max-w-xl">
+              In today's complex digital landscape, effective media buying is both an art and a science. We combine advanced analytics with strategic planning to ensure your advertising budget delivers maximum impact. From programmatic advertising to social media campaigns, we optimize every dollar spent for peak performance.
+            </p>
+          </div>
+          <div class="md:w-1/2 flex justify-center absolute right-0 -top-40"> <!-- Changed positioning -->
+            <img 
+              src="/lips.png" 
+              alt="Brand Communication Illustration" 
+              class="w-[270px] h-[310px] object-cover z-10"
+            />
+          </div>
         </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          {adServices.map((service) => (
-            <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray">
-              <!-- Gradient background -->
-              <div class={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-              
-              <!-- Content -->
-              <div class="relative z-10">
-                <div class="flex items-start gap-6">
-                  <div class="text-4xl w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray to-white group-hover:scale-110 transition-transform duration-500">
-                    {service.icon}
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="text-2xl font-bold mb-4 text-black">{service.title}</h3>
-                    <p class="text-gray mb-6 text-lg">{service.description}</p>
-                    
-                    <div class="space-y-3">
-                      {service.features.map(feature => (
-                        <div class="flex items-center gap-3">
-                          <span class="w-2 h-2 rounded-full bg-green"></span>
-                          <span class="text-dark">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+      </div>
+    </Section>
+    <div class="relative z-0"> <!-- Changed from -mt-20 to relative and z-0 -->
+    <adsservices/>
+    </div>
+
+    <!-- Replace the "Not sure where to start" CTA with this Proposal Section -->
+    <Section>
+      <Card>
+        <div class="flex flex-col md:flex-row bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]">
+          <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
+            <h2 class="text-3xl font-medium">Ready to maximize your ad spend?</h2>
+            <p>
+              Let's discuss how our strategic media buying approach can help you achieve better ROAS and business growth.
+            </p>
+            <button class="btn-primary">Get your free proposal</button>
+          </div>
+          <picture class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center">
+            <Image
+              src={propImg}
+              alt="This is an illustration"
+              class="hidden md:flex lg:h-full lg:w-auto"
+            />
+          </picture>
+        </div>
+      </Card>
+    </Section>
+
+
+    <!-- Why Choose Tagorithm? (Value Proposition) -->
+    <Section>
+      <SectionTitle
+        sectionTitle="Why Choose Us"
+        description="Expertise in Digital Advertising & Media Buying"
+      />
+      <div class="container mx-auto px-4">
+        <!-- Update the Value Props cards -->
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          {valueProps.map(prop => (
+            <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-[#B9FF66] transition-all duration-300 hover:shadow-lg bg-white group">
+              <div class="text-5xl mb-6 transform transition-transform group-hover:scale-110 duration-300">{prop.icon}</div>
+              <h3 class="text-xl font-bold mb-3">{prop.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{prop.description}</p>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </Section>
 
-    <!-- Tech Stack Section -->
-    <section class="py-24 bg-gray/50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Our Ad Tools</h2>
-          <p class="text-xl text-gray">Industry-leading tools for maximum impact</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {adStack.map(category => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="flex items-center gap-4 mb-6">
-                <span class="text-4xl">{category.icon}</span>
-                <h3 class="text-2xl font-bold text-black">{category.category}</h3>
-              </div>
-
-              <div class="space-y-6">
-                {category.techs.map(tech => (
-                  <div>
-                    <div class="flex justify-between mb-2">
-                      <span class="font-medium text-dark">{tech.name}</span>
-                      <span class="text-gray">{tech.level}%</span>
-                    </div>
-                    <div class="h-2 bg-gray/10 rounded-full overflow-hidden">
-                      <div 
-                        class="h-full bg-gradient-to-r from-green to-[#66FFB9] rounded-full transition-all duration-500"
-                        style={`width: ${tech.level}%`}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+    <!-- Call-to-Action (Final Push) / Contact Form -->
+    <Section id="contact">
+      <div class="mb-[140px] relative">
+        <SectionTitle
+          sectionTitle="Contact Us"
+          description="Connect with Us: Let's Discuss Your Digital Marketing Needs"
+        />
+        <Form />
       </div>
-    </section>
+    </Section>
 
-    <!-- CTA Section -->
-    <section class="py-24 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0">
-        <div class="absolute top-0 left-0 w-full h-full bg-[url('/src/assets/bars.svg')] bg-repeat opacity-[0.03]"></div>
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Scale Your Advertising?</h2>
-          <p class="text-xl text-gray mb-12">Let's create campaigns that deliver real results</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Your Campaign</a>
-            <a href="#services" class="btn-secondary text-lg px-8 py-4">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-24">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <SectionTitle
-            sectionTitle="Get Started"
-            description="Tell us about your advertising goals and let's begin scaling"
-          />
-          <Form />
-        </div>
-      </div>
-    </section>
   </main>
 </MainLayout>
+
+<style>
+  /* Gradient and animation styles */
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+  .animate-fade-in-delay {
+    animation: fade-in 1s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  .animate-fade-in-delay-2 {
+    animation: fade-in 1s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Highlight style */
+  .highlight {
+    background-color: white;
+    color: #B9FF66; /* Green text color */
+    padding: 0 0.02em;
+    border-radius: 0.4em;
+    text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+    -webkit-text-stroke: 0.5px black; /* For better browser compatibility */
+  }
+
+  /* Hero image container style */
+  .hero-image-container {
+    width: 100%;
+  }
+
+  /* Hero image style */
+  .hero-image {
+    width: 120%; /* Increase size by 20% */
+    height: auto;
+  }
+
+  /* Loading skeleton styles */
+  .image-skeleton {
+    background-color: #E5E7EB; /* Instead of @apply bg-gray-200 */
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
+
+  .content-text {
+    color: rgb(75, 85, 99); /* Instead of @apply text-gray-600 */
+    line-height: 1.75; /* Instead of @apply leading-relaxed */
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+  }
+
 
 <style>
   .btn-primary {
