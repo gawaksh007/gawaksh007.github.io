@@ -2,133 +2,129 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Section from "../components/sections/Section.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
-import Form from "../com    <!-- CTA Section -->
-    <section class="py-24 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0">
-        <img 
-          src="/src/assets/bars.svg" 
-          alt="Background Pattern"
-          class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03]"
-        />
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10">/ui/Form.astro";
+import Form from "../components/ui/Form.astro";
 import { Image } from "astro:assets";
 import Card from "../components/ui/Card.astro";
+import BrandServices from "../components/sections/BrandServices.astro";
+import propImg from "../../src/assets/pics/proposal-pic.png";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-// Social Media Services
-const socialServices = [
+// Case Studies Data
+const caseStudies = [
   {
-    title: "Strategy Development",
-    description: "Data-driven social media strategies aligned with your goals",
-    features: ["Platform Selection", "Content Calendar", "Growth Strategy"],
-    icon: "🎯",
-    gradient: "from-[#4ECDC4] to-[#556270]"
+    client: "Tech Innovation Corp",
+    challenge: "Struggling to differentiate in a crowded market",
+    solution: "Developed a unique brand voice and content strategy",
+    results: [
+      "150% increase in brand awareness",
+      "45% improvement in engagement",
+      "2x increase in qualified leads"
+    ],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    logo: "/path-to-logo.png"
   },
   {
-    title: "Content Creation",
-    description: "Engaging content that resonates with your audience",
-    features: ["Visual Design", "Copywriting", "Video Content"],
-    icon: "✍️",
-    gradient: "from-[#FF6B6B] to-[#FFE66D]"
+    client: "EcoStyle Fashion",
+    challenge: "Needed to establish sustainable brand identity",
+    solution: "Created compelling sustainability narrative and visual identity",
+    results: [
+      "200% growth in social following",
+      "35% increase in customer loyalty",
+      "3x increase in brand mentions"
+    ],
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+    logo: "/path-to-logo.png"
   },
   {
-    title: "Community Management",
-    description: "Active engagement and community building",
-    features: ["Response Management", "Audience Growth", "Brand Voice"],
-    icon: "💬",
-    gradient: "from-[#A8E6CF] to-[#3EECAC]"
+    client: "HealthTech Solutions",
+    challenge: "Complex product messaging needed simplification",
+    solution: "Developed clear, engaging communication strategy",
+    results: [
+      "80% improvement in message clarity",
+      "60% increase in lead quality",
+      "40% reduction in sales cycle"
+    ],
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
+    logo: "/path-to-logo.png"
   },
   {
-    title: "Analytics & Reporting",
-    description: "Comprehensive tracking and optimization of social performance",
-    features: ["Performance Metrics", "ROI Tracking", "Insights Reports"],
-    icon: "📊",
-    gradient: "from-[#FFD93D] to-[#FF6B6B]"
+    client: "Global Finance Group",
+    challenge: "Traditional brand needed digital transformation",
+    solution: "Modernized brand voice while maintaining trust",
+    results: [
+      "90% increase in digital engagement",
+      "50% growth in younger demographic",
+      "4x increase in social sharing"
+    ],
+    image: "https://images.unsplash.com/photo-1554774853-719586f82d77",
+    logo: "/path-to-logo.png"
+  },
+  {
+    client: "FoodieHub",
+    challenge: "Needed to stand out in competitive delivery market",
+    solution: "Created distinctive brand personality and campaign",
+    results: [
+      "175% increase in app downloads",
+      "55% boost in customer retention",
+      "3x growth in market share"
+    ],
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    logo: "/path-to-logo.png"
   }
 ];
 
-// Social Media Tools Stack
-const socialStack = [
+// Value Props
+const valueProps = [
   {
-    category: "Content Tools",
-    icon: "🎨",
-    techs: [
-      { name: "Adobe Creative Suite", level: 92 },
-      { name: "Canva Pro", level: 95 },
-      { name: "Later", level: 88 },
-      { name: "Planoly", level: 90 }
-    ]
+    title: "Data-Driven Approach",
+    description: "We analyze audience insights to craft messaging that works.",
+    icon: "📊"
   },
   {
-    category: "Management Tools",
-    icon: "🔄",
-    techs: [
-      { name: "Hootsuite", level: 95 },
-      { name: "Buffer", level: 90 },
-      { name: "Sprout Social", level: 92 },
-      { name: "Meta Business", level: 88 }
-    ]
+    title: "Multi-Channel Strategy",
+    description: "From social media to PR, we cover all touchpoints.",
+    icon: "🎯"
   },
   {
-    category: "Analytics Tools",
-    icon: "📈",
-    techs: [
-      { name: "Social Blade", level: 90 },
-      { name: "Brandwatch", level: 88 },
-      { name: "Keyhole", level: 85 },
-      { name: "Audiense", level: 92 }
-    ]
+    title: "Proven Success",
+    description: "Our track record speaks for itself with impactful brand stories.",
+    icon: "🏆"
   }
 ];
-
 ---
-<MainLayout title="Social Media & Community Management - Tagorithm">
-  <main class="overflow-hidden">
-    <!-- Hero Section -->
-    <section class="relative min-h-[92vh] flex items-center bg-dark">
-      <!-- Background elements -->
-      <div class="absolute inset-0 overflow-hidden">
-        <img 
-          src="/src/assets/bars.svg" 
-          alt="Background Pattern"
-          class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03]"
-        />
-        
-        <!-- Animated gradient orbs -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-r from-green/30 to-[#66FFB9]/30 rounded-full blur-[128px] animate-float"></div>
-          <div class="absolute -bottom-20 -right-20 w-[600px] h-[600px] bg-gradient-to-l from-[#66FFB9]/20 to-green/20 rounded-full blur-[128px] animate-float-delayed"></div>
-        </div>
-      </div>
+<MainLayout title="Brand Communications - Tagorithm">
+  <main class="space-y-16 md:space-y-24"> <!-- Increased spacing on desktop -->
 
-      <!-- Content -->
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+      <!-- Add subtle animated shapes in background -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#B9FF66]/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 bg-[#66FFB9]/20 rounded-full blur-3xl"></div>
+      </div>
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <!-- Left: Text Content -->
           <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
-              Elevate Your Brand with <span class="highlight">Powerful Communications</span>
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
+              <span class="highlight">Social Media</span> &amp; Community Management
             </h1>
             <p class="text-lg md:text-xl text-gray-700 animate-fade-in-delay">
-              We craft strategic, data-driven narratives that make brands unforgettable.
+              Cultivate loyal audiences with impactful social strategies.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Growing</a>
-              <a href="#services" class="btn-secondary text-lg px-8 py-4">Explore Services</a>
+            <div class="flex justify-center md:justify-start gap-4 animate-fade-in-delay-2">
+              <a href="#contact" class="btn-primary">Get a Callback</a>
             </div>
           </div>
-          
-          <!-- Right: Visual -->
-          <div class="w-full md:w-1/2 relative">
-            <div class="relative w-full aspect-square">
-              <div class="absolute inset-0 bg-gradient-to-br from-[#B9FF66]/20 to-[#66FFB9]/20 rounded-full blur-3xl animate-pulse"></div>
-              <img 
-                src="/smm.png" 
-                alt="Social Media Management Visualization" 
-                class="relative z-10 w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <!-- Right: Image -->
+          <div class="w-full md:w-1/2 flex justify-center">
+            <img 
+              src="/bc.png" 
+              alt="Brand Communications Illustration" 
+              class="w-[90%] md:w-full h-auto object-contain"
+            />
           </div>
         </div>
       </div>
@@ -141,7 +137,7 @@ const socialStack = [
         <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
           <div class="md:w-1/2">
             <p class="text-xl text-left max-w-xl">
-              Brand communication isn't just about what you say—it's about how you say it. At Tagorithm, we craft compelling narratives that resonate with audiences, build trust, and drive business success. From digital storytelling to strategic PR, we ensure your brand speaks with clarity, confidence, and impact.
+              Building vibrant communities requires consistent engagement. We handle everything from content creation to social listening, ensuring your brand stays relevant and responsive. Our approach fosters meaningful interactions that transform followers into brand advocates.
             </p>
           </div>
           <div class="md:w-1/2 flex justify-center absolute right-0 -top-40"> <!-- Changed positioning -->
@@ -178,136 +174,333 @@ const socialStack = [
             />
           </picture>
         </div>
+      </Card>
+    </Section>
+
+    <!-- Update the Case Studies Section -->
+    <Section class="bg-gray-50 py-20">
+      <div class="container mx-auto px-4">
+        <SectionTitle
+          sectionTitle="Our Impact in Action"
+          description="Real Results from Real Partnerships"
+        />
         
-        <div class="grid md:grid-cols-2 gap-8">
-          {socialServices.map((service) => (
-            <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray">
-              <!-- Gradient background -->
-              <div class={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-              
-              <!-- Content -->
-              <div class="relative z-10">
-                <div class="flex items-start gap-6">
-                  <div class="text-4xl w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray to-white group-hover:scale-110 transition-transform duration-500">
-                    {service.icon}
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="text-2xl font-bold mb-4 text-black">{service.title}</h3>
-                    <p class="text-gray mb-6 text-lg">{service.description}</p>
-                    
-                    <div class="space-y-3">
-                      {service.features.map(feature => (
-                        <div class="flex items-center gap-3">
-                          <span class="w-2 h-2 rounded-full bg-green"></span>
-                          <span class="text-dark">{feature}</span>
+        <div class="relative max-w-[1400px] mx-auto mt-16">
+          <!-- Carousel Container -->
+          <div class="swiper case-studies-swiper px-12">
+            <div class="swiper-wrapper">
+              {caseStudies.map(study => (
+                <div class="swiper-slide">
+                  <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group h-[700px]"> <!-- Added fixed height -->
+                    <!-- Image Section with overlay -->
+                    <div class="relative h-[220px] overflow-hidden">
+                      <img 
+                        src={study.image} 
+                        alt={study.client} 
+                        class="w-full h-full object-cover transform transition-all group-hover:scale-105 group-hover:grayscale-0 duration-500 opacity-90 grayscale"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60"></div>
+                      <!-- Title section with consistent height -->
+                      <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <div class="h-[60px] flex flex-col justify-end"> <!-- Fixed height container for title -->
+                          <h3 class="text-xl font-bold text-black mb-1 bg-[#B9FF66] inline-block px-3 py-1 rounded-lg">
+                            {study.client}
+                          </h3>
+                         <!-- <p class="text-gray-200 text-sm">{study.industry}</p>-->
                         </div>
-                      ))}
+                      </div>
+                    </div>
+                    
+                    <!-- Content Section with fixed heights -->
+                    <div class="p-6 space-y-4 h-[480px] flex flex-col"> <!-- Reduced space-y-6 to space-y-4 -->
+                      <div class="space-y-3 flex-1"> <!-- Reduced space-y-4 to space-y-3 -->
+                        <!-- Challenge Section -->
+                        <div class="h-[100px]"> <!-- Reduced height from 120px to 100px -->
+                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
+                            <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
+                            Challenge
+                          </h4>
+                          <p class="text-gray-600 text-sm line-clamp-3">{study.challenge}</p>
+                        </div>
+                        
+                        <!-- Solution Section -->
+                        <div class="h-[100px]"> <!-- Reduced height from 120px to 100px -->
+                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
+                            <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
+                            Solution
+                          </h4>
+                          <p class="text-gray-600 text-sm line-clamp-3">{study.solution}</p>
+                        </div>
+                      </div>
+                      
+                      <!-- Results Section -->
+                      <div class="bg-gray-50 rounded-xl p-3 mt-2"> <!-- Reduced p-4 to p-3 and added mt-2 -->
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg"> <!-- Reduced mb-3 to mb-2 -->
+                          <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
+                          Results
+                        </h4>
+                        <div class="grid grid-cols-1 gap-2"> <!-- Reduced gap-3 to gap-2 -->
+                          {study.results.map(result => (
+                            <div class="flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-100"> <!-- Reduced p-3 to p-2 and gap-3 to gap-2 -->
+                              <span class="text-[#B9FF66] text-xl">↗</span>
+                              <span class="text-gray-800 text-sm font-medium">{result}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section class="py-24 bg-gray/50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Our Social Tools</h2>
-          <p class="text-xl text-gray">Industry-leading tools for maximum impact</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {socialStack.map(category => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="flex items-center gap-4 mb-6">
-                <span class="text-4xl">{category.icon}</span>
-                <h3 class="text-2xl font-bold text-black">{category.category}</h3>
-              </div>
-
-              <div class="space-y-6">
-                {category.techs.map(tech => (
-                  <div>
-                    <div class="flex justify-between mb-2">
-                      <span class="font-medium text-dark">{tech.name}</span>
-                      <span class="text-gray">{tech.level}%</span>
-                    </div>
-                    <div class="h-2 bg-gray/10 rounded-full overflow-hidden">
-                      <div 
-                        class="h-full bg-gradient-to-r from-green to-[#66FFB9] rounded-full transition-all duration-500"
-                        style={`width: ${tech.level}%`}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-24 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0">
-        <div class="absolute top-0 left-0 w-full h-full bg-[url('/src/assets/bars.svg')] bg-repeat opacity-[0.03]"></div>
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Amplify Your Social Presence?</h2>
-          <p class="text-xl text-gray mb-12">Let's create engaging content that builds your community</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Your Campaign</a>
-            <a href="#services" class="btn-secondary text-lg px-8 py-4">Learn More</a>
+            
+            <!-- Navigation Elements -->
+            <div class="swiper-button-prev !text-[#B9FF66] !left-0"></div>
+            <div class="swiper-button-next !text-[#B9FF66] !right-0"></div>
           </div>
+          
+          <!-- Pagination -->
+          <div class="swiper-pagination !relative !bottom-0 mt-10"></div>
         </div>
       </div>
-    </section>
+    </Section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-24">
+    <!-- Why Choose Tagorithm? (Value Proposition) -->
+    <Section>
+      <SectionTitle
+        sectionTitle="Why Brands Trust Us"
+        description="Proven Expertise in Brand Communications"
+      />
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <SectionTitle
-            sectionTitle="Get Started"
-            description="Tell us about your social media goals and let's begin growing"
-          />
-          <Form />
+        <!-- Update the Value Props cards -->
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          {valueProps.map(prop => (
+            <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-[#B9FF66] transition-all duration-300 hover:shadow-lg bg-white group">
+              <div class="text-5xl mb-6 transform transition-transform group-hover:scale-110 duration-300">{prop.icon}</div>
+              <h3 class="text-xl font-bold mb-3">{prop.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{prop.description}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </Section>
+
+    <!-- Call-to-Action (Final Push) / Contact Form -->
+    <Section id="contact">
+      <div class="mb-[140px] relative">
+        <SectionTitle
+          sectionTitle="Contact Us"
+          description="Connect with Us: Let's Discuss Your Digital Marketing Needs"
+        />
+        <Form />
+      </div>
+    </Section>
+
   </main>
 </MainLayout>
 
 <style>
-  .btn-primary {
-    @apply inline-flex items-center justify-center bg-green text-dark font-semibold rounded-full hover:bg-[#66FFB9] transition-all duration-300;
+  /* Gradient and animation styles */
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+  .animate-fade-in-delay {
+    animation: fade-in 1s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  .animate-fade-in-delay-2 {
+    animation: fade-in 1s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300 backdrop-blur-sm;
+  /* Highlight style */
+  .highlight {
+    background-color: white;
+    color: #B9FF66; /* Green text color */
+    padding: 0 0.02em;
+    border-radius: 0.4em;
+    text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+    -webkit-text-stroke: 0.5px black; /* For better browser compatibility */
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+  /* Hero image container style */
+  .hero-image-container {
+    width: 100%;
   }
 
-  @keyframes float-delayed {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+  /* Hero image style */
+  .hero-image {
+    width: 120%; /* Increase size by 20% */
+    height: auto;
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  /* Loading skeleton styles */
+  .image-skeleton {
+    background-color: #E5E7EB; /* Instead of @apply bg-gray-200 */
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  .animate-float-delayed {
-    animation: float 6s ease-in-out infinite;
-    animation-delay: 3s;
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
+
+  .content-text {
+    color: rgb(75, 85, 99); /* Instead of @apply text-gray-600 */
+    line-height: 1.75; /* Instead of @apply leading-relaxed */
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+  }
+
+  /* Swiper navigation improvements */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: #B9FF66;
+    color: white !important;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Pagination improvements */
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #B9FF66;
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* Fade in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    height: auto;
+    display: flex;
+  }
+
+  .swiper-slide > div {
+    height: 100%;
+    width: 100%;
   }
 </style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+  new Swiper('.case-studies-swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 1.5,
+        spaceBetween: 24,
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      }
+    },
+  });
+
+  // Using Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fadeInUp');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
