@@ -13,12 +13,12 @@ const currentFilter = Astro.url.searchParams.get('service') || 'All';
 const allServices = ['All', ...new Set(caseStudies.flatMap(study => study.services))].sort();
 
 // Count cases per service
-const serviceCounts = allServices.reduce((acc, service) => {
-  acc[service] = service === 'All' 
-    ? caseStudies.length 
+const serviceCounts = allServices.reduce((acc: Record<string, number>, service) => {
+  acc[service] = service === 'All'
+    ? caseStudies.length
     : caseStudies.filter(study => study.services.includes(service)).length;
   return acc;
-}, {});
+}, {} as Record<string, number>);
 ---
 
 <MainLayout title="Case Studies - Tagorithm">
@@ -101,7 +101,7 @@ const serviceCounts = allServices.reduce((acc, service) => {
       <!-- Case Studies Grid -->
       <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12" id="case-grid">
         {caseStudies.map(study => (
-          <CaseStudyCard study={study} key={study.slug} />
+          <CaseStudyCard study={study} />
         ))}
       </div>
     </div>
@@ -121,9 +121,13 @@ const serviceCounts = allServices.reduce((acc, service) => {
         console.error("Case grid element not found. Please check the element with id 'case-grid'.");
       }
 
-      function applyFilter(filter) {
+      /**
+       * Apply a service filter to the case studies grid
+       * @param {string} filter
+       */
+      function applyFilter(filter: string) {
         // Update the URL without reloading
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
         if (filter === 'All') {
           url.searchParams.delete('service');
         } else {
@@ -132,7 +136,8 @@ const serviceCounts = allServices.reduce((acc, service) => {
         window.history.pushState({}, '', url);
 
         // Filter cards based on each card's data-services attribute
-        const cards = Array.from(caseGrid.children);
+        if (!caseGrid) return;
+        const cards = Array.from(caseGrid.children) as HTMLElement[];
         let visibleCount = 0;
         cards.forEach(card => {
           // Query for the nested element that has the data-services attribute
@@ -141,10 +146,10 @@ const serviceCounts = allServices.reduce((acc, service) => {
                             .map(s => s.trim())
                             .filter(Boolean);
           if (filter === 'All' || services.includes(filter)) {
-            card.style.display = '';
+            (card as HTMLElement).style.display = '';
             visibleCount++;
           } else {
-            card.style.display = 'none';
+            (card as HTMLElement).style.display = 'none';
           }
         });
         
@@ -169,13 +174,13 @@ const serviceCounts = allServices.reduce((acc, service) => {
       // Attach event listeners to filter buttons
       filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-          const filter = button.getAttribute('data-service');
+          const filter = button.getAttribute('data-service') || 'All';
           applyFilter(filter);
         });
       });
 
       // Apply initial filter based on URL
-      const initialFilter = new URL(window.location).searchParams.get('service') || 'All';
+      const initialFilter = new URL(window.location.href).searchParams.get('service') || 'All';
       applyFilter(initialFilter);
     });
   </script>
