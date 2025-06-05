@@ -5,75 +5,9 @@ import SectionTitle from "../components/ui/SectionTitle.astro";
 import Form from "../components/ui/Form.astro";
 import { Image } from "astro:assets";
 import Card from "../components/ui/Card.astro";
-import BrandServices from "../components/sections/BrandServices.astro";
+import SEOServices from "../components/sections/SEOServices.astro";
 import propImg from "../../src/assets/pics/proposal-pic.png";
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
-// Case Studies Data
-const caseStudies = [
-  {
-    client: "Tech Innovation Corp",
-    challenge: "Struggling to differentiate in a crowded market",
-    solution: "Developed a unique brand voice and content strategy",
-    results: [
-      "150% increase in brand awareness",
-      "45% improvement in engagement",
-      "2x increase in qualified leads"
-    ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-    logo: "/path-to-logo.png"
-  },
-  {
-    client: "EcoStyle Fashion",
-    challenge: "Needed to establish sustainable brand identity",
-    solution: "Created compelling sustainability narrative and visual identity",
-    results: [
-      "200% growth in social following",
-      "35% increase in customer loyalty",
-      "3x increase in brand mentions"
-    ],
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
-    logo: "/path-to-logo.png"
-  },
-  {
-    client: "HealthTech Solutions",
-    challenge: "Complex product messaging needed simplification",
-    solution: "Developed clear, engaging communication strategy",
-    results: [
-      "80% improvement in message clarity",
-      "60% increase in lead quality",
-      "40% reduction in sales cycle"
-    ],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
-    logo: "/path-to-logo.png"
-  },
-  {
-    client: "Global Finance Group",
-    challenge: "Traditional brand needed digital transformation",
-    solution: "Modernized brand voice while maintaining trust",
-    results: [
-      "90% increase in digital engagement",
-      "50% growth in younger demographic",
-      "4x increase in social sharing"
-    ],
-    image: "https://images.unsplash.com/photo-1554774853-719586f82d77",
-    logo: "/path-to-logo.png"
-  },
-  {
-    client: "FoodieHub",
-    challenge: "Needed to stand out in competitive delivery market",
-    solution: "Created distinctive brand personality and campaign",
-    results: [
-      "175% increase in app downloads",
-      "55% boost in customer retention",
-      "3x growth in market share"
-    ],
-    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
-    logo: "/path-to-logo.png"
-  }
-];
 
 // Value Props
 const valueProps = [
@@ -151,7 +85,7 @@ const valueProps = [
       </div>
     </Section>
     <div class="relative z-0"> <!-- Changed from -mt-20 to relative and z-0 -->
-    <BrandServices/>
+    <SEOServices/>
     </div>
 
     <!-- Replace the "Not sure where to start" CTA with this Proposal Section -->
@@ -177,93 +111,6 @@ const valueProps = [
       </Card>
     </Section>
 
-    <!-- Update the Case Studies Section -->
-    <Section class="bg-gray-50 py-20">
-      <div class="container mx-auto px-4">
-        <SectionTitle
-          sectionTitle="Our Impact in Action"
-          description="Real Results from Real Partnerships"
-        />
-        
-        <div class="relative max-w-[1400px] mx-auto mt-16">
-          <!-- Carousel Container -->
-          <div class="swiper case-studies-swiper px-12">
-            <div class="swiper-wrapper">
-              {caseStudies.map(study => (
-                <div class="swiper-slide">
-                  <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group h-[700px]"> <!-- Added fixed height -->
-                    <!-- Image Section with overlay -->
-                    <div class="relative h-[220px] overflow-hidden">
-                      <img 
-                        src={study.image} 
-                        alt={study.client} 
-                        class="w-full h-full object-cover transform transition-all group-hover:scale-105 group-hover:grayscale-0 duration-500 opacity-90 grayscale"
-                      />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60"></div>
-                      <!-- Title section with consistent height -->
-                      <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <div class="h-[60px] flex flex-col justify-end"> <!-- Fixed height container for title -->
-                          <h3 class="text-xl font-bold text-black mb-1 bg-[#B9FF66] inline-block px-3 py-1 rounded-lg">
-                            {study.client}
-                          </h3>
-                         <!-- <p class="text-gray-200 text-sm">{study.industry}</p>-->
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Content Section with fixed heights -->
-                    <div class="p-6 space-y-4 h-[480px] flex flex-col"> <!-- Reduced space-y-6 to space-y-4 -->
-                      <div class="space-y-3 flex-1"> <!-- Reduced space-y-4 to space-y-3 -->
-                        <!-- Challenge Section -->
-                        <div class="h-[100px]"> <!-- Reduced height from 120px to 100px -->
-                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
-                            <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
-                            Challenge
-                          </h4>
-                          <p class="text-gray-600 text-sm line-clamp-3">{study.challenge}</p>
-                        </div>
-                        
-                        <!-- Solution Section -->
-                        <div class="h-[100px]"> <!-- Reduced height from 120px to 100px -->
-                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
-                            <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
-                            Solution
-                          </h4>
-                          <p class="text-gray-600 text-sm line-clamp-3">{study.solution}</p>
-                        </div>
-                      </div>
-                      
-                      <!-- Results Section -->
-                      <div class="bg-gray-50 rounded-xl p-3 mt-2"> <!-- Reduced p-4 to p-3 and added mt-2 -->
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg"> <!-- Reduced mb-3 to mb-2 -->
-                          <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
-                          Results
-                        </h4>
-                        <div class="grid grid-cols-1 gap-2"> <!-- Reduced gap-3 to gap-2 -->
-                          {study.results.map(result => (
-                            <div class="flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-100"> <!-- Reduced p-3 to p-2 and gap-3 to gap-2 -->
-                              <span class="text-[#B9FF66] text-xl">↗</span>
-                              <span class="text-gray-800 text-sm font-medium">{result}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <!-- Navigation Elements -->
-            <div class="swiper-button-prev !text-[#B9FF66] !left-0"></div>
-            <div class="swiper-button-next !text-[#B9FF66] !right-0"></div>
-          </div>
-          
-          <!-- Pagination -->
-          <div class="swiper-pagination !relative !bottom-0 mt-10"></div>
-        </div>
-      </div>
-    </Section>
 
     <!-- Why Choose Tagorithm? (Value Proposition) -->
     <Section>
@@ -377,130 +224,33 @@ const valueProps = [
     font-size: clamp(1rem, 1.5vw, 1.125rem);
   }
 
-  /* Swiper navigation improvements */
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 40px;
-    height: 40px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+
+</style>
+<style>
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-green text-dark font-semibold rounded-full hover:bg-[#66FFB9] transition-all duration-300;
   }
 
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    background: #B9FF66;
-    color: white !important;
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300 backdrop-blur-sm;
   }
 
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 18px;
-    font-weight: bold;
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
   }
 
-  /* Pagination improvements */
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    transition: all 0.3s ease;
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
   }
 
-  .swiper-pagination-bullet-active {
-    background: #B9FF66;
-    width: 24px;
-    border-radius: 4px;
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
 
-  /* Fade in animation */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .swiper-slide {
-    height: auto;
-    display: flex;
-  }
-
-  .swiper-slide > div {
-    height: 100%;
-    width: 100%;
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 3s;
   }
 </style>
-
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-  new Swiper('.case-studies-swiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 1.5,
-        spaceBetween: 24,
-      },
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 24,
-      },
-      1280: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      }
-    },
-  });
-
-  // Using Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fadeInUp');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-</script>
