@@ -1,0 +1,38 @@
+---
+import MainLayout from "./MainLayout.astro";
+import { formatDate } from "../utils";
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout title={frontmatter.title}>
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Header with title, author, etc. -->
+    <header class="mb-12">
+      <!-- For example, display author and date -->
+      <div class="flex items-center gap-4 mb-6 text-gray-600">
+        <img src={frontmatter.authImage} alt={frontmatter.author} class="w-10 h-10 rounded-full" />
+        <span>{frontmatter.author}</span>
+        <time datetime={frontmatter.pubDate}>
+          {formatDate(frontmatter.pubDate)}
+        </time>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        {frontmatter.title}
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        {frontmatter.summary}
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {frontmatter.tags.map(tag => (
+          <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
+    <!-- Render markdown content from the .md file -->
+    <div class="prose prose-lg max-w-none">
+      <slot />
+    </div>
+  </article>
+</MainLayout>

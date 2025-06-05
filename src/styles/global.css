@@ -29,11 +29,11 @@
   }
 
   :root {
-    --green: #b9ff66;
-    --black: rgb(0, 0, 0);
-    --dark: #191a23;
-    --gray: #f3f3f3;
-    --white: #ffffff;
+    --green: 185, 255, 102;  /* #b9ff66 */
+    --black: 0, 0, 0;        /* #000000 */
+    --dark: 25, 26, 35;      /* #191a23 */
+    --gray: 243, 243, 243;   /* #f3f3f3 */
+    --white: 255, 255, 255;  /* #ffffff */
   }
 
   /* @layer base {

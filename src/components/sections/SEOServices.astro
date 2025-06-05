@@ -1,0 +1,104 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import ServiceCardWithDescription from "../ui/ServiceCardWithDescription.astro";
+import Section from "./Section.astro";
+
+import c1 from "../../assets/pics/bc1.png";
+import c2 from "../../assets/pics/bc2.png";
+import c3 from "../../assets/pics/bc3.png";
+import c4 from "../../assets/pics/bc4.png";
+import c5 from "../../assets/pics/bc5.png";
+import c6 from "../../assets/pics/bc6.png";
+import c7 from "../../assets/pics/bc7.png";
+import c8 from "../../assets/pics/bc8.png";
+
+const cards = [
+  {
+    index: 1,
+    titleTop: "Keyword Research",
+    titleBottom: "& Strategy",
+    img: c1,
+    alt: "Keyword Research and Strategy",
+    description: "We identify the exact phrases your target customers are searching for—then build your SEO strategy around them.",
+  },
+  {
+    index: 2,
+    titleTop: "On-Page",
+    titleBottom: "Optimization",
+    img: c2,
+    alt: "On-Page Optimization",
+    description: "From meta tags to headline hierarchies, we fine-tune your website content to talk to both humans and search engines.",
+  },
+  {
+    index: 3,
+    titleTop: "Technical",
+    titleBottom: "SEO",
+    img: c3,
+    alt: "Technical SEO",
+    description: "We fix crawl errors, enhance speed, improve mobile usability, and ensure your site is technically sound and search-ready.",
+  },
+  {
+    index: 1,
+    titleTop: "Local",
+    titleBottom: "SEO",
+    img: c4,
+    alt: "Local SEO",
+    description: "For location-based businesses, we optimize your Google Business Profile and local listings to attract nearby customers.",
+  },
+  {
+    index: 2,
+    titleTop: "Content",
+    titleBottom: "Optimization",
+    img: c7,
+    alt: "Content Optimization",
+    description: "Create and optimize content that ranks well and converts visitors into customers.",
+  },
+  {
+    index: 3,
+    titleTop: "Link Building",
+    titleBottom: "& Authority",
+    img: c8,
+    alt: "Link Building and Authority",
+    description: "Build your site's authority through strategic backlink acquisition and digital PR.",
+  },
+  {
+    index: 1,
+    titleTop: "Analytics &",
+    titleBottom: "Reporting",
+    img: c5,
+    alt: "Analytics and Reporting",
+    description: "Track your SEO performance with detailed analytics and actionable insights for continuous improvement.",
+  },
+  {
+    index: 2,
+    titleTop: "E-commerce",
+    titleBottom: "SEO",
+    img: c6,
+    alt: "E-commerce SEO",
+    description: "Optimize your online store for better visibility and increased sales through search engines.",
+  },
+];
+
+const description =
+  "Our comprehensive SEO services help your business climb search rankings and attract qualified traffic. We offer:";
+---
+
+<Section id="services">
+  <div class="mt-[140px] mb-5">
+    <SectionTitle sectionTitle="SEO Services" description={description} />
+    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
+      {
+        cards.map((card) => (
+          <ServiceCardWithDescription
+            index={card.index}
+            titleTop={card.titleTop}
+            titleBottom={card.titleBottom}
+            img={card.img}
+            alt={card.alt}
+            description={card.description}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Section>
