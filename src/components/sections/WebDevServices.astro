@@ -1,0 +1,86 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import ServiceCardWithDescription from "../ui/ServiceCardWithDescription.astro";
+import Section from "./Section.astro";
+
+import c1 from "../../assets/pics/bc1.png";
+import c2 from "../../assets/pics/bc2.png";
+import c3 from "../../assets/pics/bc3.png";
+import c4 from "../../assets/pics/bc4.png";
+import c5 from "../../assets/pics/bc5.png";
+import c6 from "../../assets/pics/bc6.png";
+
+const cards = [
+  {
+    index: 1,
+    titleTop: "Responsive",
+    titleBottom: "Websites",
+    img: c1,
+    alt: "Responsive Websites",
+    description: "Mobile-first sites built for speed and accessibility.",
+  },
+  {
+    index: 2,
+    titleTop: "Custom",
+    titleBottom: "Web Apps",
+    img: c2,
+    alt: "Custom Web Applications",
+    description: "Scalable applications tailored to your business logic.",
+  },
+  {
+    index: 3,
+    titleTop: "Ecommerce",
+    titleBottom: "Solutions",
+    img: c3,
+    alt: "Ecommerce Solutions",
+    description: "Secure and flexible online stores that convert visitors.",
+  },
+  {
+    index: 1,
+    titleTop: "API",
+    titleBottom: "Development",
+    img: c4,
+    alt: "API Development",
+    description: "Robust backend APIs for seamless integrations.",
+  },
+  {
+    index: 2,
+    titleTop: "Progressive",
+    titleBottom: "Web Apps",
+    img: c5,
+    alt: "Progressive Web Apps",
+    description: "Offline-ready experiences with native-like features.",
+  },
+  {
+    index: 3,
+    titleTop: "Maintenance",
+    titleBottom: "& Support",
+    img: c6,
+    alt: "Maintenance and Support",
+    description: "Continuous improvements and proactive monitoring.",
+  },
+];
+
+const description =
+  "From front-end design to back-end architecture, we provide everything you need to launch and grow online.";
+---
+
+<Section id="services">
+  <div class="mt-[140px] mb-5">
+    <SectionTitle sectionTitle="Services" description={description} />
+    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
+      {
+        cards.map((card) => (
+          <ServiceCardWithDescription
+            index={card.index}
+            titleTop={card.titleTop}
+            titleBottom={card.titleBottom}
+            img={card.img}
+            alt={card.alt}
+            description={card.description}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Section>

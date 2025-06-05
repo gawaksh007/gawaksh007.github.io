@@ -5,7 +5,7 @@ import SectionTitle from "../components/ui/SectionTitle.astro";
 import Form from "../components/ui/Form.astro";
 import { Image } from "astro:assets";
 import Card from "../components/ui/Card.astro";
-import BrandServices from "../components/sections/BrandServices.astro";
+import WebDevServices from "../components/sections/WebDevServices.astro";
 import propImg from "../../src/assets/pics/proposal-pic.png";
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -14,63 +14,63 @@ import 'swiper/css/navigation';
 // Case Studies Data
 const caseStudies = [
   {
-    client: "Tech Innovation Corp",
-    challenge: "Struggling to differentiate in a crowded market",
-    solution: "Developed a unique brand voice and content strategy",
+    client: "Startup LaunchPad",
+    challenge: "Needed a fast e-commerce platform for debut products",
+    solution: "Built a headless storefront with seamless payment integration",
     results: [
-      "150% increase in brand awareness",
-      "45% improvement in engagement",
-      "2x increase in qualified leads"
+      "120% increase in online sales",
+      "50% faster load times",
+      "99.9% uptime since launch"
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
     logo: "/path-to-logo.png"
   },
   {
-    client: "EcoStyle Fashion",
-    challenge: "Needed to establish sustainable brand identity",
-    solution: "Created compelling sustainability narrative and visual identity",
+    client: "FinTech Innovators",
+    challenge: "Required a secure portal for sensitive financial data",
+    solution: "Implemented robust authentication and encrypted APIs",
     results: [
-      "200% growth in social following",
-      "35% increase in customer loyalty",
-      "3x increase in brand mentions"
+      "PCI compliant infrastructure",
+      "70% reduction in support tickets",
+      "Scaled to 1M users"
     ],
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+    image: "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d",
     logo: "/path-to-logo.png"
   },
   {
-    client: "HealthTech Solutions",
-    challenge: "Complex product messaging needed simplification",
-    solution: "Developed clear, engaging communication strategy",
+    client: "EduLearn",
+    challenge: "Traditional LMS lacked engagement features",
+    solution: "Developed interactive web app with real-time collaboration",
     results: [
-      "80% improvement in message clarity",
-      "60% increase in lead quality",
-      "40% reduction in sales cycle"
+      "3x increase in student participation",
+      "40% reduction in course drop-offs",
+      "Top rated by instructors"
     ],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
+    image: "https://images.unsplash.com/photo-1584697964238-b004f0b42ae1",
     logo: "/path-to-logo.png"
   },
   {
-    client: "Global Finance Group",
-    challenge: "Traditional brand needed digital transformation",
-    solution: "Modernized brand voice while maintaining trust",
+    client: "Healthcare Portal",
+    challenge: "Needed a HIPAA compliant patient portal",
+    solution: "Created responsive web app with secure data storage",
     results: [
-      "90% increase in digital engagement",
-      "50% growth in younger demographic",
-      "4x increase in social sharing"
+      "Patient sign-ups doubled",
+      "Enhanced security auditing",
+      "Improved mobile engagement"
     ],
-    image: "https://images.unsplash.com/photo-1554774853-719586f82d77",
+    image: "https://images.unsplash.com/photo-1516542076529-1ea3854896d1",
     logo: "/path-to-logo.png"
   },
   {
-    client: "FoodieHub",
-    challenge: "Needed to stand out in competitive delivery market",
-    solution: "Created distinctive brand personality and campaign",
+    client: "TravelQuest",
+    challenge: "Wanted cross-platform experience for travelers",
+    solution: "Launched a progressive web app with offline access",
     results: [
-      "175% increase in app downloads",
-      "55% boost in customer retention",
-      "3x growth in market share"
+      "App installs grew 4x",
+      "30% boost in booking conversions",
+      "High ratings on app stores"
     ],
-    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
     logo: "/path-to-logo.png"
   }
 ];
@@ -78,23 +78,23 @@ const caseStudies = [
 // Value Props
 const valueProps = [
   {
-    title: "Data-Driven Approach",
-    description: "We analyze audience insights to craft messaging that works.",
-    icon: "📊"
+    title: "Performance Optimized",
+    description: "Fast-loading experiences that keep users engaged.",
+    icon: "🚀"
   },
   {
-    title: "Multi-Channel Strategy",
-    description: "From social media to PR, we cover all touchpoints.",
-    icon: "🎯"
+    title: "Scalable Architecture",
+    description: "Build for future growth and evolving needs.",
+    icon: "🏗️"
   },
   {
-    title: "Proven Success",
-    description: "Our track record speaks for itself with impactful brand stories.",
-    icon: "🏆"
+    title: "User-Centered Design",
+    description: "Intuitive interfaces that drive satisfaction.",
+    icon: "🎨"
   }
 ];
 ---
-<MainLayout title="Brand Communications - Tagorithm">
+<MainLayout title="Web Development - Tagorithm">
   <main class="space-y-16 md:space-y-24"> <!-- Increased spacing on desktop -->
 
     <!-- Hero Section -->
@@ -109,10 +109,10 @@ const valueProps = [
           <!-- Left: Text Content -->
           <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
-              Elevate Your Brand with <span class="highlight">Powerful Communications</span>
+              Craft Exceptional <span class="highlight">Web Experiences</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-700 animate-fade-in-delay">
-              We craft strategic, data-driven narratives that make brands unforgettable.
+              From responsive websites to custom web apps, we build solutions that scale.
             </p>
             <div class="flex justify-center md:justify-start gap-4 animate-fade-in-delay-2">
               <a href="#contact" class="btn-primary">Get a Callback</a>
@@ -120,9 +120,9 @@ const valueProps = [
           </div>
           <!-- Right: Image -->
           <div class="w-full md:w-1/2 flex justify-center">
-            <img 
-              src="/bc.png" 
-              alt="Brand Communications Illustration" 
+            <img
+              src="/cover.png"
+              alt="Web Development Illustration"
               class="w-[90%] md:w-full h-auto object-contain"
             />
           </div>
@@ -133,17 +133,17 @@ const valueProps = [
     <!-- Introduction Section -->
     <Section>
       <div class="container mx-auto px-4">
-        <SectionTitle sectionTitle="Your Story, Amplified" />
+        <SectionTitle sectionTitle="Modern Web Development" />
         <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
           <div class="md:w-1/2">
             <p class="text-xl text-left max-w-xl">
-              Brand communication isn't just about what you say—it's about how you say it. At Tagorithm, we craft compelling narratives that resonate with audiences, build trust, and drive business success. From digital storytelling to strategic PR, we ensure your brand speaks with clarity, confidence, and impact.
+              In today's digital-first world, we blend sleek design with solid code to deliver fast, secure, and accessible experiences.
             </p>
           </div>
           <div class="md:w-1/2 flex justify-center absolute right-0 -top-40"> <!-- Changed positioning -->
-            <img 
-              src="/lips.png" 
-              alt="Brand Communication Illustration" 
+            <img
+              src="/lips.png"
+              alt="Web Development Illustration"
               class="w-[270px] h-[310px] object-cover z-10"
             />
           </div>
@@ -151,7 +151,7 @@ const valueProps = [
       </div>
     </Section>
     <div class="relative z-0"> <!-- Changed from -mt-20 to relative and z-0 -->
-    <BrandServices/>
+    <WebDevServices/>
     </div>
 
     <!-- Replace the "Not sure where to start" CTA with this Proposal Section -->
@@ -161,7 +161,7 @@ const valueProps = [
           <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
             <h2 class="text-3xl font-medium">Let's make things happen</h2>
             <p>
-              Contact us today to learn more about how our digital marketing
+              Contact us today to learn more about how our web development
               services can help your business grow and succeed online.
             </p>
             <button class="btn-primary">Get your free proposal</button>
@@ -268,8 +268,8 @@ const valueProps = [
     <!-- Why Choose Tagorithm? (Value Proposition) -->
     <Section>
       <SectionTitle
-        sectionTitle="Why Brands Trust Us"
-        description="Proven Expertise in Brand Communications"
+        sectionTitle="Why Choose Us"
+        description="Proven Expertise in Web Development"
       />
       <div class="container mx-auto px-4">
         <!-- Update the Value Props cards -->
@@ -290,7 +290,7 @@ const valueProps = [
       <div class="mb-[140px] relative">
         <SectionTitle
           sectionTitle="Contact Us"
-          description="Connect with Us: Let's Discuss Your Digital Marketing Needs"
+          description="Connect with Us: Let's Discuss Your Web Development Needs"
         />
         <Form />
       </div>
