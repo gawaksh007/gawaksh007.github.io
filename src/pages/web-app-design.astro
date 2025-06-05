@@ -15,56 +15,56 @@ import 'swiper/css/navigation';
 const caseStudies = [
   {
     client: "Tech Innovation Corp",
-    challenge: "Struggling to differentiate in a crowded market",
-    solution: "Developed a unique brand voice and content strategy",
+    challenge: "Needed a modern platform to showcase products",
+    solution: "Built a scalable React app with custom CMS",
     results: [
-      "150% increase in brand awareness",
-      "45% improvement in engagement",
-      "2x increase in qualified leads"
+      "150% increase in site traffic",
+      "45% longer session duration",
+      "2x growth in qualified leads"
     ],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
     logo: "/path-to-logo.png"
   },
   {
     client: "EcoStyle Fashion",
-    challenge: "Needed to establish sustainable brand identity",
-    solution: "Created compelling sustainability narrative and visual identity",
+    challenge: "Limited e-commerce capabilities",
+    solution: "Developed a fast online store with seamless checkout",
     results: [
-      "200% growth in social following",
-      "35% increase in customer loyalty",
-      "3x increase in brand mentions"
+      "200% growth in online sales",
+      "35% increase in repeat customers",
+      "3x rise in brand mentions"
     ],
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
     logo: "/path-to-logo.png"
   },
   {
     client: "HealthTech Solutions",
-    challenge: "Complex product messaging needed simplification",
-    solution: "Developed clear, engaging communication strategy",
+    challenge: "Complex workflows confused end users",
+    solution: "Designed intuitive dashboards and simplified navigation",
     results: [
-      "80% improvement in message clarity",
+      "80% improvement in user satisfaction",
       "60% increase in lead quality",
-      "40% reduction in sales cycle"
+      "40% faster adoption"
     ],
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
     logo: "/path-to-logo.png"
   },
   {
     client: "Global Finance Group",
-    challenge: "Traditional brand needed digital transformation",
-    solution: "Modernized brand voice while maintaining trust",
+    challenge: "Legacy systems slowed performance",
+    solution: "Migrated to a cloud-native architecture",
     results: [
       "90% increase in digital engagement",
-      "50% growth in younger demographic",
-      "4x increase in social sharing"
+      "50% faster page loads",
+      "4x more secure environment"
     ],
     image: "https://images.unsplash.com/photo-1554774853-719586f82d77",
     logo: "/path-to-logo.png"
   },
   {
     client: "FoodieHub",
-    challenge: "Needed to stand out in competitive delivery market",
-    solution: "Created distinctive brand personality and campaign",
+    challenge: "App reliability issues hampered growth",
+    solution: "Rebuilt the platform for stability and scale",
     results: [
       "175% increase in app downloads",
       "55% boost in customer retention",
@@ -78,41 +78,41 @@ const caseStudies = [
 // Value Props
 const valueProps = [
   {
-    title: "Data-Driven Approach",
-    description: "We analyze audience insights to craft messaging that works.",
-    icon: "📊"
+    title: "Scalable Architecture",
+    description: "We build robust foundations that grow with your business.",
+    icon: "🛠️"
   },
   {
-    title: "Multi-Channel Strategy",
-    description: "From social media to PR, we cover all touchpoints.",
-    icon: "🎯"
+    title: "Performance Optimisation",
+    description: "Fast, responsive websites deliver a seamless user experience.",
+    icon: "⚡"
   },
   {
-    title: "Proven Success",
-    description: "Our track record speaks for itself with impactful brand stories.",
-    icon: "🏆"
+    title: "Continuous Support",
+    description: "From launch to maintenance, we keep your site running smoothly.",
+    icon: "🔧"
   }
 ];
 ---
-<MainLayout title="Brand Communications - Tagorithm">
+<MainLayout title="Web Development - Tagorithm">
   <main class="space-y-16 md:space-y-24"> <!-- Increased spacing on desktop -->
 
     <!-- Hero Section -->
     <section class="relative min-h-[90vh] flex items-center overflow-hidden">
       <!-- Add subtle animated shapes in background -->
       <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#B9FF66]/20 rounded-full blur-3xl"></div>
-        <div class="absolute top-40 right-20 w-96 h-96 bg-[#66FFB9]/20 rounded-full blur-3xl"></div>
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#91E6FF]/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 bg-[#A8A0FF]/20 rounded-full blur-3xl"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <!-- Left: Text Content -->
           <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
-              Elevate Your Brand with <span class="highlight">Powerful Communications</span>
-            </h1>
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
+              Innovative <span class="highlight">Web Development</span>
+          </h1>
             <p class="text-lg md:text-xl text-gray-700 animate-fade-in-delay">
-              We craft strategic, data-driven narratives that make brands unforgettable.
+              From concept to launch, we build responsive sites that drive results.
             </p>
             <div class="flex justify-center md:justify-start gap-4 animate-fade-in-delay-2">
               <a href="#contact" class="btn-primary">Get a Callback</a>
@@ -121,8 +121,8 @@ const valueProps = [
           <!-- Right: Image -->
           <div class="w-full md:w-1/2 flex justify-center">
             <img 
-              src="/bc.png" 
-              alt="Brand Communications Illustration" 
+              src="/bc.png"
+              alt="Web Development Illustration"
               class="w-[90%] md:w-full h-auto object-contain"
             />
           </div>
@@ -133,17 +133,17 @@ const valueProps = [
     <!-- Introduction Section -->
     <Section>
       <div class="container mx-auto px-4">
-        <SectionTitle sectionTitle="Your Story, Amplified" />
+        <SectionTitle sectionTitle="Development That Delivers" />
         <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
           <div class="md:w-1/2">
             <p class="text-xl text-left max-w-xl">
-              Brand communication isn't just about what you say—it's about how you say it. At Tagorithm, we craft compelling narratives that resonate with audiences, build trust, and drive business success. From digital storytelling to strategic PR, we ensure your brand speaks with clarity, confidence, and impact.
+              Our developers turn complex requirements into elegant solutions. We focus on clean code, accessibility and long‑term maintainability so your digital products remain reliable and scalable.
             </p>
           </div>
           <div class="md:w-1/2 flex justify-center absolute right-0 -top-40"> <!-- Changed positioning -->
             <img 
               src="/lips.png" 
-              alt="Brand Communication Illustration" 
+              alt="Web Development Process Illustration"
               class="w-[270px] h-[310px] object-cover z-10"
             />
           </div>
@@ -203,7 +203,7 @@ const valueProps = [
                       <!-- Title section with consistent height -->
                       <div class="absolute bottom-0 left-0 p-6 w-full">
                         <div class="h-[60px] flex flex-col justify-end"> <!-- Fixed height container for title -->
-                          <h3 class="text-xl font-bold text-black mb-1 bg-[#B9FF66] inline-block px-3 py-1 rounded-lg">
+                          <h3 class="text-xl font-bold text-black mb-1 bg-[#91E6FF] inline-block px-3 py-1 rounded-lg">
                             {study.client}
                           </h3>
                          <!-- <p class="text-gray-200 text-sm">{study.industry}</p>-->
@@ -216,8 +216,8 @@ const valueProps = [
                       <div class="space-y-3 flex-1"> <!-- Reduced space-y-4 to space-y-3 -->
                         <!-- Challenge Section -->
                         <div class="h-[100px]"> <!-- Reduced height from 120px to 100px -->
-                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
-                            <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
+                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#91E6FF]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
+                            <span class="w-1 h-1 bg-[#91E6FF] rounded-full"></span>
                             Challenge
                           </h4>
                           <p class="text-gray-600 text-sm line-clamp-3">{study.challenge}</p>
@@ -225,8 +225,8 @@ const valueProps = [
                         
                         <!-- Solution Section -->
                         <div class="h-[100px]"> <!-- Reduced height from 120px to 100px -->
-                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
-                            <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
+                          <h4 class="text-lg font-semibold text-gray-900 flex items-center gap-2 bg-[#91E6FF]/20 w-fit px-3 py-1 rounded-lg mb-2"> <!-- Reduced mb-3 to mb-2 -->
+                            <span class="w-1 h-1 bg-[#91E6FF] rounded-full"></span>
                             Solution
                           </h4>
                           <p class="text-gray-600 text-sm line-clamp-3">{study.solution}</p>
@@ -235,14 +235,14 @@ const valueProps = [
                       
                       <!-- Results Section -->
                       <div class="bg-gray-50 rounded-xl p-3 mt-2"> <!-- Reduced p-4 to p-3 and added mt-2 -->
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 bg-[#B9FF66]/20 w-fit px-3 py-1 rounded-lg"> <!-- Reduced mb-3 to mb-2 -->
-                          <span class="w-1 h-1 bg-[#B9FF66] rounded-full"></span>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 bg-[#91E6FF]/20 w-fit px-3 py-1 rounded-lg"> <!-- Reduced mb-3 to mb-2 -->
+                          <span class="w-1 h-1 bg-[#91E6FF] rounded-full"></span>
                           Results
                         </h4>
                         <div class="grid grid-cols-1 gap-2"> <!-- Reduced gap-3 to gap-2 -->
                           {study.results.map(result => (
                             <div class="flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-100"> <!-- Reduced p-3 to p-2 and gap-3 to gap-2 -->
-                              <span class="text-[#B9FF66] text-xl">↗</span>
+                              <span class="text-[#91E6FF] text-xl">↗</span>
                               <span class="text-gray-800 text-sm font-medium">{result}</span>
                             </div>
                           ))}
@@ -255,8 +255,8 @@ const valueProps = [
             </div>
             
             <!-- Navigation Elements -->
-            <div class="swiper-button-prev !text-[#B9FF66] !left-0"></div>
-            <div class="swiper-button-next !text-[#B9FF66] !right-0"></div>
+            <div class="swiper-button-prev !text-[#91E6FF] !left-0"></div>
+            <div class="swiper-button-next !text-[#91E6FF] !right-0"></div>
           </div>
           
           <!-- Pagination -->
@@ -269,13 +269,13 @@ const valueProps = [
     <Section>
       <SectionTitle
         sectionTitle="Why Brands Trust Us"
-        description="Proven Expertise in Brand Communications"
+        description="Reliable Expertise in Web Development"
       />
       <div class="container mx-auto px-4">
         <!-- Update the Value Props cards -->
         <div class="grid md:grid-cols-3 gap-8 mt-12">
           {valueProps.map(prop => (
-            <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-[#B9FF66] transition-all duration-300 hover:shadow-lg bg-white group">
+            <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-[#91E6FF] transition-all duration-300 hover:shadow-lg bg-white group">
               <div class="text-5xl mb-6 transform transition-transform group-hover:scale-110 duration-300">{prop.icon}</div>
               <h3 class="text-xl font-bold mb-3">{prop.title}</h3>
               <p class="text-gray-600 leading-relaxed">{prop.description}</p>
@@ -329,7 +329,7 @@ const valueProps = [
   /* Highlight style */
   .highlight {
     background-color: white;
-    color: #B9FF66; /* Green text color */
+    color: #91E6FF; /* Accent text color */
     padding: 0 0.02em;
     border-radius: 0.4em;
     text-shadow: 
@@ -390,7 +390,7 @@ const valueProps = [
 
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background: #B9FF66;
+    background: #91E6FF;
     color: white !important;
   }
 
@@ -408,7 +408,7 @@ const valueProps = [
   }
 
   .swiper-pagination-bullet-active {
-    background: #B9FF66;
+    background: #91E6FF;
     width: 24px;
     border-radius: 4px;
   }
