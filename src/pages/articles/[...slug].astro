@@ -1,32 +1,34 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";  // Corrected path
-import { getCollection } from 'astro:content';
+// src/pages/articles/[...slug].astro
 
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection, getEntryBySlug } from "astro:content";
+
+// 1. Generate one path per Markdown file
 export async function getStaticPaths() {
-  const posts = await getCollection('blog'); // Ensure 'blog' matches your collection name
-
-  return posts.map(post => ({
-    params: { slug: post.slug }
-  }));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({ params: { slug: post.slug } }));
 }
 
+// 2. Pull the slug from the URL
 const { slug } = Astro.params;
+if (!slug) throw new Error("Missing slug parameter");
 
-if(slug === undefined) {
-  throw new Error('Slug is required');
-}
+// 3. Fetch that post
+const post = await getEntryBySlug("blog", slug);
+if (!post) throw new Error(`Post not found: ${slug}`);
 
-const posts = await getCollection('blog'); // Ensure 'blog' matches your collection name
-const post = posts.find(post => post.slug === slug);
-
-if (!post) {
-  throw new Error(`Post not found for slug: ${slug}`);
-}
+// 4. Render it to get the Content component
+const { Content } = await post.render();  // ← here’s the fix  [oai_citation:0‡andrewwalpole.com](https://andrewwalpole.com/blog/the-new-astro-content-collections-are-great/?utm_source=chatgpt.com)
 ---
 
 <MainLayout title={post.data.title}>
-  <article>
+  <article class="prose lg:prose-xl mx-auto py-12">
     <h1>{post.data.title}</h1>
-    <p>{post.body}</p> <!-- Ensure this matches your content structure -->
+    <p class="text-sm text-gray-500 mb-8">
+      {post.data.pubDate} &bull; {post.data.author ?? "Unknown"}
+    </p>
+    <!-- Render your Markdown body -->
+    <Content />
   </article>
 </MainLayout>

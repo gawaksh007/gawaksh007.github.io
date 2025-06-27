@@ -1,7 +1,7 @@
 ---
 title: 'Guardian of the Digital Realm: Web Security'
 pubDate: 2024-01-14
-author: 'Jese Leos'
+author: 'Gawaksh'
 authImage: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png'
 image: 'image2.png'
 tags: ['code', 'security', 'tech']
