@@ -1,113 +1,143 @@
-
+---
 import MainLayout from "../layouts/MainLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
 import Form from "../components/ui/Form.astro";
 
-// Web App Services
-const webServices = [
+// Web & App Design Services (SVG icons)
+const designServices = [
   {
-    icon: "🎨",
-    title: "Frontend Development",
-    desc: "Beautiful, responsive interfaces for seamless user experiences."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/layout-dashboard.svg",
+    title: "UI/UX Design",
+    desc: "Intuitive, beautiful interfaces for web and mobile apps."
   },
   {
-    icon: "⚙️",
-    title: "Backend Development",
-    desc: "Robust, scalable server-side solutions for any business logic."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/device-mobile.svg",
+    title: "Mobile App Design",
+    desc: "iOS and Android app design for seamless cross-device experiences."
   },
   {
-    icon: "🔧",
-    title: "Full Stack Solutions",
-    desc: "End-to-end web app development, from concept to deployment."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/code.svg",
+    title: "Web App Design",
+    desc: "Custom web applications designed for performance and usability."
   },
   {
-    icon: "⚡",
-    title: "Performance Optimization",
-    desc: "Lightning-fast load times and high availability for your apps."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/brand-figma.svg",
+    title: "Prototyping & Wireframing",
+    desc: "Clickable prototypes and wireframes to validate ideas fast."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/paint.svg",
+    title: "Branding & Visual Identity",
+    desc: "Logo, color, and style guides for a cohesive digital presence."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg",
+    title: "Design Systems",
+    desc: "Reusable components and documentation for scalable design."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/refresh.svg",
+    title: "Continuous Optimisation",
+    desc: "Ongoing design improvements based on analytics and feedback."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/accessibility.svg",
+    title: "Accessibility & Compliance",
+    desc: "WCAG, ADA, and best practices for inclusive digital products."
   }
 ];
 
-// Why it matters
+// Why it matters (SVG icons)
 const whyMatters = [
-  { icon: "🚀", title: "Faster Launch", desc: "Accelerate your go-to-market with expert development." },
-  { icon: "💎", title: "Polished UX", desc: "Delight users with intuitive, modern interfaces." },
-  { icon: "🔒", title: "Secure & Scalable", desc: "Built for growth and peace of mind." },
-  { icon: "📈", title: "Measurable Results", desc: "Track, analyze, and optimize every interaction." }
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/user.svg", title: "User-Centric", desc: "Delight users with intuitive, accessible experiences." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Faster Launches", desc: "Streamlined process from idea to launch." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/currency-dollar.svg", title: "Better ROI", desc: "Design that drives engagement and conversions." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/paint.svg", title: "Brand Consistency", desc: "Unified look and feel across all platforms." }
 ];
 
-// Approach steps
+// Approach steps (timeline)
 const approach = [
-  { step: 1, title: "Discovery & Planning", desc: "We define your goals, users, and technical needs." },
-  { step: 2, title: "Design & Prototyping", desc: "We create wireframes and UI prototypes for feedback." },
-  { step: 3, title: "Development", desc: "We build, test, and iterate using modern frameworks." },
-  { step: 4, title: "Launch & Support", desc: "We deploy, monitor, and optimize your app post-launch." }
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/compass.svg", title: "Discovery & Research", desc: "We analyze your goals, users, and competitors to inform design." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/bulb.svg", title: "Ideation & Wireframing", desc: "We sketch, wireframe, and prototype to validate concepts." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/layout-dashboard.svg", title: "UI Design & Handoff", desc: "We design pixel-perfect interfaces and hand off to development." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Launch & Optimise", desc: "We support launch and iterate based on real user feedback." }
 ];
 
 // Case studies (placeholder)
 const cases = [
   {
-    client: "StartUpX",
-    logo: "/web.png",
-    summary: "Full-stack web app for a SaaS startup.",
-    outcome: "Launched MVP in 8 weeks, 10k+ users in 3 months",
-    quote: "“Tagorithm delivered a beautiful, scalable product—on time and on budget.”"
+    client: "ShopEase",
+    logo: "/bc.png",
+    summary: "E-commerce web app redesign for a seamless shopping experience.",
+    outcome: "+60% conversion rate in 3 months",
+    quote: "“Tagorithm’s design team made our app a joy to use—and it shows in our numbers.”"
   },
   {
-    client: "EduPro",
-    logo: "/web.png",
-    summary: "E-learning platform with real-time analytics.",
-    outcome: "+40% engagement, +99.9% uptime",
-    quote: "“Our users love the new experience. The team was proactive and skilled.”"
+    client: "FinTechPro",
+    logo: "/bc.png",
+    summary: "Mobile app UI/UX overhaul for a SaaS platform.",
+    outcome: "+40% retention, +25% app store rating",
+    quote: "“Our users love the new design. Highly recommended!”"
   }
 ];
 
-// FAQs
+// FAQs (expanded)
 const faqs = [
   {
-    q: "Which technologies do you use?",
-    a: "We use React, Vue, Node.js, Python, AWS, and more—always choosing the best fit for your project."
+    q: "Which platforms do you design for?",
+    a: "We design for web, iOS, Android, and cross-platform apps."
   },
   {
-    q: "Can you redesign or upgrade our existing app?",
-    a: "Absolutely! We handle redesigns, migrations, and performance upgrades."
+    q: "Do you provide development as well?",
+    a: "We partner with top developers or can hand off to your in-house team."
   },
   {
-    q: "Do you offer ongoing support?",
-    a: "Yes, we provide maintenance, monitoring, and feature enhancements post-launch."
+    q: "Can you work with our brand guidelines?",
+    a: "Absolutely! We can design within your guidelines or help you create new ones."
+  },
+  {
+    q: "Do you offer prototyping and user testing?",
+    a: "Yes, we provide clickable prototypes and user testing for validation."
+  },
+  {
+    q: "How do you ensure accessibility?",
+    a: "We follow WCAG, ADA, and best practices for inclusive design."
+  },
+  {
+    q: "How quickly can we launch?",
+    a: "Most projects launch within 4–8 weeks, depending on scope and feedback cycles."
   }
 ];
 ---
 
-<MainLayout title="Web App Design & Development - Tagorithm">
-  <main class="space-y-20 md:space-y-32">
-
+<MainLayout title="Web & App Design - Tagorithm">
+  <main class="space-y-24 md:space-y-36">
     <!-- Hero Section -->
-    <section class="relative min-h-[80vh] flex items-center bg-dark overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="/src/assets/bars.svg" alt="" class="w-full h-full object-cover opacity-[0.03]" />
-        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#B9FF66]/30 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#66FFB9]/20 rounded-full blur-2xl"></div>
+    <section class="relative min-h-[80vh] flex items-center bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#1A2238]/40 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-black/30 rounded-full blur-2xl animate-float2"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center gap-8">
         <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-          Web Apps That <span class="highlight">Inspire & Perform</span>
+          Design That Delights. Experiences That Convert.
         </h1>
-        <p class="text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto">
-          We design and build modern web applications that engage users and drive business growth.
+        <p class="text-lg md:text-2xl text-[#B9DD8C] max-w-2xl mx-auto">
+          We design web and mobile apps that engage users, build brands, and drive results.
         </p>
         <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Start Your Project</a>
-        <span class="mt-8 animate-bounce text-[#B9FF66] text-3xl">&#8595;</span>
+        <span class="mt-8 animate-bounce text-[#B9DD8C] text-3xl">&#8595;</span>
       </div>
     </section>
 
     <!-- What We Do -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="What We Do" description="Full-cycle web app design and development services." />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-        {webServices.map(s => (
-          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#B9FF66] transition-all group">
-            <div class="text-4xl mb-4 w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-[#B9FF66]/70 to-[#66FFB9]/70 text-white shadow-lg group-hover:scale-110 transition-transform">{s.icon}</div>
-            <h3 class="text-lg font-bold mb-2">{s.title}</h3>
+      <SectionTitle sectionTitle="What We Do" description="End-to-end web and app design services." />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+        {designServices.map(s => (
+          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#84C341] transition-all group hover:scale-105">
+            <img src={s.image} alt={s.title} class="w-12 h-12 mb-4 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h3 class="text-lg font-bold mb-2 text-[#84C341]">{s.title}</h3>
             <p class="text-gray-600">{s.desc}</p>
           </div>
         ))}
@@ -116,51 +146,62 @@ const faqs = [
 
     <!-- Why It Matters -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Why Web App Design Matters" />
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+      <SectionTitle sectionTitle="Why Design Matters" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
         {whyMatters.map(item => (
-          <div class="bg-[#F8FFF3] rounded-xl p-6 flex flex-col items-center text-center shadow-sm">
-            <div class="text-3xl mb-3">{item.icon}</div>
-            <h4 class="font-semibold mb-1">{item.title}</h4>
+          <div class="bg-white rounded-xl p-6 flex flex-col items-center text-center shadow-sm border border-[#84C341]/40 hover:shadow-md transition-shadow">
+            <img src={item.image} alt={item.title} class="w-10 h-10 mb-3 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h4 class="font-semibold mb-1 text-[#84C341]">{item.title}</h4>
             <p class="text-gray-600 text-sm">{item.desc}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Our Approach -->
+    <!-- Our Approach (Timeline) -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Our Approach" />
-      <ol class="relative border-l-2 border-[#B9FF66]/40 max-w-2xl mx-auto mt-10 space-y-8">
-        {approach.map(step => (
-          <li class="ml-6">
-            <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B9FF66] to-[#66FFB9] rounded-full text-white font-bold shadow-lg">{step.step}</span>
-            <div class="pl-4">
-              <h5 class="font-bold text-lg mb-1">{step.title}</h5>
-              <p class="text-gray-600">{step.desc}</p>
+      <SectionTitle sectionTitle="Our Proven Process" description="A transparent, collaborative journey from idea to launch." />
+      <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
+        {approach.map((step, i) => (
+          <div class="relative z-10 flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105" style={`animation: fadeInUp 0.6s ${i * 0.1 + 0.2}s both`}>
+            <div class="w-16 h-16 bg-white border-4 border-[#84C341] rounded-full flex items-center justify-center shadow-lg mb-4">
+              <img src={step.icon} alt={step.title} class="w-8 h-8" style="filter: grayscale(1);" />
             </div>
-          </li>
+            <div class="font-bold text-[#84C341] text-lg mb-1">{step.title}</div>
+            <div class="text-gray-600 text-sm max-w-xs">{step.desc}</div>
+          </div>
         ))}
-      </ol>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="w-full bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] py-16 mt-12">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 md:w-2/3">
+          <h2 class="text-2xl md:text-3xl font-bold text-[#84C341]">Ready to design something amazing?</h2>
+          <p class="text-lg text-[#84C341]">Schedule a free design consult or chat with our team today.</p>
+        </div>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Schedule a Design Consult</a>
+      </div>
     </section>
 
     <!-- Case Studies -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Case Studies" description="Web app wins for real brands." />
+      <SectionTitle sectionTitle="Case Studies" description="Real results from real products." />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {cases.map(cs => (
-          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 border border-[#B9DD8C]/40 hover:shadow-xl transition-shadow">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-[#B9FF66]/20 rounded-full flex items-center justify-center">
-                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
+              <div class="w-12 h-12 bg-[#B9DD8C]/30 rounded-full flex items-center justify-center">
+                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" style="filter: grayscale(1);" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
               </div>
               <div>
-                <h4 class="font-bold">{cs.client}</h4>
+                <h4 class="font-bold text-[#307B1C]">{cs.client}</h4>
                 <p class="text-sm text-gray-500">{cs.summary}</p>
               </div>
             </div>
-            <div class="text-[#4ECDC4] font-semibold">{cs.outcome}</div>
-            <blockquote class="italic text-gray-700 border-l-4 border-[#B9FF66] pl-4">{cs.quote}</blockquote>
+            <div class="text-[#84C341] font-semibold animate-countup">{cs.outcome}</div>
+            <blockquote class="italic text-gray-700 border-l-4 border-[#84C341] pl-4">{cs.quote}</blockquote>
           </div>
         ))}
       </div>
@@ -171,28 +212,17 @@ const faqs = [
       <SectionTitle sectionTitle="FAQs" />
       <div class="max-w-2xl mx-auto mt-8 space-y-4">
         {faqs.map((faq, i) => (
-          <details class="bg-white rounded-xl shadow p-4 group" open={i === 0}>
-            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#B9FF66]">{faq.q}</summary>
+          <details class="bg-white rounded-xl shadow p-4 group border border-[#B9DD8C]/40 transition-all duration-300" open={i === 0}>
+            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#84C341] transition-colors">{faq.q}</summary>
             <div class="mt-2 text-gray-600">{faq.a}</div>
           </details>
         ))}
       </div>
     </section>
 
-    <!-- Final CTA Banner -->
-    <section class="w-full bg-gradient-to-br from-[#B9FF66]/20 to-[#66FFB9]/20 py-16 mt-12">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="space-y-4 md:w-2/3">
-          <h2 class="text-2xl md:text-3xl font-bold">Ready to launch your next web app?</h2>
-          <p class="text-lg text-gray-700">Schedule a free consultation or chat with our experts today.</p>
-        </div>
-        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Start Your Project</a>
-      </div>
-    </section>
-
     <!-- Contact Form -->
     <section id="contact" class="container mx-auto px-4 py-16">
-      <SectionTitle sectionTitle="Get Started" description="Tell us about your web app goals and let's build together." />
+      <SectionTitle sectionTitle="Contact Us" description="Let’s discuss your next web or app project." />
       <Form />
     </section>
   </main>
@@ -200,18 +230,43 @@ const faqs = [
 
 <style>
   .btn-primary {
-    @apply bg-[#B9FF66] text-black font-bold rounded-full px-6 py-3 transition-colors hover:bg-[#66FFB9] focus:outline-none focus:ring-2 focus:ring-[#B9FF66];
+    @apply bg-[#84C341] text-white font-bold rounded-full px-6 py-3 transition-colors hover:bg-white hover:text-[#84C341] focus:outline-none focus:ring-2 focus:ring-[#84C341];
   }
   .highlight {
-    background-color: white;
-    color: #B9FF66;
+    background-color: #84C341;
+    color: #1A2238;
     padding: 0 0.02em;
     border-radius: 0.4em;
     text-shadow:
-      -1px -1px 0 #000,
-       1px -1px 0 #000,
-      -1px  1px 0 #000,
-       1px  1px 0 #000;
-    -webkit-text-stroke: 0.5px black;
+      -1px -1px 0 #fff,
+       1px -1px 0 #fff,
+      -1px  1px 0 #fff,
+       1px  1px 0 #fff;
+    -webkit-text-stroke: 0.5px #1A2238;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-float {
+    animation: float 8s ease-in-out infinite alternate;
+  }
+  .animate-float2 {
+    animation: float2 10s ease-in-out infinite alternate;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.05); }
+  }
+  @keyframes float2 {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(20px) scale(1.08); }
+  }
+  .animate-countup {
+    animation: countup 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  @keyframes countup {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>

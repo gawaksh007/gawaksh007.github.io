@@ -1,1 +1,12 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Astro & build artifacts
+.astro/
+dist/
+
+# MacOS
+.DS_Store
+
+# Logs
+npm-debug.log*

@@ -3,111 +3,141 @@ import MainLayout from "../layouts/MainLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
 import Form from "../components/ui/Form.astro";
 
-// Case Studies Data
-const caseStudies = [
+// Data Analytics & Optimisation Services (SVG icons)
+const analyticsServices = [
   {
-    icon: "📊",
-    title: "Data Strategy & Setup",
-    desc: "Build a robust data foundation for informed decision making."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/chart-bar.svg",
+    title: "Analytics Implementation",
+    desc: "Setup and configure Google Analytics, GA4, Tag Manager, and more for accurate tracking."
   },
   {
-    icon: "📈",
-    title: "Performance Analytics",
-    desc: "Track and analyze key metrics across all channels."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/device-analytics.svg",
+    title: "Dashboard & Reporting",
+    desc: "Custom dashboards and automated reports for actionable insights."
   },
   {
-    icon: "👥",
-    title: "Customer Analytics",
-    desc: "Understand your customers through data-driven insights."
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/zoom-question.svg",
+    title: "Data Audits & Cleanup",
+    desc: "Audit, clean, and validate your data for trustworthy decision-making."
   },
   {
-    icon: "🔮",
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/adjustments-alt.svg",
+    title: "Conversion Tracking",
+    desc: "Track every lead, sale, and event across your digital ecosystem."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg",
+    title: "CRO & Funnel Analysis",
+    desc: "Identify and fix drop-offs to boost conversions and revenue."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/refresh.svg",
+    title: "Ongoing Optimisation",
+    desc: "Continuous analysis and A/B testing for compounding improvements."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/brain.svg",
     title: "Predictive Analytics",
-    desc: "Use advanced analytics to forecast trends and behaviors."
+    desc: "Leverage machine learning and forecasting for smarter strategy."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/shield-check.svg",
+    title: "Data Privacy & Compliance",
+    desc: "Ensure GDPR, CCPA, and privacy best practices are always met."
   }
 ];
 
-// Why it matters
+// Why it matters (SVG icons)
 const whyMatters = [
-  { icon: "🎯", title: "Smarter Decisions", desc: "Turn raw data into actionable business insights." },
-  { icon: "⚡", title: "Faster Growth", desc: "Spot opportunities and optimize performance in real time." },
-  { icon: "🔍", title: "Customer Understanding", desc: "Personalize experiences and boost retention." },
-  { icon: "📊", title: "Proven ROI", desc: "Data-driven strategies deliver measurable results." }
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/eye-search.svg", title: "Clarity & Insight", desc: "See what’s working, what’s not, and where to focus next." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Faster Growth", desc: "Data-driven decisions accelerate results and reduce waste." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/currency-dollar.svg", title: "Better ROI", desc: "Optimize spend and maximize every marketing dollar." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/shield-check.svg", title: "Trust & Compliance", desc: "Accurate, privacy-first data you and your customers can trust." }
 ];
 
-// Approach steps
+// Approach steps (timeline)
 const approach = [
-  { step: 1, title: "Discovery & Audit", desc: "We assess your current data stack, goals, and gaps." },
-  { step: 2, title: "Implementation", desc: "We set up tracking, dashboards, and integrations." },
-  { step: 3, title: "Analysis & Insights", desc: "We uncover trends, opportunities, and bottlenecks." },
-  { step: 4, title: "Optimization", desc: "We recommend and implement data-driven improvements." }
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/compass.svg", title: "Discovery & Audit", desc: "We review your current analytics, data flows, and business goals." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/bulb.svg", title: "Strategy & Planning", desc: "We design a measurement plan and select the right tools for your needs." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/chart-bar.svg", title: "Implementation & QA", desc: "We set up, test, and validate all tracking and reporting." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Optimise & Report", desc: "Ongoing analysis, testing, and reporting for continuous improvement." }
 ];
 
 // Case studies (placeholder)
 const cases = [
   {
-    client: "RetailX",
-    logo: "/dm.png",
-    summary: "Unified analytics for a national retailer.",
-    outcome: "+55% campaign ROI in 6 months",
-    quote: "“Tagorithm’s analytics team helped us see the full picture and act on it.”"
+    client: "ShopEase",
+    logo: "/bc.png",
+    summary: "Analytics overhaul and dashboarding for a leading e-commerce brand.",
+    outcome: "+180% data-driven revenue in 6 months",
+    quote: "“Tagorithm’s analytics team gave us clarity and confidence in every decision.”"
   },
   {
-    client: "EduPro",
-    logo: "/dm.png",
-    summary: "Predictive analytics for an edtech platform.",
-    outcome: "+30% user retention, -20% churn",
-    quote: "“We finally know what drives our best users. The insights are game-changing.”"
+    client: "FinTechPro",
+    logo: "/bc.png",
+    summary: "GA4 migration and funnel analysis for a SaaS platform.",
+    outcome: "-40% reporting errors, +70% conversion insights",
+    quote: "“We finally trust our numbers and know where to focus. Highly recommended!”"
   }
 ];
 
-// FAQs
+// FAQs (expanded)
 const faqs = [
   {
-    q: "How quickly can I see results from analytics optimization?",
-    a: "Most clients see actionable insights and improvements within the first month."
+    q: "Which analytics tools do you support?",
+    a: "We work with Google Analytics, GA4, Tag Manager, Looker Studio, Mixpanel, Amplitude, and more."
   },
   {
-    q: "Can you integrate with our existing tools?",
-    a: "Yes! We work with all major analytics, CRM, and marketing platforms."
+    q: "Can you help with GA4 migration?",
+    a: "Absolutely! We handle GA4 migrations, setup, and training."
   },
   {
-    q: "Do you offer one-time audits?",
-    a: "Absolutely. We offer both audits and ongoing analytics partnerships."
+    q: "Do you offer custom dashboards?",
+    a: "Yes, we build dashboards in Looker Studio, Tableau, Power BI, and more."
+  },
+  {
+    q: "How do you ensure data privacy?",
+    a: "We follow GDPR, CCPA, and industry best practices for privacy and compliance."
+  },
+  {
+    q: "Do you provide ongoing optimisation?",
+    a: "Yes, we offer continuous analysis, reporting, and A/B testing for ongoing growth."
+  },
+  {
+    q: "Can you work with our in-house team?",
+    a: "Definitely. We can collaborate with your team or manage everything end-to-end."
   }
 ];
 ---
 
 <MainLayout title="Data Analytics & Optimisation - Tagorithm">
-  <main class="space-y-20 md:space-y-32">
-
+  <main class="space-y-24 md:space-y-36">
     <!-- Hero Section -->
-    <section class="relative min-h-[80vh] flex items-center bg-dark overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="/src/assets/bars.svg" alt="" class="w-full h-full object-cover opacity-[0.03]" />
-        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#B9FF66]/30 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#66FFB9]/20 rounded-full blur-2xl"></div>
+    <section class="relative min-h-[80vh] flex items-center bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#1A2238]/40 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-black/30 rounded-full blur-2xl animate-float2"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center gap-8">
         <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-          Data-Driven Growth. <span class="highlight">Analytics That Matter</span>
+          Data That Drives Growth.
         </h1>
-        <p class="text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto">
-          We turn your data into actionable insights that drive smarter decisions and measurable results.
+        <p class="text-lg md:text-2xl text-[#B9DD8C] max-w-2xl mx-auto">
+          We turn your data into actionable insights and measurable results—across every channel.
         </p>
-        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Start Your Analytics Journey</a>
-        <span class="mt-8 animate-bounce text-[#B9FF66] text-3xl">&#8595;</span>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Start Optimising</a>
+        <span class="mt-8 animate-bounce text-[#B9DD8C] text-3xl">&#8595;</span>
       </div>
-    </Section>
+    </section>
 
     <!-- What We Do -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="What We Do" description="End-to-end analytics and optimization services." />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      <SectionTitle sectionTitle="What We Do" description="End-to-end data analytics and optimisation services." />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
         {analyticsServices.map(s => (
-          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#B9FF66] transition-all group">
-            <div class="text-4xl mb-4 w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-[#B9FF66]/70 to-[#66FFB9]/70 text-white shadow-lg group-hover:scale-110 transition-transform">{s.icon}</div>
-            <h3 class="text-lg font-bold mb-2">{s.title}</h3>
+          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#84C341] transition-all group hover:scale-105">
+            <img src={s.image} alt={s.title} class="w-12 h-12 mb-4 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h3 class="text-lg font-bold mb-2 text-[#84C341]">{s.title}</h3>
             <p class="text-gray-600">{s.desc}</p>
           </div>
         ))}
@@ -116,51 +146,62 @@ const faqs = [
 
     <!-- Why It Matters -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Why Analytics Matter" />
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+      <SectionTitle sectionTitle="Why Data Analytics Matters" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
         {whyMatters.map(item => (
-          <div class="bg-[#F8FFF3] rounded-xl p-6 flex flex-col items-center text-center shadow-sm">
-            <div class="text-3xl mb-3">{item.icon}</div>
-            <h4 class="font-semibold mb-1">{item.title}</h4>
+          <div class="bg-white rounded-xl p-6 flex flex-col items-center text-center shadow-sm border border-[#84C341]/40 hover:shadow-md transition-shadow">
+            <img src={item.image} alt={item.title} class="w-10 h-10 mb-3 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h4 class="font-semibold mb-1 text-[#84C341]">{item.title}</h4>
             <p class="text-gray-600 text-sm">{item.desc}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Our Approach -->
+    <!-- Our Approach (Timeline) -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Our Approach" />
-      <ol class="relative border-l-2 border-[#B9FF66]/40 max-w-2xl mx-auto mt-10 space-y-8">
-        {approach.map(step => (
-          <li class="ml-6">
-            <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B9FF66] to-[#66FFB9] rounded-full text-white font-bold shadow-lg">{step.step}</span>
-            <div class="pl-4">
-              <h5 class="font-bold text-lg mb-1">{step.title}</h5>
-              <p class="text-gray-600">{step.desc}</p>
+      <SectionTitle sectionTitle="Our Proven Process" description="A transparent, data-driven journey from audit to optimisation." />
+      <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
+        {approach.map((step, i) => (
+          <div class="relative z-10 flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105" style={`animation: fadeInUp 0.6s ${i * 0.1 + 0.2}s both`}>
+            <div class="w-16 h-16 bg-white border-4 border-[#84C341] rounded-full flex items-center justify-center shadow-lg mb-4">
+              <img src={step.icon} alt={step.title} class="w-8 h-8" style="filter: grayscale(1);" />
             </div>
-          </li>
+            <div class="font-bold text-[#84C341] text-lg mb-1">{step.title}</div>
+            <div class="text-gray-600 text-sm max-w-xs">{step.desc}</div>
+          </div>
         ))}
-      </ol>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="w-full bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] py-16 mt-12">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 md:w-2/3">
+          <h2 class="text-2xl md:text-3xl font-bold text-[#84C341]">Ready to unlock your data’s potential?</h2>
+          <p class="text-lg text-[#84C341]">Schedule a free analytics audit or chat with our experts today.</p>
+        </div>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Schedule an Analytics Audit</a>
+      </div>
     </section>
 
     <!-- Case Studies -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Case Studies" description="Analytics wins for real brands." />
+      <SectionTitle sectionTitle="Case Studies" description="Real results from real data." />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {cases.map(cs => (
-          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 border border-[#B9DD8C]/40 hover:shadow-xl transition-shadow">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-[#B9FF66]/20 rounded-full flex items-center justify-center">
-                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
+              <div class="w-12 h-12 bg-[#B9DD8C]/30 rounded-full flex items-center justify-center">
+                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" style="filter: grayscale(1);" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
               </div>
               <div>
-                <h4 class="font-bold">{cs.client}</h4>
+                <h4 class="font-bold text-[#307B1C]">{cs.client}</h4>
                 <p class="text-sm text-gray-500">{cs.summary}</p>
               </div>
             </div>
-            <div class="text-[#4ECDC4] font-semibold">{cs.outcome}</div>
-            <blockquote class="italic text-gray-700 border-l-4 border-[#B9FF66] pl-4">{cs.quote}</blockquote>
+            <div class="text-[#84C341] font-semibold animate-countup">{cs.outcome}</div>
+            <blockquote class="italic text-gray-700 border-l-4 border-[#84C341] pl-4">{cs.quote}</blockquote>
           </div>
         ))}
       </div>
@@ -171,28 +212,17 @@ const faqs = [
       <SectionTitle sectionTitle="FAQs" />
       <div class="max-w-2xl mx-auto mt-8 space-y-4">
         {faqs.map((faq, i) => (
-          <details class="bg-white rounded-xl shadow p-4 group" open={i === 0}>
-            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#B9FF66]">{faq.q}</summary>
+          <details class="bg-white rounded-xl shadow p-4 group border border-[#B9DD8C]/40 transition-all duration-300" open={i === 0}>
+            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#84C341] transition-colors">{faq.q}</summary>
             <div class="mt-2 text-gray-600">{faq.a}</div>
           </details>
         ))}
       </div>
     </section>
 
-    <!-- Final CTA Banner -->
-    <section class="w-full bg-gradient-to-br from-[#B9FF66]/20 to-[#66FFB9]/20 py-16 mt-12">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="space-y-4 md:w-2/3">
-          <h2 class="text-2xl md:text-3xl font-bold">Ready to unlock your data’s potential?</h2>
-          <p class="text-lg text-gray-700">Schedule a free analytics audit or chat with our experts today.</p>
-        </div>
-        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Schedule an Analytics Audit</a>
-      </div>
-    </section>
-
     <!-- Contact Form -->
     <section id="contact" class="container mx-auto px-4 py-16">
-      <SectionTitle sectionTitle="Get Started" description="Tell us about your analytics goals and let's begin optimizing." />
+      <SectionTitle sectionTitle="Contact Us" description="Let’s discuss your analytics goals." />
       <Form />
     </section>
   </main>
@@ -200,156 +230,43 @@ const faqs = [
 
 <style>
   .btn-primary {
-    @apply bg-[#B9FF66] text-black font-bold rounded-full px-6 py-3 transition-colors hover:bg-[#66FFB9] focus:outline-none focus:ring-2 focus:ring-[#B9FF66];
+    @apply bg-[#84C341] text-white font-bold rounded-full px-6 py-3 transition-colors hover:bg-white hover:text-[#84C341] focus:outline-none focus:ring-2 focus:ring-[#84C341];
   }
   .highlight {
-    background-color: white;
-    color: #B9FF66;
+    background-color: #84C341;
+    color: #1A2238;
     padding: 0 0.02em;
     border-radius: 0.4em;
     text-shadow:
-      -1px -1px 0 #000,
-       1px -1px 0 #000,
-      -1px  1px 0 #000,
-       1px  1px 0 #000;
-    -webkit-text-stroke: 0.5px black;
+      -1px -1px 0 #fff,
+       1px -1px 0 #fff,
+      -1px  1px 0 #fff,
+       1px  1px 0 #fff;
+    -webkit-text-stroke: 0.5px #1A2238;
   }
-
-  /* Typography improvements */
-  h1, h2, h3, h4 {
-    letter-spacing: -0.02em;
-  }
-
-  .content-text {
-    color: rgb(75, 85, 99); /* Instead of @apply text-gray-600 */
-    line-height: 1.75; /* Instead of @apply leading-relaxed */
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-  }
-
-  /* Swiper navigation improvements */
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 40px;
-    height: 40px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  }
-
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    background: #B9FF66;
-    color: white !important;
-  }
-
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  /* Pagination improvements */
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    transition: all 0.3s ease;
-  }
-
-  .swiper-pagination-bullet-active {
-    background: #B9FF66;
-    width: 24px;
-    border-radius: 4px;
-  }
-
-  /* Fade in animation */
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease forwards;
+  .animate-float {
+    animation: float 8s ease-in-out infinite alternate;
   }
-
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .animate-float2 {
+    animation: float2 10s ease-in-out infinite alternate;
   }
-
-  .swiper-slide {
-    height: auto;
-    display: flex;
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.05); }
   }
-
-  .swiper-slide > div {
-    height: 100%;
-    width: 100%;
+  @keyframes float2 {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(20px) scale(1.08); }
+  }
+  .animate-countup {
+    animation: countup 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  @keyframes countup {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>
-
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-  new Swiper('.case-studies-swiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 1.5,
-        spaceBetween: 24,
-      },
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 24,
-      },
-      1280: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      }
-    },
-  });
-
-  // Using Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fadeInUp');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-</script>

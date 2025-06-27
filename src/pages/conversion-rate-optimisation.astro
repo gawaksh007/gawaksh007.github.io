@@ -3,44 +3,80 @@ import MainLayout from "../layouts/MainLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
 import Form from "../components/ui/Form.astro";
 
-// Case Studies Data
-const caseStudies = [
+// Conversion Rate Optimisation Services (SVG icons)
+const croServices = [
   {
-    icon: "👥",
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/user-search.svg",
     title: "User Experience Analysis",
-    desc: "Deep dive into user behavior and interaction patterns."
+    desc: "Deep dive into user behavior, friction points, and interaction patterns."
   },
   {
-    icon: "🔄",
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/arrows-shuffle.svg",
     title: "A/B & Multivariate Testing",
-    desc: "Data-driven optimization through systematic testing."
+    desc: "Data-driven optimization through systematic experimentation."
   },
   {
-    icon: "📈",
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/chart-bar.svg",
     title: "Conversion Funnel Optimization",
     desc: "Streamline your conversion path for maximum results."
   },
   {
-    icon: "🎯",
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/target-arrow.svg",
     title: "Landing Page Optimization",
     desc: "Create high-converting landing pages that drive action."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/device-analytics.svg",
+    title: "Analytics & Reporting",
+    desc: "Transparent reporting and actionable insights for ongoing growth."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/refresh.svg",
+    title: "Continuous Improvement",
+    desc: "Ongoing optimization for compounding results."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/users-group.svg",
+    title: "Personalization & Segmentation",
+    desc: "Tailor experiences for different audience segments to maximize relevance and impact."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/zoom-check.svg",
+    title: "Heuristic & Usability Audits",
+    desc: "Expert reviews to uncover usability issues and quick-win opportunities."
   }
 ];
 
-// Why it matters
+// Why it matters (SVG icons)
 const whyMatters = [
-  { icon: "🚀", title: "Higher Conversions", desc: "Turn more visitors into customers with proven tactics." },
-  { icon: "💡", title: "Data-Driven Decisions", desc: "Every change is backed by analytics and testing." },
-  { icon: "📊", title: "Better ROI", desc: "Maximize the value of your existing traffic." },
-  { icon: "🔬", title: "Continuous Improvement", desc: "Ongoing optimization for compounding results." }
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg",
+    title: "Higher Conversions",
+    desc: "Turn more visitors into customers with proven tactics."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/brain.svg",
+    title: "Data-Driven Decisions",
+    desc: "Every change is backed by analytics and testing."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/currency-dollar.svg",
+    title: "Better ROI",
+    desc: "Maximize the value of your existing traffic."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/refresh.svg",
+    title: "Continuous Improvement",
+    desc: "Ongoing optimization for compounding results."
+  }
 ];
 
-// Approach steps
+// Approach steps (timeline)
 const approach = [
-  { step: 1, title: "Audit & Research", desc: "We analyze your funnel, user journeys, and analytics." },
-  { step: 2, title: "Hypothesis & Planning", desc: "We identify opportunities and design experiments." },
-  { step: 3, title: "Testing & Implementation", desc: "We run A/B tests and implement winning changes." },
-  { step: 4, title: "Measurement & Iteration", desc: "We track results and refine for ongoing growth." }
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/compass.svg", title: "Audit & Research", desc: "We analyze your funnel, user journeys, and analytics." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/bulb.svg", title: "Hypothesis & Planning", desc: "We identify opportunities and design experiments." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/arrows-shuffle.svg", title: "Testing & Implementation", desc: "We run A/B tests and implement winning changes." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Measurement & Iteration", desc: "We track results and refine for ongoing growth." }
 ];
 
 // Case studies (placeholder)
@@ -61,7 +97,7 @@ const cases = [
   }
 ];
 
-// FAQs
+// FAQs (expanded)
 const faqs = [
   {
     q: "How long does a CRO project take?",
@@ -74,40 +110,46 @@ const faqs = [
   {
     q: "Can you work with our in-house team?",
     a: "Absolutely. We can collaborate with your team or manage the entire process."
+  },
+  {
+    q: "What tools do you use for CRO?",
+    a: "We use industry-leading tools for analytics, heatmaps, A/B testing, and user feedback."
+  },
+  {
+    q: "How do you measure CRO success?",
+    a: "We track conversion rates, engagement, revenue impact, and provide transparent reporting."
   }
 ];
 ---
 
-<MainLayout title="Conversion Rate Optimization - Tagorithm">
-  <main class="space-y-20 md:space-y-32">
-
+<MainLayout title="Conversion Rate Optimisation - Tagorithm">
+  <main class="space-y-24 md:space-y-36">
     <!-- Hero Section -->
-    <section class="relative min-h-[80vh] flex items-center bg-dark overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="/src/assets/bars.svg" alt="" class="w-full h-full object-cover opacity-[0.03]" />
-        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#B9FF66]/30 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#66FFB9]/20 rounded-full blur-2xl"></div>
+    <section class="relative min-h-[80vh] flex items-center bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#1A2238]/40 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-black/30 rounded-full blur-2xl animate-float2"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center gap-8">
         <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-          Optimize Every Click. <span class="highlight">Maximize Every Conversion</span>
+          Optimise Every Click. Maximise Every Conversion.
         </h1>
-        <p class="text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto">
+        <p class="text-lg md:text-2xl text-[#B9DD8C] max-w-2xl mx-auto">
           We turn traffic into revenue with data-driven CRO strategies, testing, and design.
         </p>
-        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Start Optimizing</a>
-        <span class="mt-8 animate-bounce text-[#B9FF66] text-3xl">&#8595;</span>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Start Optimising</a>
+        <span class="mt-8 animate-bounce text-[#B9DD8C] text-3xl">&#8595;</span>
       </div>
-    </Section>
+    </section>
 
     <!-- What We Do -->
     <section class="container mx-auto px-4">
       <SectionTitle sectionTitle="What We Do" description="Full-funnel CRO services for sustainable growth." />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
         {croServices.map(s => (
-          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#B9FF66] transition-all group">
-            <div class="text-4xl mb-4 w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-[#B9FF66]/70 to-[#66FFB9]/70 text-white shadow-lg group-hover:scale-110 transition-transform">{s.icon}</div>
-            <h3 class="text-lg font-bold mb-2">{s.title}</h3>
+          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#84C341] transition-all group hover:scale-105">
+            <img src={s.image} alt={s.title} class="w-12 h-12 mb-4 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h3 class="text-lg font-bold mb-2 text-[#84C341]">{s.title}</h3>
             <p class="text-gray-600">{s.desc}</p>
           </div>
         ))}
@@ -117,31 +159,42 @@ const faqs = [
     <!-- Why It Matters -->
     <section class="container mx-auto px-4">
       <SectionTitle sectionTitle="Why CRO Matters" />
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
         {whyMatters.map(item => (
-          <div class="bg-[#F8FFF3] rounded-xl p-6 flex flex-col items-center text-center shadow-sm">
-            <div class="text-3xl mb-3">{item.icon}</div>
-            <h4 class="font-semibold mb-1">{item.title}</h4>
+          <div class="bg-white rounded-xl p-6 flex flex-col items-center text-center shadow-sm border border-[#84C341]/40 hover:shadow-md transition-shadow">
+            <img src={item.image} alt={item.title} class="w-10 h-10 mb-3 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h4 class="font-semibold mb-1 text-[#84C341]">{item.title}</h4>
             <p class="text-gray-600 text-sm">{item.desc}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Our Approach -->
+    <!-- Our Approach (Timeline) -->
     <section class="container mx-auto px-4">
-      <SectionTitle sectionTitle="Our Approach" />
-      <ol class="relative border-l-2 border-[#B9FF66]/40 max-w-2xl mx-auto mt-10 space-y-8">
-        {approach.map(step => (
-          <li class="ml-6">
-            <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B9FF66] to-[#66FFB9] rounded-full text-white font-bold shadow-lg">{step.step}</span>
-            <div class="pl-4">
-              <h5 class="font-bold text-lg mb-1">{step.title}</h5>
-              <p class="text-gray-600">{step.desc}</p>
+      <SectionTitle sectionTitle="Our Proven Process" description="A transparent, data-driven journey from audit to optimisation." />
+      <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
+        {approach.map((step, i) => (
+          <div class="relative z-10 flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105" style={`animation: fadeInUp 0.6s ${i * 0.1 + 0.2}s both`}>
+            <div class="w-16 h-16 bg-white border-4 border-[#84C341] rounded-full flex items-center justify-center shadow-lg mb-4">
+              <img src={step.icon} alt={step.title} class="w-8 h-8" style="filter: grayscale(1);" />
             </div>
-          </li>
+            <div class="font-bold text-[#84C341] text-lg mb-1">{step.title}</div>
+            <div class="text-gray-600 text-sm max-w-xs">{step.desc}</div>
+          </div>
         ))}
-      </ol>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="w-full bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] py-16 mt-12">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 md:w-2/3">
+          <h2 class="text-2xl md:text-3xl font-bold text-[#84C341]">Ready to boost your conversions?</h2>
+          <p class="text-lg text-[#84C341]">Schedule a free CRO audit or chat with our experts today.</p>
+        </div>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Schedule a CRO Audit</a>
+      </div>
     </section>
 
     <!-- Case Studies -->
@@ -149,18 +202,18 @@ const faqs = [
       <SectionTitle sectionTitle="Case Studies" description="CRO wins for real brands." />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {cases.map(cs => (
-          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 border border-[#B9DD8C]/40 hover:shadow-xl transition-shadow">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-[#B9FF66]/20 rounded-full flex items-center justify-center">
-                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
+              <div class="w-12 h-12 bg-[#B9DD8C]/30 rounded-full flex items-center justify-center">
+                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" style="filter: grayscale(1);" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
               </div>
               <div>
-                <h4 class="font-bold">{cs.client}</h4>
+                <h4 class="font-bold text-[#307B1C]">{cs.client}</h4>
                 <p class="text-sm text-gray-500">{cs.summary}</p>
               </div>
             </div>
-            <div class="text-[#4ECDC4] font-semibold">{cs.outcome}</div>
-            <blockquote class="italic text-gray-700 border-l-4 border-[#B9FF66] pl-4">{cs.quote}</blockquote>
+            <div class="text-[#84C341] font-semibold animate-countup">{cs.outcome}</div>
+            <blockquote class="italic text-gray-700 border-l-4 border-[#84C341] pl-4">{cs.quote}</blockquote>
           </div>
         ))}
       </div>
@@ -171,28 +224,17 @@ const faqs = [
       <SectionTitle sectionTitle="FAQs" />
       <div class="max-w-2xl mx-auto mt-8 space-y-4">
         {faqs.map((faq, i) => (
-          <details class="bg-white rounded-xl shadow p-4 group" open={i === 0}>
-            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#B9FF66]">{faq.q}</summary>
+          <details class="bg-white rounded-xl shadow p-4 group border border-[#B9DD8C]/40 transition-all duration-300" open={i === 0}>
+            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#84C341] transition-colors">{faq.q}</summary>
             <div class="mt-2 text-gray-600">{faq.a}</div>
           </details>
         ))}
       </div>
     </section>
 
-    <!-- Final CTA Banner -->
-    <section class="w-full bg-gradient-to-br from-[#B9FF66]/20 to-[#66FFB9]/20 py-16 mt-12">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="space-y-4 md:w-2/3">
-          <h2 class="text-2xl md:text-3xl font-bold">Ready to boost your conversions?</h2>
-          <p class="text-lg text-gray-700">Schedule a free CRO audit or chat with our experts today.</p>
-        </div>
-        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Schedule a CRO Audit</a>
-      </div>
-    </section>
-
     <!-- Contact Form -->
     <section id="contact" class="container mx-auto px-4 py-16">
-      <SectionTitle sectionTitle="Get Started" description="Tell us about your optimization goals and let's begin improving." />
+      <SectionTitle sectionTitle="Contact Us" description="Let’s discuss your CRO goals." />
       <Form />
     </section>
   </main>
@@ -200,156 +242,43 @@ const faqs = [
 
 <style>
   .btn-primary {
-    @apply bg-[#B9FF66] text-black font-bold rounded-full px-6 py-3 transition-colors hover:bg-[#66FFB9] focus:outline-none focus:ring-2 focus:ring-[#B9FF66];
+    @apply bg-[#84C341] text-white font-bold rounded-full px-6 py-3 transition-colors hover:bg-white hover:text-[#84C341] focus:outline-none focus:ring-2 focus:ring-[#84C341];
   }
   .highlight {
-    background-color: white;
-    color: #B9FF66;
+    background-color: #84C341;
+    color: #1A2238;
     padding: 0 0.02em;
     border-radius: 0.4em;
     text-shadow:
-      -1px -1px 0 #000,
-       1px -1px 0 #000,
-      -1px  1px 0 #000,
-       1px  1px 0 #000;
-    -webkit-text-stroke: 0.5px black;
+      -1px -1px 0 #fff,
+       1px -1px 0 #fff,
+      -1px  1px 0 #fff,
+       1px  1px 0 #fff;
+    -webkit-text-stroke: 0.5px #1A2238;
   }
-
-  /* Typography improvements */
-  h1, h2, h3, h4 {
-    letter-spacing: -0.02em;
-  }
-
-  .content-text {
-    color: rgb(75, 85, 99); /* Instead of @apply text-gray-600 */
-    line-height: 1.75; /* Instead of @apply leading-relaxed */
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-  }
-
-  /* Swiper navigation improvements */
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 40px;
-    height: 40px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  }
-
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    background: #B9FF66;
-    color: white !important;
-  }
-
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  /* Pagination improvements */
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    transition: all 0.3s ease;
-  }
-
-  .swiper-pagination-bullet-active {
-    background: #B9FF66;
-    width: 24px;
-    border-radius: 4px;
-  }
-
-  /* Fade in animation */
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease forwards;
+  .animate-float {
+    animation: float 8s ease-in-out infinite alternate;
   }
-
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .animate-float2 {
+    animation: float2 10s ease-in-out infinite alternate;
   }
-
-  .swiper-slide {
-    height: auto;
-    display: flex;
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.05); }
   }
-
-  .swiper-slide > div {
-    height: 100%;
-    width: 100%;
+  @keyframes float2 {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(20px) scale(1.08); }
+  }
+  .animate-countup {
+    animation: countup 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  @keyframes countup {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>
-
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-  new Swiper('.case-studies-swiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 1.5,
-        spaceBetween: 24,
-      },
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 24,
-      },
-      1280: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      }
-    },
-  });
-
-  // Using Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fadeInUp');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-</script>

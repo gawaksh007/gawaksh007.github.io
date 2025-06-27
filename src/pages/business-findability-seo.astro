@@ -1,362 +1,258 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
-import Form from "../com    <!-- CTA Section -->
-    <section class="py-24 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0">
-        <img 
-          src="/src/assets/bars.svg" 
-          alt="Background Pattern"
-          class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03]"
-        />
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10">/ui/Form.astro";
-import { Image } from "astro:assets";
-import Card from "../components/ui/Card.astro";
+import Form from "../components/ui/Form.astro";
 
-// SEO Services
+// SEO Services (expanded, using monochrome SVG icons)
 const seoServices = [
   {
-    title: "Technical SEO",
-    description: "Optimize your website's technical foundation for better search visibility",
-    features: ["Site Architecture", "Speed Optimization", "Mobile Optimization"],
-    icon: "🔧",
-    gradient: "from-[#4ECDC4] to-[#556270]"
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/settings.svg",
+    title: "Technical SEO Audits",
+    desc: "Comprehensive site audits, speed optimization, mobile-friendliness, and crawl error fixes."
   },
   {
-    title: "Content Optimization",
-    description: "Create and optimize content that ranks and converts",
-    features: ["Keyword Research", "Content Strategy", "On-page SEO"],
-    icon: "📝",
-    gradient: "from-[#FF6B6B] to-[#FFE66D]"
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/file-text.svg",
+    title: "Content Strategy & Optimization",
+    desc: "Keyword research, content gap analysis, and on-page SEO for high-performing landing pages and blogs."
   },
   {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/map-pin.svg",
     title: "Local SEO",
-    description: "Dominate local search results and attract nearby customers",
-    features: ["Google Business Profile", "Local Citations", "Local Content"],
-    icon: "📍",
-    gradient: "from-[#A8E6CF] to-[#3EECAC]"
+    desc: "Google Business Profile optimization, local citations, and review management to win local searches."
   },
   {
-    title: "Link Building",
-    description: "Build authority with high-quality backlinks and mentions",
-    features: ["Outreach", "Content Promotion", "Digital PR"],
-    icon: "🔗",
-    gradient: "from-[#FFD93D] to-[#FF6B6B]"
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/link.svg",
+    title: "Link Building & Authority",
+    desc: "White-hat outreach, digital PR, and high-quality backlink acquisition for lasting authority."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/chart-bar.svg",
+    title: "Analytics & Reporting",
+    desc: "Custom dashboards, rank tracking, and actionable insights to measure and improve ROI."
+  },
+  {
+    image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/zoom-question.svg",
+    title: "SEO Consulting & Training",
+    desc: "Workshops, strategy sessions, and ongoing support for your in-house team."
   }
 ];
 
-// SEO Stack Categories
-const seoStack = [
+// Why SEO Matters
+const whyMatters = [
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/search.svg", title: "Visibility", desc: "Be found by the right people at the right time—when they’re searching for you." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Sustainable Growth", desc: "SEO delivers compounding results and long-term ROI." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/target.svg", title: "Qualified Traffic", desc: "Attract visitors who are ready to convert, not just browse." },
+  { image: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/award.svg", title: "Credibility & Trust", desc: "Top rankings signal authority and build trust with your audience." }
+];
+
+// Approach steps
+const approach = [
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/compass.svg", title: "SEO Audit & Discovery", desc: "We analyze your site, competitors, and market to uncover opportunities." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/bulb.svg", title: "Strategy & Roadmap", desc: "We build a custom SEO plan with clear priorities and KPIs." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/rocket.svg", title: "Implementation", desc: "We optimize, create, and build—on-page, off-page, and technical." },
+  { icon: "https://cdn.jsdelivr.net/npm/@tabler/icons/icons/outline/chart-bar.svg", title: "Measurement & Reporting", desc: "We track progress, report results, and refine for ongoing growth." }
+];
+
+// Case studies (placeholder)
+const cases = [
   {
-    category: "Analysis Tools",
-    icon: "📊",
-    techs: [
-      { name: "Google Analytics 4", level: 95 },
-      { name: "SEMrush", level: 90 },
-      { name: "Ahrefs", level: 92 },
-      { name: "Google Search Console", level: 95 }
-    ]
+    client: "FinTech Pro",
+    logo: "/fintech-logo.png",
+    summary: "Technical SEO overhaul and content strategy for a SaaS fintech platform.",
+    outcome: "+120% organic traffic in 8 months",
+    quote: "“We saw a dramatic increase in qualified leads and search visibility.”"
   },
   {
-    category: "Technical Tools",
-    icon: "⚙️",
-    techs: [
-      { name: "Screaming Frog", level: 88 },
-      { name: "PageSpeed Insights", level: 90 },
-      { name: "Schema Markup", level: 85 },
-      { name: "Mobile Testing", level: 92 }
-    ]
+    client: "Local Eats",
+    logo: "/localeats-logo.png",
+    summary: "Local SEO and review management for a multi-location restaurant chain.",
+    outcome: "+300% local search impressions",
+    quote: "“Our locations now dominate Google Maps and local search.”"
+  }
+];
+
+// FAQs
+const faqs = [
+  {
+    q: "How long does it take to see SEO results?",
+    a: "Most clients see measurable improvements in 2–4 months, with compounding growth over time."
   },
   {
-    category: "Content Tools",
-    icon: "✍️",
-    techs: [
-      { name: "Surfer SEO", level: 88 },
-      { name: "MarketMuse", level: 85 },
-      { name: "Yoast SEO", level: 90 },
-      { name: "Clearscope", level: 85 }
-    ]
+    q: "Do you work with existing websites or only new builds?",
+    a: "We optimize both existing sites and new projects—no matter your CMS or stack."
+  },
+  {
+    q: "Is link building safe?",
+    a: "We use only white-hat, Google-compliant tactics for sustainable authority."
+  },
+  {
+    q: "Can you train our in-house team?",
+    a: "Yes, we offer SEO workshops and ongoing consulting for your staff."
+  },
+  {
+    q: "What’s included in your SEO audit?",
+    a: "Technical, content, and competitive analysis with a prioritized action plan."
   }
 ];
 ---
 <MainLayout title="SEO & Business Findability - Tagorithm">
-  <main class="overflow-hidden">
-    <!-- Hero Section -->
-    <section class="relative min-h-[92vh] flex items-center bg-dark">
-      <!-- Background elements -->
-      <div class="absolute inset-0 overflow-hidden">
-        <img 
-          src="/src/assets/bars.svg" 
-          alt="Background Pattern"
-          class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03]"
-        />
-        
-        <!-- Animated gradient orbs -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-r from-green/30 to-[#66FFB9]/30 rounded-full blur-[128px] animate-float"></div>
-          <div class="absolute -bottom-20 -right-20 w-[600px] h-[600px] bg-gradient-to-l from-[#66FFB9]/20 to-green/20 rounded-full blur-[128px] animate-float-delayed"></div>
-        </div>
-      </div>
+  <main class="space-y-24 md:space-y-36">
 
-      <!-- Content -->
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
-          <!-- Left: Text Content -->
-          <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
-              Elevate Your Brand with <span class="highlight">Powerful Communications</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-700 animate-fade-in-delay">
-              We craft strategic, data-driven narratives that make brands unforgettable.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Your SEO Journey</a>
-              <a href="#services" class="btn-secondary text-lg px-8 py-4">Explore Services</a>
-            </div>
-          </div>
-          
-          <!-- Right: Visual -->
-          <div class="w-full md:w-1/2 relative">
-            <div class="relative w-full aspect-square">
-              <div class="absolute inset-0 bg-gradient-to-br from-[#B9FF66]/20 to-[#66FFB9]/20 rounded-full blur-3xl animate-pulse"></div>
-              <img 
-                src="/seo.png" 
-                alt="SEO & Analytics Visualization" 
-                class="relative z-10 w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
+    <!-- Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#1A2238]/40 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-black/30 rounded-full blur-2xl animate-float2"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center gap-8">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+          SEO & Business Findability
+        </h1>
+        <p class="text-lg md:text-2xl text-[#B9DD8C] max-w-2xl mx-auto">
+          Make your website the first thing your customers see when they search. We blend technical expertise, content, and outreach for sustainable growth.
+        </p>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Get My Free SEO Audit</a>
+        <span class="mt-8 animate-bounce text-[#84C341] text-3xl">&#8595;</span>
       </div>
     </section>
 
-    <!-- Introduction Section -->
-    <Section>
-      <div class="container mx-auto px-4">
-        <SectionTitle sectionTitle="Your Story, Amplified" />
-        <div class="flex flex-col md:flex-row items-start gap-8 mt-12 relative"> <!-- Removed mb-[-200px] and added relative -->
-          <div class="md:w-1/2">
-            <p class="text-xl text-left max-w-xl">
-              Brand communication isn't just about what you say—it's about how you say it. At Tagorithm, we craft compelling narratives that resonate with audiences, build trust, and drive business success. From digital storytelling to strategic PR, we ensure your brand speaks with clarity, confidence, and impact.
-            </p>
+    <!-- What We Do -->
+    <section class="container mx-auto px-4">
+      <SectionTitle sectionTitle="What We Do" description="Every layer of your SEO strategy, handled end-to-end." />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        {seoServices.map(s => (
+          <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-md hover:shadow-xl border-t-4 border-transparent hover:border-[#84C341] transition-all group hover:scale-105">
+            <img src={s.image} alt={s.title} class="w-12 h-12 mb-4 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h3 class="text-lg font-bold mb-2 text-[#84C341]">{s.title}</h3>
+            <p class="text-gray-600">{s.desc}</p>
           </div>
         ))}
       </div>
-    </Section>
-    <div class="relative z-0"> <!-- Changed from -mt-20 to relative and z-0 -->
-    <BrandServices/>
-    </div>
+    </section>
 
-    <!-- Replace the "Not sure where to start" CTA with this Proposal Section -->
-    <Section>
-      <Card>
-        <div class="flex flex-col md:flex-row bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]">
-          <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
-            <h2 class="text-3xl font-medium">Let's make things happen</h2>
-            <p>
-              Contact us today to learn more about how our digital marketing
-              services can help your business grow and succeed online.
-            </p>
-            <button class="btn-primary">Get your free proposal</button>
+    <!-- Why It Matters -->
+    <section class="container mx-auto px-4">
+      <SectionTitle sectionTitle="Why SEO Matters" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
+        {whyMatters.map(item => (
+          <div class="bg-white rounded-xl p-6 flex flex-col items-center text-center shadow-sm border border-[#84C341]/40 hover:shadow-md transition-shadow">
+            <img src={item.image} alt={item.title} class="w-10 h-10 mb-3 opacity-90 transition-transform group-hover:scale-110" style="filter: grayscale(1);" loading="lazy" />
+            <h4 class="font-semibold mb-1 text-[#84C341]">{item.title}</h4>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
           </div>
-          <picture class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center">
-            <Image
-              src={propImg}
-              alt="This is an illustration"
-              class="hidden md:flex lg:h-full lg:w-auto"
-            />
-          </picture>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          {seoServices.map((service) => (
-            <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray">
-              <!-- Gradient background -->
-              <div class={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-              
-              <!-- Content -->
-              <div class="relative z-10">
-                <div class="flex items-start gap-6">
-                  <div class="text-4xl w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray to-white group-hover:scale-110 transition-transform duration-500">
-                    {service.icon}
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="text-2xl font-bold mb-4 text-black">{service.title}</h3>
-                    <p class="text-gray mb-6 text-lg">{service.description}</p>
-                    
-                    <div class="space-y-3">
-                      {service.features.map(feature => (
-                        <div class="flex items-center gap-3">
-                          <span class="w-2 h-2 rounded-full bg-green"></span>
-                          <span class="text-dark">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </section>
 
-    <!-- Tech Stack Section -->
-    <section class="py-24 bg-gray/50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Our SEO Tools</h2>
-          <p class="text-xl text-gray">Industry-leading tools for maximum impact</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {seoStack.map(category => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="flex items-center gap-4 mb-6">
-                <span class="text-4xl">{category.icon}</span>
-                <h3 class="text-2xl font-bold text-black">{category.category}</h3>
-              </div>
-
-              <div class="space-y-6">
-                {category.techs.map(tech => (
-                  <div>
-                    <div class="flex justify-between mb-2">
-                      <span class="font-medium text-dark">{tech.name}</span>
-                      <span class="text-gray">{tech.level}%</span>
-                    </div>
-                    <div class="h-2 bg-gray/10 rounded-full overflow-hidden">
-                      <div 
-                        class="h-full bg-gradient-to-r from-green to-[#66FFB9] rounded-full transition-all duration-500"
-                        style={`width: ${tech.level}%`}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+    <!-- Our Approach (Redesigned Timeline) -->
+    <section class="container mx-auto px-4">
+      <SectionTitle sectionTitle="Our Proven SEO Process" description="A transparent, data-driven journey from audit to results." />
+      <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
+        {approach.map((step, i) => (
+          <div class="relative z-10 flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105" style={`animation: fadeInUp 0.6s ${i * 0.1 + 0.2}s both`}>
+            <div class="w-16 h-16 bg-white border-4 border-[#84C341] rounded-full flex items-center justify-center shadow-lg mb-4">
+              <img src={step.icon} alt={step.title} class="w-8 h-8" style="filter: grayscale(1);" />
             </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-
-    <!-- CTA Section -->
-    <section class="py-24 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0">
-        <div class="absolute top-0 left-0 w-full h-full bg-[url('/src/assets/bars.svg')] bg-repeat opacity-[0.03]"></div>
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Improve Your Rankings?</h2>
-          <p class="text-xl text-gray mb-12">Let's create an SEO strategy that drives real results</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" class="btn-primary text-lg px-8 py-4">Start Your Project</a>
-            <a href="#services" class="btn-secondary text-lg px-8 py-4">Learn More</a>
+            <div class="font-bold text-[#84C341] text-lg mb-1">{step.title}</div>
+            <div class="text-gray-600 text-sm max-w-xs">{step.desc}</div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-24">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <SectionTitle
-            sectionTitle="Get Started"
-            description="Tell us about your SEO goals and let's begin optimizing"
-          />
-          <Form />
-        </div>
+    <!-- Case Studies -->
+    <section class="container mx-auto px-4">
+      <SectionTitle sectionTitle="Case Studies" description="Real results from real brands." />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+        {cases.map(cs => (
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 border border-[#84C341]/40 hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#84C341]/20 rounded-full flex items-center justify-center">
+                {cs.logo ? <img src={cs.logo} alt={cs.client + ' logo'} class="w-8 h-8 object-contain" style="filter: grayscale(1);" /> : <span class="font-bold text-lg">{cs.client[0]}</span>}
+              </div>
+              <div>
+                <h4 class="font-bold text-[#307B1C]">{cs.client}</h4>
+                <p class="text-sm text-gray-500">{cs.summary}</p>
+              </div>
+            </div>
+            <div class="text-[#84C341] font-semibold animate-countup">{cs.outcome}</div>
+            <blockquote class="italic text-gray-700 border-l-4 border-[#84C341] pl-4">{cs.quote}</blockquote>
+          </div>
+        ))}
       </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="container mx-auto px-4">
+      <SectionTitle sectionTitle="FAQs" />
+      <div class="max-w-2xl mx-auto mt-8 space-y-4">
+        {faqs.map((faq, i) => (
+          <details class="bg-white rounded-xl shadow p-4 group border border-[#84C341]/40 transition-all duration-300" open={i === 0}>
+            <summary class="font-semibold cursor-pointer outline-none group-open:text-[#84C341] transition-colors">{faq.q}</summary>
+            <div class="mt-2 text-gray-600">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="w-full bg-gradient-to-br from-black via-[#1A2238] to-[#1A2238] py-16 mt-12">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 md:w-2/3">
+          <h2 class="text-2xl md:text-3xl font-bold text-[#84C341]">Ready to climb the search results?</h2>
+          <p class="text-lg text-[#84C341]">Let’s build an SEO strategy that drives traffic, leads, and revenue for your business.</p>
+        </div>
+        <a href="#contact" class="btn-primary px-8 py-4 text-lg shadow-lg hover:scale-105 transition-transform">Schedule a Free Consultation</a>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="container mx-auto px-4 py-16">
+      <SectionTitle sectionTitle="Talk to Our SEO Experts" description="Share your goals, and we’ll show you how to get there." />
+      <Form />
     </section>
   </main>
 </MainLayout>
 
 <style>
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-green text-dark font-semibold rounded-full hover:bg-[#66FFB9] transition-all duration-300;
+    @apply bg-[#84C341] text-white font-bold rounded-full px-6 py-3 transition-colors hover:bg-white hover:text-[#84C341] focus:outline-none focus:ring-2 focus:ring-[#84C341];
   }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300 backdrop-blur-sm;
+  .highlight {
+    background-color: #84C341;
+    color: #1A2238;
+    padding: 0 0.02em;
+    border-radius: 0.4em;
+    text-shadow:
+      -1px -1px 0 #fff,
+       1px -1px 0 #fff,
+      -1px  1px 0 #fff,
+       1px  1px 0 #fff;
+    -webkit-text-stroke: 0.5px #1A2238;
   }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes float-delayed {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite alternate;
   }
-
-  .animate-float-delayed {
-    animation: float 6s ease-in-out infinite;
-    animation-delay: 3s;
+  .animate-float2 {
+    animation: float2 10s ease-in-out infinite alternate;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.05); }
+  }
+  @keyframes float2 {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(20px) scale(1.08); }
+  }
+  .animate-countup {
+    animation: countup 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  @keyframes countup {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>
-
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-  new Swiper('.case-studies-swiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 1.5,
-        spaceBetween: 24,
-      },
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 24,
-      },
-      1280: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      }
-    },
-  });
-
-  // Using Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fadeInUp');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-</script>
